@@ -46,12 +46,12 @@
         <Label Content="Verificar Entrega" x:Name="lblEntregado" Height="49" Margin="540,0,59,555" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="26"/>
 
         <ComboBox
-            materialDesign:HintAssist.Hint="Categoria" x:Name="cbBoxNombre" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Margin="50,250,387,0" FontSize="15" Height="50"  />
-        <Button x:Name="btnFalse" Grid.Row="0" Style="{StaticResource MaterialDesignRaisedButton}"
+            materialDesign:HintAssist.Hint="Ingresa el nombre del usuario" x:Name="cbBoxNombre" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Margin="50,250,387,0" FontSize="15" Height="50" SelectionChanged="CbBoxNombre_SelectedValueChanged" />
+        <Button x:Name="btnFalse" Grid.Row="0" Style="{StaticResource MaterialDesignRaisedButton}" IsEnabled="False"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,44,437"  Height="110" Width="125" Background="Black">
             <Image Source="Resources/false.png"></Image>
         </Button>
-        <Button x:Name="btnTrue" Grid.Row="0" Style="{StaticResource MaterialDesignRaisedButton}"
+        <Button x:Name="btnTrue" Grid.Row="0" Style="{StaticResource MaterialDesignRaisedButton}" IsEnabled="False"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,174,437" Height="110" Width="125" Background="Black">
             <Image Source="Resources/True.png"></Image>
         </Button>

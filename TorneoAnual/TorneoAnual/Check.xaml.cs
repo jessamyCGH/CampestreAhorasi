@@ -20,9 +20,6 @@ namespace TorneoAnual
     /// </summary>
     public partial class Check : Window
     {
-        //La variable menuAnterior guardara el menu el cual pasamos para llegar a esta pantalla
-        Menu menuAnterior;
-
         //Generamos un objeto de la clase Conexion para por der hacer llamadas a la base de datos
         ConexionBD conexion;
 
@@ -49,11 +46,7 @@ namespace TorneoAnual
 
             //Con el metodo getAllUsers() obtendremos todos los nombres registrados en la base de datos
             //para acomodarlos en nuestro comboBox
-         //   cbBoxNombre.Items.addRange(conexion.getAllNamesUsers().ToArray());
-
-
-            //menuAnterior guarda el menu el cual pasamos para llegar a esta pantalla
-            //  menuAnterior = menu;
+            cbBoxNombre.ItemsSource = conexion.getAllNamesUsers().ToArray();
 
         }
 
@@ -62,80 +55,84 @@ namespace TorneoAnual
             //Tomaremos el nombre seleccionado en el comboBox
             itemSeleccionado = (string)cbBoxNombre.SelectedItem;
 
-            //Le hacemos un split por espacios para que nos quede un arreglo con los nombres del usuario
-            var array = itemSeleccionado.Split(' ');
-
-            //Utilizaremos el siguiente for para conjuntar todos los nombres del usuario en un string
-            //debido a que un usuario puede tener muchos nombres
-            string nombres = "";
-            for (int i = 0; i < array.Length - 2; i++)
+            if (itemSeleccionado != null)
             {
-                nombres += array[i] + " ";
+                //Le hacemos un split por espacios para que nos quede un arreglo con los nombres del usuario
+                var array = itemSeleccionado.Split(' ');
+
+                //Utilizaremos el siguiente for para conjuntar todos los nombres del usuario en un string
+                //debido a que un usuario puede tener muchos nombres
+                string nombres = "";
+                for (int i = 0; i < array.Length - 2; i++)
+                {
+                    nombres += array[i] + " ";
+                }
+
+                //Le removemos el espacio que se le agrega al ultimo del for
+                nombres = nombres.Remove(nombres.Length - 1, 1);
+
+                //Buscamos en la base de datos su id y lo guardamos 
+                //sabiendo que el penultimo valor del arreglo es el apellido paterno y el ultimo el materno
+                id = conexion.getIdUser(nombres, array[array.Length - 2], array[array.Length - 1]);
+
+                //Usaremos un switch para conocer en que Menu se encuentra
+                bool res;
+                switch (menuSeleccionado)
+                {
+                    case "Inaguracion":
+                        //Verificaremos si ya la fue entregado Inaguracion
+                        res = conexion.getEntregadoInaguracion(id);
+                        ChecarEntregado(res);
+                        break;
+
+                    case "Alimentos":
+                        //Verificaremos si ya la fue entregado Alimentos
+                        res = conexion.getEntregadoAlimentos(id);
+                        ChecarEntregado(res);
+                        break;
+
+                    case "Cerveza":
+                        //Verificaremos si ya la fue entregado Alimentos
+                        countCervezas = conexion.getEntregadoCerveza(id);
+                        if (countCervezas == 0)
+                        {
+                            ChecarEntregado(false);
+                        }
+                        else
+                        {
+                            ChecarEntregado(true);
+                            btnEntregado.Content = "Tomara otras 2";
+                            btnEntregado.Visibility = Visibility.Visible;
+                            btnEntregado.IsEnabled = true;
+                        }
+                        break;
+
+                    case "Tennis":
+                        //Verificaremos si ya la fue entregado Tennis
+                        res = conexion.getEntregadoTennis(id);
+                        ChecarEntregado(res);
+                        break;
+
+                    case "Golf":
+                        //Verificaremos si ya la fue entregado Golf
+                        res = conexion.getEntregadoGolf(id);
+                        ChecarEntregado(res);
+                        break;
+
+                    case "Concierto":
+                        //Verificaremos si ya la fue entregado Concierto
+                        res = conexion.getEntregadoConcierto(id);
+                        ChecarEntregado(res);
+                        break;
+
+                    case "Clausura":
+                        //Verificaremos si ya la fue entregado Clausura
+                        res = conexion.getEntregadoClausura(id);
+                        ChecarEntregado(res);
+                        break;
+                }
             }
-
-            //Le removemos el espacio que se le agrega al ultimo del for
-            nombres = nombres.Remove(nombres.Length - 1, 1);
-
-            //Buscamos en la base de datos su id y lo guardamos 
-            //sabiendo que el penultimo valor del arreglo es el apellido paterno y el ultimo el materno
-            id = conexion.getIdUser(nombres, array[array.Length - 2], array[array.Length - 1]);
-
-            //Usaremos un switch para conocer en que Menu se encuentra
-            bool res;
-            switch (menuSeleccionado)
-            {
-                case "Inaguracion":
-                    //Verificaremos si ya la fue entregado Inaguracion
-                    res = conexion.getEntregadoInaguracion(id);
-                    ChecarEntregado(res);
-                    break;
-
-                case "Alimentos":
-                    //Verificaremos si ya la fue entregado Alimentos
-                    res = conexion.getEntregadoAlimentos(id);
-                    ChecarEntregado(res);
-                    break;
-
-                case "Cerveza":
-                    //Verificaremos si ya la fue entregado Alimentos
-                    countCervezas = conexion.getEntregadoCerveza(id);
-                    if (countCervezas == 0)
-                    {
-                        ChecarEntregado(false);
-                    }
-                    else
-                    {
-                        ChecarEntregado(true);
-                        btnEntregado.Content = "Tomara otras 2";
-                        btnEntregado.Visibility = Visibility.Visible;
-                        btnEntregado.IsEnabled = true;
-                    }
-                    break;
-
-                case "Tennis":
-                    //Verificaremos si ya la fue entregado Tennis
-                    res = conexion.getEntregadoTennis(id);
-                    ChecarEntregado(res);
-                    break;
-
-                case "Golf":
-                    //Verificaremos si ya la fue entregado Golf
-                    res = conexion.getEntregadoGolf(id);
-                    ChecarEntregado(res);
-                    break;
-
-                case "Concierto":
-                    //Verificaremos si ya la fue entregado Concierto
-                    res = conexion.getEntregadoConcierto(id);
-                    ChecarEntregado(res);
-                    break;
-
-                case "Clausura":
-                    //Verificaremos si ya la fue entregado Clausura
-                    res = conexion.getEntregadoClausura(id);
-                    ChecarEntregado(res);
-                    break;
-            }
+            
         }
 
         void ChecarEntregado(bool res)

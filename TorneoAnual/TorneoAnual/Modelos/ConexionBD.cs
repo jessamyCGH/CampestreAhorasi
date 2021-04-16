@@ -112,7 +112,7 @@ namespace TorneoAnual.Modelos
             conectarBDT.ConnectionString = cadena;
             conectarBDT.Open();
 
-            SqlCommand command = new SqlCommand("SELECT nombre,apellidoP,apellidoM FROM Tabla", conectarBDT);
+            SqlCommand command = new SqlCommand("SELECT nombre,apellidoP,apellidoM FROM Usuarios", conectarBDT);
 
             SqlDataReader reader = command.ExecuteReader();
 
