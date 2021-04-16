@@ -1,0 +1,66 @@
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\bin\Debug\TorneoAnual.exe.config
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\bin\Debug\TorneoAnual.exe
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\bin\Debug\TorneoAnual.pdb
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\bin\Debug\DPFPCtlXWrapperNET.dll
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\bin\Debug\DPFPDevNET.dll
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\bin\Debug\DPFPEngNET.dll
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\bin\Debug\DPFPGuiNET.dll
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\bin\Debug\DPFPShrNET.dll
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\bin\Debug\DPFPVerNET.dll
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\bin\Debug\MaterialDesignColors.dll
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\bin\Debug\MaterialDesignColors.pdb
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csprojAssemblyReference.cache
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\Check.g.cs
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\MainWindow.g.cs
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\Registro.g.cs
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\App.g.cs
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual_MarkupCompile.cache
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual_MarkupCompile.lref
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\App.baml
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\Check.baml
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\MainWindow.baml
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\Registro.baml
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.g.resources
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.Properties.Resources.resources
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csproj.GenerateResource.cache
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csproj.CoreCompileInputs.cache
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csproj.CopyComplete
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.exe
+C:\Users\jessa\Desktop\Proyecto Residencia\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.pdb
+C:\Users\jessa\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csprojAssemblyReference.cache
+C:\Users\jessa\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\Check.g.cs
+C:\Users\jessa\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\MainWindow.g.cs
+C:\Users\jessa\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\Modificar.g.cs
+C:\Users\jessa\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\Registro.g.cs
+C:\Users\jessa\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\App.g.cs
+C:\Users\jessa\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual_MarkupCompile.cache
+C:\Users\jessa\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual_MarkupCompile.lref
+C:\Users\jessa\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.exe
+C:\Users\jessa\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.pdb
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csprojAssemblyReference.cache
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\Check.baml
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\Check.g.cs
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\MainWindow.g.cs
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\Registro.g.cs
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\App.g.cs
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual_MarkupCompile.cache
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual_MarkupCompile.lref
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.exe
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.pdb
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\bin\Debug\TorneoAnual.exe.config
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\bin\Debug\TorneoAnual.exe
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\bin\Debug\TorneoAnual.pdb
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\bin\Debug\MaterialDesignColors.pdb
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\App.baml
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\MainWindow.baml
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\Registro.baml
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.g.resources
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.Properties.Resources.resources
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csproj.GenerateResource.cache
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csproj.CoreCompileInputs.cache
+C:\Users\ruben\Desktop\Campestre\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csproj.CopyComplete
