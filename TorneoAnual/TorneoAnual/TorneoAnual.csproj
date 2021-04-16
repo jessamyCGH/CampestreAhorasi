@@ -102,6 +102,9 @@
     </Compile>
     <Compile Include="Modelos\ConexionBD.cs" />
     <Compile Include="Modelos\Usuario.cs" />
+    <Compile Include="Modificar.xaml.cs">
+      <DependentUpon>Modificar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Registro.xaml.cs">
       <DependentUpon>Registro.xaml</DependentUpon>
     </Compile>
@@ -133,6 +136,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Modificar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Registro.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

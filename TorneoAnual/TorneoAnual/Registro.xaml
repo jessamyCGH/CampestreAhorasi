@@ -15,21 +15,28 @@
         </Grid.ColumnDefinitions>
 
         <TextBox
-  materialDesign:HintAssist.Hint="Nombre" x:Name="tbNombre" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="51,109,481,0" FontSize="20" />
+  materialDesign:HintAssist.Hint="Nombre" x:Name="tbNombre" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,38,416,0" FontSize="20" />
         <TextBox
-            materialDesign:HintAssist.Hint="Apellido Paterno" x:Name="tbApellidoP" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="51,172,481,0" FontSize="20"/>
+            materialDesign:HintAssist.Hint="Apellido Paterno" x:Name="tbApellidoP" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,101,416,0" FontSize="20"/>
         <TextBox
-            materialDesign:HintAssist.Hint="Apellido Materno" x:Name="tbApellidoM" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="51,239,481,0" FontSize="20" />
+            materialDesign:HintAssist.Hint="Apellido Materno" x:Name="tbApellidoM" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,168,416,0" FontSize="20" />
         <TextBox
-            materialDesign:HintAssist.Hint="Correo" x:Name="tbCorreo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="51,307,481,0" FontSize="20" />
+            materialDesign:HintAssist.Hint="Correo" x:Name="tbCorreo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,236,416,0" FontSize="20" />
         <TextBox
-            materialDesign:HintAssist.Hint="Celular" x:Name="tbCelular" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="51,370,481,0" FontSize="20"/>
+            materialDesign:HintAssist.Hint="Celular" x:Name="tbCelular" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,299,416,0" FontSize="20"/>
         <TextBox
-            materialDesign:HintAssist.Hint="Club" x:Name="tbClub" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="51,437,481,0" FontSize="20" />
+            materialDesign:HintAssist.Hint="Club" x:Name="tbClub" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,366,416,0" FontSize="20" />
         <ComboBox
-            materialDesign:HintAssist.Hint="Torneo" x:Name="CmbTorneo" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="1" Margin="51,497,481,0" FontSize="20"  />
+            materialDesign:HintAssist.Hint="Torneo" x:Name="CmbTorneo" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,426,416,0" FontSize="20"  />
         <ComboBox
-            materialDesign:HintAssist.Hint="Categoria" x:Name="CmbCategorias" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="1" Margin="51,547,481,0" FontSize="20" />
+            materialDesign:HintAssist.Hint="Categoria Golf"  IsEnabled="False" x:Name="cmbGolf" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,533,416,0" FontSize="20" Text="" />
+        <ComboBox
+            materialDesign:HintAssist.Hint="Categoria Tenis" x:Name="cmbTenis" IsEnabled="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,591,416,0" FontSize="20" Text="" />
+
+        <CheckBox
+            Content="Golf" x:Name="chkGolf" Style="{StaticResource MaterialDesignAccentCheckBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,491,649,0" FontSize="20" Height="39" Checked="chkGolf_CheckedChanged" />
+        <CheckBox
+            Content="Tennis" x:Name="chkTenis" Style="{StaticResource MaterialDesignAccentCheckBox}" VerticalAlignment="Top" Grid.Column="1" Margin="215,491,434,0" FontSize="20" Height="39" Checked="chkTenis_CheckedChanged"  />
 
         <Image Grid.Column="1" x:Name="imgFoto" Height="208" Margin="504,85,68,0" VerticalAlignment="Top" Stretch="Uniform" />
         <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Height="208" Margin="502,85,70,0" VerticalAlignment="Top" />

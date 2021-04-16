@@ -37,5 +37,11 @@ namespace TorneoAnual
             Check chec = new Check();
             chec.Show();
         }
+
+        private void btnModificar_Click(object sender, RoutedEventArgs e)
+        {
+            Modificar modificar = new Modificar();
+                modificar.Show();
+        }
     }
 }

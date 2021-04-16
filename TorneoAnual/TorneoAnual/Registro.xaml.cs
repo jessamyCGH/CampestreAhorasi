@@ -23,6 +23,8 @@ namespace TorneoAnual
     {
         Usuario usuario = new Usuario();
         ConexionBD conexion = new ConexionBD();
+        int ida;
+        int id_cat;
 
         ObservableCollection<string> TipoGolf = new ObservableCollection<string>();
         ObservableCollection<string> TipoTenis = new ObservableCollection<string>();
@@ -32,6 +34,9 @@ namespace TorneoAnual
             InitializeComponent();
 
             //       CmbTorneo.ItemTemplate.LoadContent(conexion.obtenerTorneosActuales().ToArray());
+            conexion = new ConexionBD();
+            cmbGolf.ItemsSource = conexion.obtenerCategoriasGolf().ToArray();
+            cmbTenis.ItemsSource = conexion.obtenerCategoriasGolf().ToArray();
 
         }
 
@@ -68,14 +73,14 @@ namespace TorneoAnual
             try
             {
                 Usuario usuario = new Usuario();
-                usuario.Nombre = tbNombre.Text;
-                usuario.ApellidoP = tbApellidoP.Text;
-                usuario.ApellidoM = tbApellidoM.Text;
-                usuario.Correo = tbCorreo.Text;
-                usuario.Tel = tbCelular.Text;
-                usuario.Club = tbCelular.Text;
-                usuario.Foto = tbUrlFoto.Text;
-                usuario.Huella = Template.Bytes;
+                usuario.nombre = tbNombre.Text;
+                usuario.apellidoP = tbApellidoP.Text;
+                usuario.apellidoM = tbApellidoM.Text;
+                usuario.correo = tbCorreo.Text;
+                usuario.tel = tbCelular.Text;
+                usuario.club = tbCelular.Text;
+                usuario.imagen = tbUrlFoto.Text;
+                usuario.huella = Template.Bytes;
 
                 /*  string destino = @"C:\Checador\";
 
@@ -83,7 +88,7 @@ namespace TorneoAnual
 
                     File.Copy(recurso, destino + tbUrlFoto.Text, true);*/
 
-                int id = ConexionBD.AltaEmpleado(usuario);
+                int id = ConexionBD.AltaEmpleado(usuario,ida, id_cat);
 
                 if (id > 0)
                 {
@@ -108,6 +113,28 @@ namespace TorneoAnual
             }
         }
 
+        private void chkTenis_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((bool)(chkTenis.IsChecked = true))
+            {
+                cmbTenis.IsEnabled = true;
+                cmbGolf.IsEnabled = false;
+               // usuario.categoriaDescripcion = chkTenis.t;
+                chkGolf.IsChecked = false;
+            }
+        }
+
+        //Desahbilita/ habilita el chkTenis, dependiendo del evento recibido
+        private void chkGolf_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((bool)(chkGolf.IsChecked = true))
+            {
+                cmbGolf.IsEnabled = true;
+                cmbTenis.IsEnabled = false;
+              //  usuario.categoriaDescripcion = ;
+                chkTenis.IsChecked = false;
+            }
+        }
 
         private void BtnRegistro_Click(object sender, RoutedEventArgs e)
         {
@@ -133,6 +160,8 @@ namespace TorneoAnual
         }
 
         private DPFP.Template Template;
+
+       
     }
 }
 

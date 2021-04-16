@@ -20,7 +20,7 @@ namespace TorneoAnual.Modelos
             conectarBDT.ConnectionString = cadena;
         }
 
-        public static int AltaEmpleado(Usuario usuario)
+        public static int AltaEmpleado(Usuario usuario, int id_cat, int id_torneo)
         {
             int res = 0;
 
@@ -33,13 +33,19 @@ namespace TorneoAnual.Modelos
                     using (var command = conn.CreateCommand())
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.CommandText = "AltaEmpleados";
-                        command.Parameters.AddWithValue("@Nombre", usuario.Nombre);
-                        command.Parameters.AddWithValue("@ApellidoP", usuario.ApellidoP);
-                        command.Parameters.AddWithValue("@ApellidoM", usuario.ApellidoM);
-                        command.Parameters.AddWithValue("@Numero", usuario.Tel);
-                        command.Parameters.AddWithValue("@Foto", usuario.Foto);
-                        command.Parameters.AddWithValue("@Huella", usuario.Huella);
+                        command.CommandText = "Registro";
+                        command.Parameters.AddWithValue("@nombre", usuario.nombre);
+                        command.Parameters.AddWithValue("@apellidoP", usuario.apellidoP);
+                        command.Parameters.AddWithValue("@apellidoM", usuario.apellidoM);
+                        command.Parameters.AddWithValue("@correo", usuario.correo);
+                        command.Parameters.AddWithValue("@tel", usuario.tel);
+                        command.Parameters.AddWithValue("@id_cat", id_cat);
+                        command.Parameters.AddWithValue("@huella", usuario.huella);
+                        command.Parameters.AddWithValue("@imagen", usuario.imagen);
+                        command.Parameters.AddWithValue("@id_torneo", id_torneo);
+                        command.Parameters.AddWithValue("fecha", DateTime.Now);
+
+
 
                         SqlParameter param = new SqlParameter("Id", SqlDbType.Int);
                         param.Value = 0;

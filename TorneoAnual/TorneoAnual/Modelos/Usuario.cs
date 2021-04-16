@@ -11,26 +11,26 @@ namespace TorneoAnual.Modelos
 
         public Usuario() { }
 
-        public string Nombre { get; set; }
+        public string nombre { get; set; }
 
-        public string ApellidoP { get; set; }
+        public string apellidoP { get; set; }
 
-        public string ApellidoM { get; set; }
+        public string apellidoM { get; set; }
 
-        public string Club { get; set; }
+        public string club { get; set; }
 
-        public string Tel { get; set; }
+        public string tel { get; set; }
 
-        public string Correo { get; set; }
-        public string Foto { get; set; }
+        public string correo { get; set; }
+        public string imagen { get; set; }
 
-        public string Fecha { get; set; }
+        public string fecha { get; set; }
 
-        public string CategoriaDescripcion { get; set; }
+        public string categoriaDescripcion { get; set; }
 
-        public string CategoriaTipo { get; set; }
-        public string Torneo { get; set; }
+        public string categoriaTipo { get; set; }
+        public string torneo { get; set; }
 
-        public byte[] Huella { get; set; }
+        public byte[] huella { get; set; }
     }
 }
