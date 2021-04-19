@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace TorneoAnual.Modelos
 {
-    class Usuario
+   public class Usuario
     {
 
         public Usuario() { }
 
+        public int id { get; set; }
         public string nombre { get; set; }
 
         public string apellidoP { get; set; }
@@ -30,6 +31,10 @@ namespace TorneoAnual.Modelos
 
         public string categoriaTipo { get; set; }
         public string torneo { get; set; }
+
+        public int id_cat { get; set; }
+
+        public int id_torneo { get; set; }
 
         public byte[] huella { get; set; }
     }

@@ -41,7 +41,18 @@
 
 
         <Label Content="Buscar por Nombre:" x:Name="lblNombre" Height="30" Margin="55,0,542,503" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="16"/>
+        
         <Label Content="Inaguracion" x:Name="lblTitulo" Height="30" Margin="115,0,522,563" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="16"/>
+
+        <Label Content="kkjkkkkkk" x:Name="lblReporte" Height="30" Margin="115,0,482,342" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="16"/>
+        
+        <Label Content="jkkk" x:Name="lblNom" Height="30" Margin="95,0,562,287" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="10" />
+        
+        <Label Content="jjj" x:Name="lblApellidos" Height="30" Margin="95,0,562,237" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="10" />
+        
+        <Label Content="jkj" x:Name="lblNumero" Height="30" Margin="95,0,562,202" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="10" />
+
+
 
         <Label Content="Verificar Entrega" x:Name="lblEntregado" Height="49" Margin="540,0,59,555" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="26"/>
 

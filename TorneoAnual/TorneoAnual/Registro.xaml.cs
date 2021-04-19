@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AForge.Video.DirectShow;
+using AForge.Video;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -13,6 +15,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TorneoAnual.Modelos;
+using System.Windows.Forms;
+using MessageBox = System.Windows.Forms.MessageBox;
+using System.Drawing;
+using DarrenLee.Media;
+using Image = System.Windows.Controls.Image;
 
 namespace TorneoAnual
 {
@@ -21,24 +28,41 @@ namespace TorneoAnual
     /// </summary>
     public partial class Registro : Window
     {
+   //     Camera camara;
         Usuario usuario = new Usuario();
         ConexionBD conexion = new ConexionBD();
-        int ida;
-        int id_cat;
+
+        private bool existenDispositivos = false;
+      //  private bool fotografiaHecha = false;
+        private FilterInfoCollection dispositivosDeVideo;
+        private VideoCaptureDevice fuenteDeVideo = null;
+      // public Image pbFotoSocio = null;
 
         ObservableCollection<string> TipoGolf = new ObservableCollection<string>();
         ObservableCollection<string> TipoTenis = new ObservableCollection<string>();
         ObservableCollection<string> Torneo = new ObservableCollection<string>();
+
         public Registro()
         {
             InitializeComponent();
+            BuscarDispositivos();
+
+            //GetInfo();
+     //       camara.OnFrameArrived += camara_onFArameArrived;
 
             //       CmbTorneo.ItemTemplate.LoadContent(conexion.obtenerTorneosActuales().ToArray());
             conexion = new ConexionBD();
             cmbGolf.ItemsSource = conexion.obtenerCategoriasGolf().ToArray();
             cmbTenis.ItemsSource = conexion.obtenerCategoriasGolf().ToArray();
+            CmbTorneo.ItemsSource = conexion.obtenerTorneosActuales().ToArray();
+        }
+
+        private void camara_onFArameArrived(object source, FrameArrivedEventArgs e)
+        {
+
 
         }
+
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
@@ -88,7 +112,7 @@ namespace TorneoAnual
 
                     File.Copy(recurso, destino + tbUrlFoto.Text, true);*/
 
-                int id = ConexionBD.AltaEmpleado(usuario,ida, id_cat);
+                int id = ConexionBD.AltaEmpleado(usuario);
 
                 if (id > 0)
                 {
@@ -119,9 +143,20 @@ namespace TorneoAnual
             {
                 cmbTenis.IsEnabled = true;
                 cmbGolf.IsEnabled = false;
-               // usuario.categoriaDescripcion = chkTenis.t;
+                usuario.categoriaDescripcion = (string)chkTenis.Content;
                 chkGolf.IsChecked = false;
+
             }
+        }
+        private void BuscarDispositivos()
+        {
+            dispositivosDeVideo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+
+            if (dispositivosDeVideo.Count == 0)
+                existenDispositivos = false;
+            else
+                existenDispositivos = true;
+
         }
 
         //Desahbilita/ habilita el chkTenis, dependiendo del evento recibido
@@ -131,8 +166,9 @@ namespace TorneoAnual
             {
                 cmbGolf.IsEnabled = true;
                 cmbTenis.IsEnabled = false;
-              //  usuario.categoriaDescripcion = ;
+                usuario.categoriaDescripcion = (string)chkGolf.Content;
                 chkTenis.IsChecked = false;
+
             }
         }
 
@@ -142,7 +178,13 @@ namespace TorneoAnual
             Enroller.OnTemplate += this.OnTemplate;
             Enroller.ShowDialog();
         }
+     /*   private void GetInfo()
+        {
+            var camaraDevices = camara.GetCameraSources();
+            var cameraResolution = camara.GetSupportedResolutions();
 
+        }
+     */
         private void OnTemplate(DPFP.Template template)
         {
             this.Dispatcher.Invoke(new Function(delegate ()
@@ -161,7 +203,28 @@ namespace TorneoAnual
 
         private DPFP.Template Template;
 
-       
+        private void btnCamara_Click(object sender, RoutedEventArgs e)
+        {
+
+
+            if (existenDispositivos)
+            {
+                fuenteDeVideo = new VideoCaptureDevice(dispositivosDeVideo[0].MonikerString);
+              //  fuenteDeVideo.NewFrame += new NewFrameEventHandler(MostrarImagen);
+                fuenteDeVideo.Start();
+            }
+            else
+            {
+                MessageBox.Show("No se encuentra ningún dispositivo de vídeo en el sistema", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.Close();
+            }
+        }
+      /*  private void MostrarImagen(object sender, NewFrameEventArgs eventArgs)
+        {
+            Bitmap imagen = (Bitmap)eventArgs.Frame.Clone();
+            picFoto.Source = imagen;
+
+        }*/
     }
 }
 

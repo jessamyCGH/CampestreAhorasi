@@ -40,7 +40,7 @@ namespace TorneoAnual
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
-            Modificar modificar = new Modificar();
+            Registros modificar = new Registros();
                 modificar.Show();
         }
     }

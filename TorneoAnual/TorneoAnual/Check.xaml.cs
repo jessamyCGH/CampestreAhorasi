@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,8 +19,12 @@ namespace TorneoAnual
     /// <summary>
     /// Lógica de interacción para Check.xaml
     /// </summary>
-    public partial class Check : Window
+    public partial class Check : Window, DPFP.Capture.EventHandler
     {
+      //  private DPFP.Template Template;
+        private DPFP.Verification.Verification Verificator;
+        private DPFP.Capture.Capture Capturer;
+    
         //Generamos un objeto de la clase Conexion para por der hacer llamadas a la base de datos
         ConexionBD conexion;
 
@@ -37,12 +42,15 @@ namespace TorneoAnual
         int countCervezas;
 
 
+
         public Check()
         {
             InitializeComponent();
+           
             btnEntregado.Visibility = Visibility.Hidden;
 
             conexion = new ConexionBD();
+            
 
             //Con el metodo getAllUsers() obtendremos todos los nombres registrados en la base de datos
             //para acomodarlos en nuestro comboBox
@@ -187,6 +195,7 @@ namespace TorneoAnual
 
             //Reiniciamos los componentes para los cambios de Menus
             reiniciarComponentes();
+            Init();
         }
 
         private void btnAlimentos_Click(object sender, EventArgs e)
@@ -313,6 +322,204 @@ namespace TorneoAnual
             }
         }
 
+        protected virtual void Init()
+        {
+            try
+            {
+                Capturer = new DPFP.Capture.Capture();				// Create a capture operation.
+
+                if (null != Capturer)
+                    Capturer.EventHandler = this;					// Subscribe for capturing events.
+                else
+                    lblReporte.Content = "Can't initiate capture operation!";
+            }
+            catch
+            {
+                MessageBox.Show("Can't initiate capture operation!", "Error", System.Windows.MessageBoxButton.OK, System.Windows.MessageBoxImage.Error);
+            }
+
+            Verificator = new DPFP.Verification.Verification();
+        }
+
+
+        protected void Process(DPFP.Sample Sample)
+        {
+
+            // Process the sample and create a feature set for the enrollment purpose.
+            DPFP.FeatureSet features = ExtractFeatures(Sample, DPFP.Processing.DataPurpose.Verification);
+
+            // Check quality of the sample and start verification if it's good
+            // TODO: move to a separate task
+            if (features != null)
+            {
+                // Compare the feature set with our template
+                DPFP.Verification.Verification.Result result = new DPFP.Verification.Verification.Result();
+
+                DPFP.Template template = new DPFP.Template();
+                Stream stream;
+
+                List<Usuario> usuarios= ConexionBD.MuestraEmpleados();
+
+                foreach (var usuario in usuarios)
+                {
+                    if (usuario.huella != null)
+                    {
+                        stream = new MemoryStream(usuario.huella);
+                        template = new DPFP.Template(stream);
+
+                        Verificator.Verify(features, template, ref result);
+                        if (result.Verified)
+                        {
+                            this.Dispatcher.Invoke(new Function(delegate () {
+                                Desplegar(usuario);
+                            }));
+
+                            break;
+                        }
+                    }
+                }
+
+            }
+        }
+
+
+        protected void Start()
+        {
+            if (null != Capturer)
+            {
+                try
+                {
+                    Capturer.StartCapture();
+                    lblReporte.Content = "Using the fingerprint reader, scan your fingerprint.";
+                }
+                catch
+                {
+                    lblReporte.Content = "Can't initiate capture!";
+                }
+            }
+        }
+
+        protected void Stop()
+        {
+            if (null != Capturer)
+            {
+                try
+                {
+                    Capturer.StopCapture();
+                }
+                catch
+                {
+                    lblReporte.Content = "Can't terminate capture!";
+                }
+            }
+        }
+
+
+       
+
+
+        protected DPFP.FeatureSet ExtractFeatures(DPFP.Sample Sample, DPFP.Processing.DataPurpose Purpose)
+        {
+            DPFP.Processing.FeatureExtraction Extractor = new DPFP.Processing.FeatureExtraction();  // Create a feature extractor
+            DPFP.Capture.CaptureFeedback feedback = DPFP.Capture.CaptureFeedback.None;
+            DPFP.FeatureSet features = new DPFP.FeatureSet();
+            Extractor.CreateFeatureSet(Sample, Purpose, ref feedback, ref features);            // TODO: return features as a result?
+            if (feedback == DPFP.Capture.CaptureFeedback.Good)
+                return features;
+            else
+                return null;
+        }
+
+
+        public void Desplegar(Usuario usuario)
+        {
+          
+
+            lblNom.Content = usuario.nombre;
+            lblApellidos.Content = usuario.apellidoP;
+            lblNumero.Content = usuario.club;
+            cbBoxNombre.Text = usuario.nombre;
+           
+          
+
+        }
+
+
+        public void Reset()
+        {
+            lblNombre.Content = "¡Bienvenido!";
+            lblApellidos.Content = "Que tengas buen día";
+            lblNumero.Content = "Coloca tu dedo en el lector";
+            lblReporte.Content = "kjkjj";
+
+          
+        }
+
+
+        #region EventHandler Members:
+
+        public void OnComplete(object Capture, string ReaderSerialNumber, DPFP.Sample Sample)
+        {
+            this.Dispatcher.Invoke(new Function(delegate () {
+                lblReporte.Content = "Huella leida.";
+             //   lblStatus.Content = "Espere por favor.";
+                Process(Sample);
+            }));
+
+            System.Threading.Thread.Sleep(5000);
+
+            this.Dispatcher.Invoke(new Function(delegate () {
+                Reset();
+            }));
+
+        }
+
+        public void OnFingerGone(object Capture, string ReaderSerialNumber)
+        {
+
+            this.Dispatcher.Invoke(new Function(delegate () {
+                lblReporte.Content = "The finger was removed from the fingerprint reader.";
+
+            }));
+        }
+
+        public void OnFingerTouch(object Capture, string ReaderSerialNumber)
+        {
+
+            this.Dispatcher.Invoke(new Function(delegate () {
+                lblReporte.Content = "The fingerprint reader was touched.";
+            }));
+        }
+
+        public void OnReaderConnect(object Capture, string ReaderSerialNumber)
+        {
+
+            this.Dispatcher.Invoke(new Function(delegate () {
+                lblReporte.Content = "The fingerprint reader was connected.";
+            }));
+        }
+
+        public void OnReaderDisconnect(object Capture, string ReaderSerialNumber)
+        {
+
+            this.Dispatcher.Invoke(new Function(delegate () {
+                lblReporte.Content = "The fingerprint reader was disconnected.";
+            }));
+        }
+
+        public void OnSampleQuality(object Capture, string ReaderSerialNumber, DPFP.Capture.CaptureFeedback CaptureFeedback)
+        {
+            /*
+            if (CaptureFeedback == DPFP.Capture.CaptureFeedback.Good)
+                MakeReport("The quality of the fingerprint sample is good.");
+            else
+                MakeReport("The quality of the fingerprint sample is poor.");*/
+        }
+        #endregion
+
     }
 }
+
+
+  
 

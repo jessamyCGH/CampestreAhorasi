@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data;
+using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -20,7 +21,7 @@ namespace TorneoAnual.Modelos
             conectarBDT.ConnectionString = cadena;
         }
 
-        public static int AltaEmpleado(Usuario usuario, int id_cat, int id_torneo)
+        public static int AltaEmpleado(Usuario usuario)
         {
             int res = 0;
 
@@ -39,11 +40,11 @@ namespace TorneoAnual.Modelos
                         command.Parameters.AddWithValue("@apellidoM", usuario.apellidoM);
                         command.Parameters.AddWithValue("@correo", usuario.correo);
                         command.Parameters.AddWithValue("@tel", usuario.tel);
-                        command.Parameters.AddWithValue("@id_cat", id_cat);
+                        command.Parameters.AddWithValue("@club", usuario.club);
+                        command.Parameters.AddWithValue("@id_cat", usuario.id_cat);
                         command.Parameters.AddWithValue("@huella", usuario.huella);
-                        command.Parameters.AddWithValue("@imagen", usuario.imagen);
-                        command.Parameters.AddWithValue("@id_torneo", id_torneo);
-                        command.Parameters.AddWithValue("fecha", DateTime.Now);
+                        command.Parameters.AddWithValue("@id_torneo", usuario.id_torneo );
+                        command.Parameters.AddWithValue("fecha_registro", DateTime.Now);
 
 
 
@@ -89,6 +90,8 @@ namespace TorneoAnual.Modelos
             return categorias;
 
         }
+
+
 
         public ObservableCollection<string> obtenerTorneosActuales()
         {
@@ -468,6 +471,55 @@ namespace TorneoAnual.Modelos
 
         #endregion
 
+        #region mostrar
+        public static List<Usuario> MuestraEmpleados()
+        {
+            List<Usuario> listaUsuario = new List<Usuario>();
+
+            try
+            {
+                using (var conn = new SqlConnection("Data Source = localhost; initial catalog = TorneoAnual; Integrated Security = True "))
+                {
+                    conn.Open();
+
+                    using (var command = conn.CreateCommand())
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.CommandText = "Muestra";
+
+                        using (DbDataReader dr = command.ExecuteReader())
+                        {
+                            if (dr.HasRows)
+                            {
+                                while (dr.Read())
+                                {
+                                    Usuario us = new Usuario();
+                                    us.id = int.Parse(dr["id"].ToString());
+                                    us.nombre = dr["nombre"].ToString();
+                                    us.apellidoP = dr["apellidoP"].ToString();
+                                    us.club = dr["club"].ToString();
+                                    if (dr["huella"].ToString() != "")
+                                        us.huella = (byte[])dr["huella"];
+                                    else
+                                        us.huella = null;
+
+                                    listaUsuario.Add(us);
+
+                                }
+                            }
+                        }
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al consultar Usuarios: " + ex.Message, "Error");
+            }
+
+            return listaUsuario;
+        }
+        #endregion
 
     }
 }
