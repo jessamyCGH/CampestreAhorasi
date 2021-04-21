@@ -83,19 +83,43 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Checador\Proyecto Checador\Checador\Checador\bin\Debug\DPFPVerNET.dll</HintPath>
     </Reference>
+    <Reference Include="Eco.Handles, Version=7.0.0.13104, Culture=neutral, PublicKeyToken=46a833be9e90de8c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EcoCore.7.0.0.13104\lib\net40\Eco.Handles.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Interfaces, Version=7.0.0.13104, Culture=neutral, PublicKeyToken=46a833be9e90de8c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EcoCore.7.0.0.13104\lib\net40\Eco.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.LinqExtender, Version=7.0.0.13104, Culture=neutral, PublicKeyToken=46a833be9e90de8c, processorArchitecture=MSIL">
+      <HintPath>..\packages\EcoCore.7.0.0.13104\lib\net40\Eco.LinqExtender.dll</HintPath>
+    </Reference>
+    <Reference Include="FormFactory, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FormFactory.5.0.77\lib\netstandard2.0\FormFactory.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro, Version=1.3.0.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.3.0\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=2.0.0.2422, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.2.0.0\lib\net452\MaterialDesignColors.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignThemes.Wpf, Version=4.0.0.2422, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.4.0.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="MaterialForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfMaterialForms.1.1.2\lib\net461\MaterialForms.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="PA.Picture, Version=4.7.4.0, Culture=neutral, PublicKeyToken=efe7f84d28b0579c, processorArchitecture=MSIL">
+      <HintPath>..\packages\PA.Picture.4.7.4\lib\net45\PA.Picture.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.3.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -117,11 +141,11 @@
     <Compile Include="Check.xaml.cs">
       <DependentUpon>Check.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
+    <Compile Include="Camara.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="Camara.Designer.cs">
+      <DependentUpon>Camara.cs</DependentUpon>
     </Compile>
     <Compile Include="Modelos\ConexionBD.cs" />
     <Compile Include="Modelos\Usuario.cs" />
@@ -182,8 +206,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <EmbeddedResource Include="Camara.resx">
+      <DependentUpon>Camara.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CaptureForm.resx">
+      <DependentUpon>CaptureForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

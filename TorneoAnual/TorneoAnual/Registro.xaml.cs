@@ -28,15 +28,11 @@ namespace TorneoAnual
     /// </summary>
     public partial class Registro : Window
     {
-   //     Camera camara;
+        //     Camera camara;
         Usuario usuario = new Usuario();
         ConexionBD conexion = new ConexionBD();
-
-        private bool existenDispositivos = false;
-      //  private bool fotografiaHecha = false;
-        private FilterInfoCollection dispositivosDeVideo;
-        private VideoCaptureDevice fuenteDeVideo = null;
-      // public Image pbFotoSocio = null;
+     
+     
 
         ObservableCollection<string> TipoGolf = new ObservableCollection<string>();
         ObservableCollection<string> TipoTenis = new ObservableCollection<string>();
@@ -45,10 +41,7 @@ namespace TorneoAnual
         public Registro()
         {
             InitializeComponent();
-            BuscarDispositivos();
-
-            //GetInfo();
-     //       camara.OnFrameArrived += camara_onFArameArrived;
+  
 
             //       CmbTorneo.ItemTemplate.LoadContent(conexion.obtenerTorneosActuales().ToArray());
             conexion = new ConexionBD();
@@ -57,13 +50,8 @@ namespace TorneoAnual
             CmbTorneo.ItemsSource = conexion.obtenerTorneosActuales().ToArray();
         }
 
-        private void camara_onFArameArrived(object source, FrameArrivedEventArgs e)
-        {
-
-
-        }
-
-
+   
+    
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
             if (tbNombre.Text == "")
@@ -103,7 +91,7 @@ namespace TorneoAnual
                 usuario.correo = tbCorreo.Text;
                 usuario.tel = tbCelular.Text;
                 usuario.club = tbCelular.Text;
-                usuario.imagen = tbUrlFoto.Text;
+              //  usuario.imagen = tbUrlFoto.Text;
                 usuario.huella = Template.Bytes;
 
                 /*  string destino = @"C:\Checador\";
@@ -112,7 +100,7 @@ namespace TorneoAnual
 
                     File.Copy(recurso, destino + tbUrlFoto.Text, true);*/
 
-                int id = ConexionBD.AltaEmpleado(usuario);
+                int id = ConexionBD.Alta(usuario);
 
                 if (id > 0)
                 {
@@ -124,8 +112,8 @@ namespace TorneoAnual
                     tbClub.Text = "";
                     tbCorreo.Text = "";
                     tbCelular.Text = "";
-                    tbUrlFoto.Text = "";
-                    imgFoto.Source = null;
+                   // tbUrlFoto.Text = "";
+                  //  imgFoto.Source = null;
                     //  dgEmpleados.DataContext = DatoEmpleado.MuestraEmpleados();
 
                 }
@@ -148,17 +136,7 @@ namespace TorneoAnual
 
             }
         }
-        private void BuscarDispositivos()
-        {
-            dispositivosDeVideo = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-
-            if (dispositivosDeVideo.Count == 0)
-                existenDispositivos = false;
-            else
-                existenDispositivos = true;
-
-        }
-
+  
         //Desahbilita/ habilita el chkTenis, dependiendo del evento recibido
         private void chkGolf_CheckedChanged(object sender, EventArgs e)
         {
@@ -178,13 +156,7 @@ namespace TorneoAnual
             Enroller.OnTemplate += this.OnTemplate;
             Enroller.ShowDialog();
         }
-     /*   private void GetInfo()
-        {
-            var camaraDevices = camara.GetCameraSources();
-            var cameraResolution = camara.GetSupportedResolutions();
-
-        }
-     */
+   
         private void OnTemplate(DPFP.Template template)
         {
             this.Dispatcher.Invoke(new Function(delegate ()
@@ -203,28 +175,16 @@ namespace TorneoAnual
 
         private DPFP.Template Template;
 
+        public FrameArrivedEventHandler camara_onFArameArrived { get; }
+
         private void btnCamara_Click(object sender, RoutedEventArgs e)
         {
 
-
-            if (existenDispositivos)
-            {
-                fuenteDeVideo = new VideoCaptureDevice(dispositivosDeVideo[0].MonikerString);
-              //  fuenteDeVideo.NewFrame += new NewFrameEventHandler(MostrarImagen);
-                fuenteDeVideo.Start();
-            }
-            else
-            {
-                MessageBox.Show("No se encuentra ningún dispositivo de vídeo en el sistema", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                this.Close();
-            }
+            Camara camara = new Camara();
+            camara.Show();
+          
         }
-      /*  private void MostrarImagen(object sender, NewFrameEventArgs eventArgs)
-        {
-            Bitmap imagen = (Bitmap)eventArgs.Frame.Clone();
-            picFoto.Source = imagen;
-
-        }*/
+   
     }
 }
 

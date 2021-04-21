@@ -168,5 +168,9 @@ namespace TorneoAnual
 
         private DPFP.Capture.Capture Capturer;
 
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -37,10 +37,8 @@
             Content="Golf" x:Name="chkGolf" Style="{StaticResource MaterialDesignAccentCheckBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,491,649,0" FontSize="20" Height="39" Checked="chkGolf_CheckedChanged" />
         <CheckBox
             Content="Tennis" x:Name="chkTenis" Style="{StaticResource MaterialDesignAccentCheckBox}" VerticalAlignment="Top" Grid.Column="1" Margin="215,491,434,0" FontSize="20" Height="39" Checked="chkTenis_CheckedChanged"  />
-
-        <Image Grid.Column="1" x:Name="imgFoto" Height="208" Margin="504,85,68,0" VerticalAlignment="Top" Stretch="Uniform" />
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCamara" ToolTip="Editar foto" Grid.Column="1" Margin="502,392,151,0"  VerticalAlignment="Top" Click="btnCamara_Click">
+            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCamara" ToolTip="Editar foto" Grid.Column="1" Margin="409,586,306,0"  VerticalAlignment="Top" Click="btnCamara_Click" Height="58">
             Camara
         </Button>
 
@@ -53,10 +51,7 @@
             Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnGuardar" ToolTip="Guardar" Grid.Column="1" Margin="664,591,24,0" VerticalAlignment="Top" Height="53" Click="btnGuardar_Click" >
             Guardar
         </Button>
-        <TextBox
-            materialDesign:HintAssist.Hint="" x:Name="tbUrlFoto" IsReadOnly="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="504,307,151,0" FontSize="20" Height="58" />
         <Image Grid.Column="1" x:Name="imgVerHuella" Source="Resources/autenticacion.png" Stretch="Uniform" Visibility="Hidden" Height="102" Margin="600,450,24,0" VerticalAlignment="Top"/>
-        <Image x:Name="picFoto" HorizontalAlignment="Left" Height="206" Margin="502,87,0,0" VerticalAlignment="Top" Width="220" Grid.Column="1" />
     </Grid>
 </Window>
 

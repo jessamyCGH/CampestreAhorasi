@@ -29,17 +29,33 @@ namespace TorneoAnual
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label StatusLabel;
-            System.Windows.Forms.Label PromptLabel;
+            this.StatusLabel = new System.Windows.Forms.Label();
+            this.PromptLabel = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Button();
             this.StatusLine = new System.Windows.Forms.Label();
             this.StatusText = new System.Windows.Forms.TextBox();
             this.Prompt = new System.Windows.Forms.TextBox();
             this.Picture = new System.Windows.Forms.PictureBox();
-            StatusLabel = new System.Windows.Forms.Label();
-            PromptLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
             this.SuspendLayout();
+            // 
+            // StatusLabel
+            // 
+            this.StatusLabel.AutoSize = true;
+            this.StatusLabel.Location = new System.Drawing.Point(269, 68);
+            this.StatusLabel.Name = "StatusLabel";
+            this.StatusLabel.Size = new System.Drawing.Size(40, 13);
+            this.StatusLabel.TabIndex = 10;
+            this.StatusLabel.Text = "Status:";
+            // 
+            // PromptLabel
+            // 
+            this.PromptLabel.AutoSize = true;
+            this.PromptLabel.Location = new System.Drawing.Point(269, 15);
+            this.PromptLabel.Name = "PromptLabel";
+            this.PromptLabel.Size = new System.Drawing.Size(43, 13);
+            this.PromptLabel.TabIndex = 8;
+            this.PromptLabel.Text = "Prompt:";
             // 
             // CloseButton
             // 
@@ -51,10 +67,11 @@ namespace TorneoAnual
             this.CloseButton.TabIndex = 13;
             this.CloseButton.Text = "Close";
             this.CloseButton.UseVisualStyleBackColor = true;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
             // StatusLine
             // 
-            this.StatusLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+            this.StatusLine.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.StatusLine.Location = new System.Drawing.Point(12, 306);
             this.StatusLine.Name = "StatusLine";
@@ -64,8 +81,8 @@ namespace TorneoAnual
             // 
             // StatusText
             // 
-            this.StatusText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.StatusText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.StatusText.BackColor = System.Drawing.SystemColors.Window;
             this.StatusText.Location = new System.Drawing.Point(272, 84);
@@ -76,18 +93,9 @@ namespace TorneoAnual
             this.StatusText.Size = new System.Drawing.Size(300, 219);
             this.StatusText.TabIndex = 11;
             // 
-            // StatusLabel
-            // 
-            StatusLabel.AutoSize = true;
-            StatusLabel.Location = new System.Drawing.Point(269, 68);
-            StatusLabel.Name = "StatusLabel";
-            StatusLabel.Size = new System.Drawing.Size(40, 13);
-            StatusLabel.TabIndex = 10;
-            StatusLabel.Text = "Status:";
-            // 
             // Prompt
             // 
-            this.Prompt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.Prompt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Prompt.Location = new System.Drawing.Point(272, 31);
             this.Prompt.Name = "Prompt";
@@ -95,18 +103,9 @@ namespace TorneoAnual
             this.Prompt.Size = new System.Drawing.Size(300, 20);
             this.Prompt.TabIndex = 9;
             // 
-            // PromptLabel
-            // 
-            PromptLabel.AutoSize = true;
-            PromptLabel.Location = new System.Drawing.Point(269, 15);
-            PromptLabel.Name = "PromptLabel";
-            PromptLabel.Size = new System.Drawing.Size(43, 13);
-            PromptLabel.TabIndex = 8;
-            PromptLabel.Text = "Prompt:";
-            // 
             // Picture
             // 
-            this.Picture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.Picture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Picture.BackColor = System.Drawing.SystemColors.Window;
             this.Picture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -124,9 +123,9 @@ namespace TorneoAnual
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.StatusLine);
             this.Controls.Add(this.StatusText);
-            this.Controls.Add(StatusLabel);
+            this.Controls.Add(this.StatusLabel);
             this.Controls.Add(this.Prompt);
-            this.Controls.Add(PromptLabel);
+            this.Controls.Add(this.PromptLabel);
             this.Controls.Add(this.Picture);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -149,5 +148,7 @@ namespace TorneoAnual
         private System.Windows.Forms.TextBox StatusText;
         private System.Windows.Forms.TextBox Prompt;
         private System.Windows.Forms.PictureBox Picture;
+        private System.Windows.Forms.Label StatusLabel;
+        private System.Windows.Forms.Label PromptLabel;
     }
 }

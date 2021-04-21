@@ -21,7 +21,7 @@ namespace TorneoAnual.Modelos
             conectarBDT.ConnectionString = cadena;
         }
 
-        public static int AltaEmpleado(Usuario usuario)
+        public static int Alta(Usuario usuario)
         {
             int res = 0;
 
@@ -65,6 +65,9 @@ namespace TorneoAnual.Modelos
             return res;
 
         }
+
+
+        //Obtenemos las categorias de Golf para mostrarla en el cmbBox
         public ObservableCollection<string> obtenerCategoriasGolf()
         {
             cadena = cadena.Replace("{nombrePC}", Environment.MachineName);
@@ -93,6 +96,7 @@ namespace TorneoAnual.Modelos
 
 
 
+        // Se hace una peticion para seleccionar los Torneos que esten vigentes recientemente 
         public ObservableCollection<string> obtenerTorneosActuales()
         {
             cadena = cadena.Replace("{nombrePC}", Environment.MachineName);
@@ -115,6 +119,7 @@ namespace TorneoAnual.Modelos
             return torneos;
         }
 
+        //Se hace un apeticion para obtener todo los nombre de los usuarios
         public ObservableCollection<string> getAllNamesUsers()
         {
             cadena = cadena.Replace("{nombrePC}", Environment.MachineName);
@@ -472,6 +477,7 @@ namespace TorneoAnual.Modelos
         #endregion
 
         #region mostrar
+        //SE le hace la peticion al procedure de muestra y nos mostrara los datos deseados 
         public static List<Usuario> MuestraEmpleados()
         {
             List<Usuario> listaUsuario = new List<Usuario>();
