@@ -20,33 +20,44 @@ using MessageBox = System.Windows.Forms.MessageBox;
 using System.Drawing;
 using DarrenLee.Media;
 using Image = System.Windows.Controls.Image;
+using System.ComponentModel;
+using System.Threading;
 
 namespace TorneoAnual
 {
-    /// <summary>
-    /// Lógica de interacción para Registro.xaml
-    /// </summary>
-    public partial class Registro : Window
+  
+    public partial class Registro : Window, INotifyPropertyChanged
     {
-        //     Camera camara;
         Usuario usuario = new Usuario();
         ConexionBD conexion = new ConexionBD();
-     
-     
+
+        public ObservableCollection<FilterInfo> VideoDevices { get; set; }
+
+        public FilterInfo CurrentDevice
+        {
+            get { return _currentDevice; }
+            set { _currentDevice = value; this.OnPropertyChanged("CurrentDevice"); }
+        }
+        private FilterInfo _currentDevice;
 
         ObservableCollection<string> TipoGolf = new ObservableCollection<string>();
         ObservableCollection<string> TipoTenis = new ObservableCollection<string>();
         ObservableCollection<string> Torneo = new ObservableCollection<string>();
 
+
+        private IVideoSource _videoSource;
+
         public Registro()
         {
             InitializeComponent();
-  
+            this.DataContext = this;
+            GetVideoDevices();
+            
 
             //       CmbTorneo.ItemTemplate.LoadContent(conexion.obtenerTorneosActuales().ToArray());
             conexion = new ConexionBD();
             cmbGolf.ItemsSource = conexion.obtenerCategoriasGolf().ToArray();
-            cmbTenis.ItemsSource = conexion.obtenerCategoriasGolf().ToArray();
+            cmbTenis.ItemsSource = conexion.obtenerCategoriasTennis().ToArray();
             CmbTorneo.ItemsSource = conexion.obtenerTorneosActuales().ToArray();
         }
 
@@ -175,16 +186,106 @@ namespace TorneoAnual
 
         private DPFP.Template Template;
 
-        public FrameArrivedEventHandler camara_onFArameArrived { get; }
 
+
+        #region CAMARA
         private void btnCamara_Click(object sender, RoutedEventArgs e)
         {
 
-            Camara camara = new Camara();
-            camara.Show();
+            //Camara camara = new Camara();
+            //camara.Show();
+            StartCamera();
+
+            
+            
           
         }
+        private void btnCapturar_Click(object sender, RoutedEventArgs e)
+        {
+            StopCamera();
+        }
+
+        private void video_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
+        {
+            try
+            {
+                BitmapImage bi;
+                using (var bitmap = (Bitmap)eventArgs.Frame.Clone())
+                {
+                    bi = bitmap.ToBitmapImage();
+                }
+                bi.Freeze(); // avoid cross thread operations and prevents leaks
+                Dispatcher.BeginInvoke(new ThreadStart(delegate { picFoto.Source = bi; }));
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Error" + exc.Message);
+                StopCamera();
+            }
+        }
+
+      
+
    
+
+        private void StartCamera()
+        {
+            if (CurrentDevice != null)
+            {
+                _videoSource = new VideoCaptureDevice(CurrentDevice.MonikerString);
+                _videoSource.NewFrame += video_NewFrame;
+                _videoSource.Start();
+            }
+            else
+            {
+                _videoSource.WaitForStop();
+            }
+        }
+
+        private void StopCamera()
+        {
+            if (_videoSource != null && _videoSource.IsRunning)
+            {
+                _videoSource.SignalToStop();
+                _videoSource.NewFrame -= new NewFrameEventHandler(video_NewFrame);
+            }
+        }
+
+        #region INotifyPropertyChanged members
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+            if (handler != null)
+            {
+                var e = new PropertyChangedEventArgs(propertyName);
+                handler(this, e);
+            }
+        }
+
+        private void GetVideoDevices()
+        {
+            VideoDevices = new ObservableCollection<FilterInfo>();
+            foreach (FilterInfo filterInfo in new FilterInfoCollection(FilterCategory.VideoInputDevice))
+            {
+                VideoDevices.Add(filterInfo);
+            }
+            if (VideoDevices.Any())
+            {
+                CurrentDevice = VideoDevices[0];
+            }
+            else
+            {
+                MessageBox.Show("No video sources found");
+            }
+        }
+        #endregion
+
+        #endregion
+
+     
     }
 }
 

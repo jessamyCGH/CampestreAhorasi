@@ -147,6 +147,7 @@
     <Compile Include="Camara.Designer.cs">
       <DependentUpon>Camara.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\BitMapImagen.cs" />
     <Compile Include="Modelos\ConexionBD.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Modificar.xaml.cs">
@@ -257,9 +258,7 @@
     <Resource Include="Resources\fo.png" />
     <Resource Include="Resources\golf.png" />
     <Resource Include="Resources\huella.png" />
-    <Resource Include="Resources\justifi2.png" />
     <Resource Include="Resources\logo2.png" />
-    <Resource Include="Resources\pagos.png" />
     <Resource Include="Resources\personal.png" />
     <Resource Include="Resources\register64.png" />
     <Resource Include="Resources\tennis.png" />

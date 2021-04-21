@@ -93,6 +93,31 @@ namespace TorneoAnual.Modelos
             return categorias;
 
         }
+        public ObservableCollection<string> obtenerCategoriasTennis()
+        {
+            cadena = cadena.Replace("{nombrePC}", Environment.MachineName);
+            conectarBDT.ConnectionString = cadena;
+            conectarBDT.Open();
+
+            SqlCommand command = new SqlCommand("SELECT * FROM Categoria", conectarBDT);
+
+            SqlDataReader reader = command.ExecuteReader();
+
+            ObservableCollection<string> categorias = new ObservableCollection<string>();
+
+            while (reader.Read())
+            {
+                if (reader["Tipo"].Equals("T"))
+                {
+                    categorias.Add((string)reader["descripcion"]);
+                }
+            }
+
+            conectarBDT.Close();
+
+            return categorias;
+
+        }
 
 
 

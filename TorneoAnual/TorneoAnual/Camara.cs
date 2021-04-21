@@ -61,7 +61,7 @@ namespace TorneoAnual
         private void camara_onFArameArrived(object source, FrameArrivedEventArgs e)
         {
             Image img = e.GetFrame();
-            picFoto.Image = img;
+            picFoto2.Image = img;
         }
 
         private void btnCapturar_Click(object sender, EventArgs e)
@@ -108,7 +108,7 @@ namespace TorneoAnual
             {
                 if (fuenteDeVideo.IsRunning)
                 {
-                    picFoto.Image = picFoto.Image;
+                    picFoto2.Image = picFoto2.Image;
 
                 }
             }
@@ -119,9 +119,23 @@ namespace TorneoAnual
         private void MostrarImagen(object sender, NewFrameEventArgs eventArgs)
         {
             Bitmap imagen = (Bitmap)eventArgs.Frame.Clone();
-            picFoto.Image = imagen;
+            picFoto2.Image = imagen;
 
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+
+                Registro foto = new Registro();
+
+
+
+                //Hacemos una conversión Cast del valor devuelto por la colección Controls.
+
+               
+
+            
+        }
     }
 }

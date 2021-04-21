@@ -25,8 +25,15 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Image Source="Resources/Registro.png"  Height="130"  Width="156" Stretch="UniformToFill" />
-                <Button x:Name="btnEmpleados" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
-                HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,16,0" Grid.RowSpan="2" Click="BtnRegistro_Click"  >
+                <Button 
+                    x:Name="btnEmpleados" 
+                    Grid.Row="0" 
+                    Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                    HorizontalAlignment="Right" 
+                    VerticalAlignment="Top" 
+                    Margin="0,120,16,0" 
+                    Grid.RowSpan="2" 
+                    Click="BtnRegistro_Click"  >
                     <materialDesign:PackIcon Kind="AccountEdit" />
                 </Button>
                 <StackPanel Grid.Row="1" Margin="8 24 8 0">

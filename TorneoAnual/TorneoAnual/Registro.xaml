@@ -38,20 +38,28 @@
         <CheckBox
             Content="Tennis" x:Name="chkTenis" Style="{StaticResource MaterialDesignAccentCheckBox}" VerticalAlignment="Top" Grid.Column="1" Margin="215,491,434,0" FontSize="20" Height="39" Checked="chkTenis_CheckedChanged"  />
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCamara" ToolTip="Editar foto" Grid.Column="1" Margin="409,586,306,0"  VerticalAlignment="Top" Click="btnCamara_Click" Height="58">
-            Camara
+            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCamara" ToolTip="Editar foto" Grid.Column="1" Margin="584,366,151,0"  VerticalAlignment="Top" Click="btnCamara_Click" Height="39" Background="#FF131515">
+            <Image Source="Resources/Camara.png"></Image>
         </Button>
 
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCaptura" ToolTip="Editar foto" Grid.Column="1" Margin="516,574,151,0" VerticalAlignment="Top" Click="BtnRegistro_Click" Height="70">
-            Capturar huella
+            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCaptura" ToolTip="Editar foto" Grid.Column="1" Margin="559,574,151,0" VerticalAlignment="Top" Click="BtnRegistro_Click" Height="73" Background="#FF454949">
+            <Image Source="Resources/fingerprint.png"></Image>
         </Button>
 
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnGuardar" ToolTip="Guardar" Grid.Column="1" Margin="664,591,24,0" VerticalAlignment="Top" Height="53" Click="btnGuardar_Click" >
+            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnGuardar" ToolTip="Guardar" Grid.Column="1" Margin="664,591,24,0" VerticalAlignment="Top" Height="53" Click="btnGuardar_Click" Background="#FF374644" >
             Guardar
         </Button>
         <Image Grid.Column="1" x:Name="imgVerHuella" Source="Resources/autenticacion.png" Stretch="Uniform" Visibility="Hidden" Height="102" Margin="600,450,24,0" VerticalAlignment="Top"/>
+        <Image x:Name="picFoto" Source="Resources/fo.png" Height="305" Margin="424,50,42,0" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2" />
+        <Button
+            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCapturar" ToolTip="Editar foto" Grid.Column="1" Margin="664,365,71,0" VerticalAlignment="Top" Height="40" Background="#FF454949" Click="btnCapturar_Click">
+            <Image Source="Resources/flash.png"></Image>
+        </Button>
+
+
+
     </Grid>
 </Window>
 
