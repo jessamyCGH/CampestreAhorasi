@@ -88,7 +88,6 @@ C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\Torneo
 C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csproj.CopyComplete
 C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.exe
 C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.pdb
-C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csprojAssemblyReference.cache
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\Check.g.cs
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\MainWindow.g.cs
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\Modificar.g.cs
@@ -172,3 +171,4 @@ C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\es-ES\
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\nl\FormFactory.resources.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\pt-BR\FormFactory.resources.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.Camara.resources
+C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csprojAssemblyReference.cache

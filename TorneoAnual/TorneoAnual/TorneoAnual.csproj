@@ -263,7 +263,6 @@
     <Resource Include="Resources\register64.png" />
     <Resource Include="Resources\tennis.png" />
     <Resource Include="Resources\true.png" />
-    <Resource Include="Resources\user.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\VisioForge.DotNet.Core.Redist.Base.x86.14.0.36\build\VisioForge.DotNet.Core.Redist.Base.x86.targets" Condition="Exists('..\packages\VisioForge.DotNet.Core.Redist.Base.x86.14.0.36\build\VisioForge.DotNet.Core.Redist.Base.x86.targets')" />

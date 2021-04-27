@@ -23,7 +23,7 @@ namespace TorneoAnual.Modelos
         public string tel { get; set; }
 
         public string correo { get; set; }
-        public string imagen { get; set; }
+        public byte [] imagen { get; set; }
 
         public string fecha { get; set; }
 

@@ -1,0 +1,64 @@
+﻿<Window x:Class="Checador.Empleados"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Checador"
+        mc:Ignorable="d"
+        Title="Empleados" Height="700" Width="1000" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="800"/>
+            <ColumnDefinition Width="100*"/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Grid.Column="1" ItemsSource="{Binding}" x:Name="dgEmpleados" FontSize="15" AutoGenerateColumns="False" CanUserAddRows="False" IsReadOnly="True" HorizontalAlignment="Left" Height="330" Margin="10,24,0,0" VerticalAlignment="Top" Width="339" SelectionChanged="dgEmpleados_SelectionChanged">
+
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="FontSize" Value="17"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="Background" Value="#246777"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" Visibility="Hidden"/>
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                <DataGridTextColumn Header="Apellidos" Binding="{Binding Apellidos}" />
+                <DataGridTextColumn Header="Numero" Binding="{Binding Numero}" />
+                <DataGridTextColumn Header="Foto" Binding="{Binding Foto}" Visibility="Hidden" />
+                <DataGridTextColumn Header="Huella" Binding="{Binding Huella}" Visibility="Hidden"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBox
+  materialDesign:HintAssist.Hint="Nombre" x:Name="tbNombre" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="502,21,30,0" FontSize="20" />
+        <TextBox
+            materialDesign:HintAssist.Hint="Apellidos" x:Name="tbApellidos" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="502,84,30,0" FontSize="20"/>
+        <TextBox
+            materialDesign:HintAssist.Hint="Número de empleado" x:Name="tbNumero" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="502,151,30,0" FontSize="20" />
+
+        <Image Grid.Column="1" x:Name="imgFoto" Height="208" Margin="502,283,70,0" VerticalAlignment="Top" Stretch="Uniform" />
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1" Height="208" Margin="502,283,70,0" VerticalAlignment="Top" />
+        <Button
+            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnFoto" ToolTip="Editar foto" Grid.Column="1" Margin="502,561,43,0" Click="btnFoto_Click" VerticalAlignment="Top">
+            Editar foto
+        </Button>
+
+        <Button
+            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCaptura" ToolTip="Editar foto" Grid.Column="1" Margin="502,228,70,0" VerticalAlignment="Top" Click="btnCaptura_Click">
+            Capturar huella
+        </Button>
+
+        <Button
+            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnGuardar" ToolTip="Guardar" Grid.Column="1" Margin="502,612,176,0" VerticalAlignment="Top" Click="btnGuardar_Click">
+            Guardar
+        </Button>
+        <TextBox
+            materialDesign:HintAssist.Hint="" x:Name="tbUrlFoto" IsReadOnly="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="502,496,45,0" FontSize="20" Height="58" />
+        <Image Grid.Column="1" x:Name="imgVerHuella" Source="Resources/autenticacion.png" Stretch="Uniform" Visibility="Hidden" Height="32" Margin="740,228,24,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

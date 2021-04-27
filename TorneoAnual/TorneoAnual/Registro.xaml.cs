@@ -33,12 +33,13 @@ namespace TorneoAnual
 
         public ObservableCollection<FilterInfo> VideoDevices { get; set; }
 
-        public FilterInfo CurrentDevice
+       public FilterInfo CurrentDevice
         {
             get { return _currentDevice; }
             set { _currentDevice = value; this.OnPropertyChanged("CurrentDevice"); }
         }
         private FilterInfo _currentDevice;
+
 
         ObservableCollection<string> TipoGolf = new ObservableCollection<string>();
         ObservableCollection<string> TipoTenis = new ObservableCollection<string>();
@@ -101,8 +102,9 @@ namespace TorneoAnual
                 usuario.apellidoM = tbApellidoM.Text;
                 usuario.correo = tbCorreo.Text;
                 usuario.tel = tbCelular.Text;
-                usuario.club = tbCelular.Text;
-              //  usuario.imagen = tbUrlFoto.Text;
+                usuario.club = tbClub.Text;
+                usuario.categoriaTipo = CmbTorneo.Text;
+             //   usuario.imagen = picFoto.Source;
                 usuario.huella = Template.Bytes;
 
                 /*  string destino = @"C:\Checador\";
@@ -123,7 +125,7 @@ namespace TorneoAnual
                     tbClub.Text = "";
                     tbCorreo.Text = "";
                     tbCelular.Text = "";
-                   // tbUrlFoto.Text = "";
+                   // picFoto.Source = null;
                   //  imgFoto.Source = null;
                     //  dgEmpleados.DataContext = DatoEmpleado.MuestraEmpleados();
 
@@ -132,7 +134,7 @@ namespace TorneoAnual
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No fue posible guardar el empleado: " + ex.Message, "Error en Guardar");
+                MessageBox.Show("No fue posible guardar el Usuario: " + ex.Message, "Error en Guardar");
             }
         }
 
@@ -160,35 +162,7 @@ namespace TorneoAnual
 
             }
         }
-
-        private void BtnRegistro_Click(object sender, RoutedEventArgs e)
-        {
-            EnrollmentForm Enroller = new EnrollmentForm();
-            Enroller.OnTemplate += this.OnTemplate;
-            Enroller.ShowDialog();
-        }
-   
-        private void OnTemplate(DPFP.Template template)
-        {
-            this.Dispatcher.Invoke(new Function(delegate ()
-            {
-                Template = template;
-                //VerifyButton.Enabled = SaveButton.Enabled = (Template != null);
-                if (Template != null)
-                {
-                    MessageBox.Show("La huella ha sido capturada correctamente", "Capturar huella.");
-                    imgVerHuella.Visibility = Visibility.Visible;
-                }
-                else
-                    MessageBox.Show("The fingerprint template is not valid. Repeat fingerprint enrollment.", "Fingerprint Enrollment");
-            }));
-        }
-
-        private DPFP.Template Template;
-
-
-
-        #region CAMARA
+       #region CAMARA
         private void btnCamara_Click(object sender, RoutedEventArgs e)
         {
 
@@ -196,15 +170,14 @@ namespace TorneoAnual
             //camara.Show();
             StartCamera();
 
-            
-            
-          
         }
         private void btnCapturar_Click(object sender, RoutedEventArgs e)
         {
             StopCamera();
         }
 
+
+        //Muestra la imagen en pantalla 
         private void video_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
         {
             try
@@ -224,9 +197,8 @@ namespace TorneoAnual
             }
         }
 
-      
 
-   
+
 
         private void StartCamera()
         {
@@ -265,6 +237,7 @@ namespace TorneoAnual
             }
         }
 
+
         private void GetVideoDevices()
         {
             VideoDevices = new ObservableCollection<FilterInfo>();
@@ -278,13 +251,45 @@ namespace TorneoAnual
             }
             else
             {
-                MessageBox.Show("No video sources found");
+                MessageBox.Show("Favor de conectar una camara");
             }
         }
-        #endregion
+
 
         #endregion
+        #endregion
 
+
+
+        #region Registro Huella 
+        private void BtnRegistro_Click(object sender, RoutedEventArgs e)
+        {
+            EnrollmentForm Enroller = new EnrollmentForm();
+            Enroller.OnTemplate += this.OnTemplate;
+            Enroller.ShowDialog();
+        }
+   
+        private void OnTemplate(DPFP.Template template)
+        {
+            this.Dispatcher.Invoke(new Function(delegate ()
+            {
+                Template = template;
+                //VerifyButton.Enabled = SaveButton.Enabled = (Template != null);
+                if (Template != null)
+                {
+                    MessageBox.Show("La huella ha sido capturada correctamente", "Capturar huella.");
+                    imgVerHuella.Visibility = Visibility.Visible;
+                }
+                else
+                    MessageBox.Show("The fingerprint template is not valid. Repeat fingerprint enrollment.", "Fingerprint Enrollment");
+            }));
+        }
+
+        private DPFP.Template Template;
+        #endregion
+    
+
+     
      
     }
 }

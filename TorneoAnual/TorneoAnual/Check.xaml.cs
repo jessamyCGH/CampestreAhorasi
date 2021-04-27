@@ -21,10 +21,11 @@ namespace TorneoAnual
     /// </summary>
     public partial class Check : Window, DPFP.Capture.EventHandler
     {
-      //  private DPFP.Template Template;
+        //  private DPFP.Template Template;
+        private DPFP.Template Template;
         private DPFP.Verification.Verification Verificator;
         private DPFP.Capture.Capture Capturer;
-    
+
         //Generamos un objeto de la clase Conexion para por der hacer llamadas a la base de datos
         ConexionBD conexion;
 
@@ -46,11 +47,11 @@ namespace TorneoAnual
         public Check()
         {
             InitializeComponent();
-           
+
             btnEntregado.Visibility = Visibility.Hidden;
 
             conexion = new ConexionBD();
-            
+
 
             //Con el metodo getAllUsers() obtendremos todos los nombres registrados en la base de datos
             //para acomodarlos en nuestro comboBox
@@ -140,7 +141,7 @@ namespace TorneoAnual
                         break;
                 }
             }
-            
+
         }
 
         void ChecarEntregado(bool res)
@@ -183,7 +184,7 @@ namespace TorneoAnual
             cbBoxNombre.Text = "";
         }
 
-       
+        #region Botones 
 
         private void btnInaguracion_Click(object sender, EventArgs e)
         {
@@ -321,6 +322,10 @@ namespace TorneoAnual
                     break;
             }
         }
+        #endregion
+
+
+        #region Verificar con huella 
 
         protected virtual void Init()
         {
@@ -329,7 +334,7 @@ namespace TorneoAnual
                 Capturer = new DPFP.Capture.Capture();				// Create a capture operation.
 
                 if (null != Capturer)
-                    Capturer.EventHandler = this;					// Subscribe for capturing events.
+                    Capturer.EventHandler = this;				
                 else
                     lblReporte.Content = "Can't initiate capture operation!";
             }
@@ -341,6 +346,7 @@ namespace TorneoAnual
             Verificator = new DPFP.Verification.Verification();
         }
 
+   
 
         protected void Process(DPFP.Sample Sample)
         {
@@ -358,20 +364,28 @@ namespace TorneoAnual
                 DPFP.Template template = new DPFP.Template();
                 Stream stream;
 
-                List<Usuario> usuarios= ConexionBD.MuestraEmpleados();
+                List<Usuario> empleados = ConexionBD.Muestra();
 
-                foreach (var usuario in usuarios)
+                foreach (var empleado in empleados)
                 {
-                    if (usuario.huella != null)
+                    if (empleado.huella != null)
                     {
-                        stream = new MemoryStream(usuario.huella);
+                        stream = new MemoryStream(empleado.huella);
                         template = new DPFP.Template(stream);
+                        try
+                        {
+                            Verificator.Verify(features, template, ref result);
+                        }
+                        catch (Exception e)
+                        {
 
-                        Verificator.Verify(features, template, ref result);
+                            MessageBox.Show("error" + e.Message);
+                        }
+                       
                         if (result.Verified)
                         {
                             this.Dispatcher.Invoke(new Function(delegate () {
-                                Desplegar(usuario);
+                                Desplegar(empleado);
                             }));
 
                             break;
@@ -382,7 +396,7 @@ namespace TorneoAnual
             }
         }
 
-
+    
         protected void Start()
         {
             if (null != Capturer)
@@ -390,11 +404,11 @@ namespace TorneoAnual
                 try
                 {
                     Capturer.StartCapture();
-                    lblReporte.Content = "Using the fingerprint reader, scan your fingerprint.";
+                    lblReporte.Content = "Mensaje mandado desde el metodo start";
                 }
                 catch
                 {
-                    lblReporte.Content = "Can't initiate capture!";
+                    lblReporte.Content = "No se incializo la captura!";
                 }
             }
         }
@@ -409,13 +423,22 @@ namespace TorneoAnual
                 }
                 catch
                 {
-                    lblReporte.Content = "Can't terminate capture!";
+                    lblReporte.Content = "No se finalizo la captura!";
                 }
             }
         }
 
 
-       
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            Init();
+            Start();
+          
+        }
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Stop();
+        }
 
 
         protected DPFP.FeatureSet ExtractFeatures(DPFP.Sample Sample, DPFP.Processing.DataPurpose Purpose)
@@ -433,26 +456,42 @@ namespace TorneoAnual
 
         public void Desplegar(Usuario usuario)
         {
-          
+          //  string url = "";
 
             lblNom.Content = usuario.nombre;
             lblApellidos.Content = usuario.apellidoP;
             lblNumero.Content = usuario.club;
-            cbBoxNombre.Text = usuario.nombre;
-           
-          
+           /* if (usuario.Foto != "" && usuario.Foto != null)
+            {
+                url = "C:/Checador/" + empleado.Foto;
+            }
+            else
+                url = "C:/Checador/noimage.png";*/
+
+          /*  BitmapImage foto = new BitmapImage();
+            foto.BeginInit();
+            foto.UriSource = new Uri(url);
+            foto.EndInit();
+            foto.Freeze();*/
+
+          //  imgPerfil.Source = foto;
 
         }
 
 
         public void Reset()
         {
-            lblNombre.Content = "¡Bienvenido!";
+            lblNom.Content = "¡Bienvenido!";
             lblApellidos.Content = "Que tengas buen día";
             lblNumero.Content = "Coloca tu dedo en el lector";
-            lblReporte.Content = "kjkjj";
 
-          
+          //  BitmapImage foto = new BitmapImage();
+           // foto.BeginInit();
+          //  foto.UriSource = new Uri("../../Resources/perfil_generico.png", UriKind.Relative);
+            //foto.EndInit();
+            //foto.Freeze();
+
+          //  imgPerfil.Source = foto;
         }
 
 
@@ -487,7 +526,7 @@ namespace TorneoAnual
         {
 
             this.Dispatcher.Invoke(new Function(delegate () {
-                lblReporte.Content = "The fingerprint reader was touched.";
+                lblReporte.Content = "Leyendo la huella digital ";
             }));
         }
 
@@ -495,7 +534,7 @@ namespace TorneoAnual
         {
 
             this.Dispatcher.Invoke(new Function(delegate () {
-                lblReporte.Content = "The fingerprint reader was connected.";
+                lblReporte.Content = "La Huella leida fue conectada";
             }));
         }
 
@@ -503,7 +542,7 @@ namespace TorneoAnual
         {
 
             this.Dispatcher.Invoke(new Function(delegate () {
-                lblReporte.Content = "The fingerprint reader was disconnected.";
+                lblReporte.Content = "La huella leida fue desconectada";
             }));
         }
 
@@ -516,10 +555,7 @@ namespace TorneoAnual
                 MakeReport("The quality of the fingerprint sample is poor.");*/
         }
         #endregion
+        #endregion
 
     }
 }
-
-
-  
-

@@ -1,0 +1,68 @@
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\Checador.csprojResolveAssemblyReference.cache
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\Check.g.cs
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\Empleados.g.cs
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\MainWindow.g.cs
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\App.g.cs
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\Checador_MarkupCompile.cache
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\Checador_MarkupCompile.lref
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\Checador.exe.config
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\Checador.exe
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\Checador.pdb
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\DPFPDevNET.dll
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\DPFPEngNET.dll
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\DPFPGuiNET.dll
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\DPFPShrNET.dll
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\DPFPVerNET.dll
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\MaterialDesignColors.dll
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\DPFPCtlXWrapperNET.dll
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\DPFPCtlXTypeLibNET.dll
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\DPFPShrXTypeLibNET.dll
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\App.baml
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\Check.baml
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\Empleados.baml
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\MainWindow.baml
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\Checador.g.resources
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\Checador.CaptureForm.resources
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\Checador.Properties.Resources.resources
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\Checador.csproj.GenerateResource.Cache
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\Checador.exe
+C:\Users\Zam\Documents\Visual Studio 2017\Projects\Checador\Checador\obj\Debug\Checador.pdb
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\Checador.exe.config
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\Checador.exe
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\Checador.pdb
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\DPFPDevNET.dll
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\DPFPEngNET.dll
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\DPFPGuiNET.dll
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\DPFPShrNET.dll
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\DPFPVerNET.dll
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\MaterialDesignColors.dll
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\DPFPCtlXWrapperNET.dll
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\DPFPCtlXTypeLibNET.dll
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\DPFPShrXTypeLibNET.dll
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\MaterialDesignColors.pdb
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Checador.csprojAssemblyReference.cache
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Check.g.cs
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Empleados.g.cs
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\MainWindow.g.cs
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\App.g.cs
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Checador_MarkupCompile.cache
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Checador_MarkupCompile.lref
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\App.baml
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Check.baml
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Empleados.baml
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\MainWindow.baml
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Checador.g.resources
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Checador.CaptureForm.resources
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Checador.Properties.Resources.resources
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Checador.csproj.GenerateResource.cache
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Checador.csproj.CoreCompileInputs.cache
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Checador.csproj.CopyComplete
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Checador.exe
+C:\Users\jessa\Desktop\CampestreAhorasi\Proyecto Checador\Checador\Checador\obj\Debug\Checador.pdb

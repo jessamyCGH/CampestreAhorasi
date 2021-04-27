@@ -1,0 +1,10 @@
+
+Gracias por descargar el proyecto.  Suscríbete en agradecimiento :D
+
+Para que funcione el proyecto tal y como está debes hacer lo siguiente:
+
+1. Crea la base de datos con nombre Checador.
+2. Ejecuta los scripts para crear tablas y procedimientos.
+3. Abre el proyecto en VS 2017 (de preferencia).
+4. Ejecuta el proyeto y adáptalo a tus necesidades. 
+

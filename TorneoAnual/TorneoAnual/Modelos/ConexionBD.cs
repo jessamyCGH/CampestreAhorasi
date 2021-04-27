@@ -13,7 +13,7 @@ namespace TorneoAnual.Modelos
 {
     class ConexionBD
     {
-        string cadena = @"Data Source= {nombrePC};Initial Catalog=TorneoAnual; Integrated Security= True";
+        string cadena = @"Data Source= localhost; initial Catalog=TorneoAnual; Integrated Security= True";
         public SqlConnection conectarBDT = new SqlConnection();
 
        
@@ -34,7 +34,7 @@ namespace TorneoAnual.Modelos
                     using (var command = conn.CreateCommand())
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.CommandText = "Registro";
+                        command.CommandText = "Alta";
                         command.Parameters.AddWithValue("@nombre", usuario.nombre);
                         command.Parameters.AddWithValue("@apellidoP", usuario.apellidoP);
                         command.Parameters.AddWithValue("@apellidoM", usuario.apellidoM);
@@ -151,7 +151,7 @@ namespace TorneoAnual.Modelos
             conectarBDT.ConnectionString = cadena;
             conectarBDT.Open();
 
-            SqlCommand command = new SqlCommand("SELECT nombre,apellidoP,apellidoM FROM Usuarios", conectarBDT);
+            SqlCommand command = new SqlCommand("SELECT nombre,apellidoP,apellidoM FROM Usuario", conectarBDT);
 
             SqlDataReader reader = command.ExecuteReader();
 
@@ -503,7 +503,7 @@ namespace TorneoAnual.Modelos
 
         #region mostrar
         //SE le hace la peticion al procedure de muestra y nos mostrara los datos deseados 
-        public static List<Usuario> MuestraEmpleados()
+        public static List<Usuario> Muestra()
         {
             List<Usuario> listaUsuario = new List<Usuario>();
 
@@ -525,7 +525,7 @@ namespace TorneoAnual.Modelos
                                 while (dr.Read())
                                 {
                                     Usuario us = new Usuario();
-                                    us.id = int.Parse(dr["id"].ToString());
+                                   us.id = int.Parse(dr["id"].ToString());
                                     us.nombre = dr["nombre"].ToString();
                                     us.apellidoP = dr["apellidoP"].ToString();
                                     us.club = dr["club"].ToString();
