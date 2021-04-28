@@ -30,10 +30,16 @@ namespace TorneoAnual
         private void InitializeComponent()
         {
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.cvTenis = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.btnTenis = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.cvGolf = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.btnKGolf = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.cvConcierto = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.btnConcierto = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.cvClausura = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.btnClausura = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.cvCerveza = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
@@ -42,15 +48,25 @@ namespace TorneoAnual
             this.cvInaguracion = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.btnInaguracion = new System.Windows.Forms.Button();
             this.btnGolf = new System.Windows.Forms.TabControl();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.tabPage6.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.btnGolf.SuspendLayout();
+            this.tabPage7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.cvTenis);
+            this.tabPage6.Controls.Add(this.btnTenis);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
@@ -59,8 +75,31 @@ namespace TorneoAnual
             this.tabPage6.Text = "KitTenis";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // cvTenis
+            // 
+            this.cvTenis.ActiveViewIndex = -1;
+            this.cvTenis.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cvTenis.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cvTenis.Location = new System.Drawing.Point(3, 55);
+            this.cvTenis.Name = "cvTenis";
+            this.cvTenis.Size = new System.Drawing.Size(1017, 518);
+            this.cvTenis.TabIndex = 1;
+            this.cvTenis.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // btnTenis
+            // 
+            this.btnTenis.Location = new System.Drawing.Point(760, 6);
+            this.btnTenis.Name = "btnTenis";
+            this.btnTenis.Size = new System.Drawing.Size(189, 43);
+            this.btnTenis.TabIndex = 0;
+            this.btnTenis.Text = "Generar Reporte de Tennis";
+            this.btnTenis.UseVisualStyleBackColor = true;
+            this.btnTenis.Click += new System.EventHandler(this.btnTenis_Click);
+            // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.cvGolf);
+            this.tabPage5.Controls.Add(this.btnKGolf);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
@@ -69,8 +108,30 @@ namespace TorneoAnual
             this.tabPage5.Text = "Kit Golf";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // cvGolf
+            // 
+            this.cvGolf.ActiveViewIndex = -1;
+            this.cvGolf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cvGolf.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cvGolf.Location = new System.Drawing.Point(6, 78);
+            this.cvGolf.Name = "cvGolf";
+            this.cvGolf.Size = new System.Drawing.Size(1014, 498);
+            this.cvGolf.TabIndex = 1;
+            this.cvGolf.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // btnKGolf
+            // 
+            this.btnKGolf.Location = new System.Drawing.Point(365, 20);
+            this.btnKGolf.Name = "btnKGolf";
+            this.btnKGolf.Size = new System.Drawing.Size(75, 23);
+            this.btnKGolf.TabIndex = 0;
+            this.btnKGolf.Text = "button1";
+            this.btnKGolf.UseVisualStyleBackColor = true;
+            this.btnKGolf.Click += new System.EventHandler(this.btnKGolf_Click);
+            // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.cvConcierto);
             this.tabPage4.Controls.Add(this.btnConcierto);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
@@ -80,17 +141,30 @@ namespace TorneoAnual
             this.tabPage4.Text = "Concierto";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // cvConcierto
+            // 
+            this.cvConcierto.ActiveViewIndex = -1;
+            this.cvConcierto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cvConcierto.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cvConcierto.Location = new System.Drawing.Point(6, 89);
+            this.cvConcierto.Name = "cvConcierto";
+            this.cvConcierto.Size = new System.Drawing.Size(1011, 484);
+            this.cvConcierto.TabIndex = 1;
+            this.cvConcierto.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
             // btnConcierto
             // 
-            this.btnConcierto.Location = new System.Drawing.Point(794, 21);
+            this.btnConcierto.Location = new System.Drawing.Point(599, 16);
             this.btnConcierto.Name = "btnConcierto";
-            this.btnConcierto.Size = new System.Drawing.Size(75, 23);
+            this.btnConcierto.Size = new System.Drawing.Size(216, 43);
             this.btnConcierto.TabIndex = 0;
-            this.btnConcierto.Text = "button1";
+            this.btnConcierto.Text = "Generar Reporte de Conciertos";
             this.btnConcierto.UseVisualStyleBackColor = true;
+            this.btnConcierto.Click += new System.EventHandler(this.btnConcierto_Click);
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.cvClausura);
             this.tabPage3.Controls.Add(this.btnClausura);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -100,14 +174,26 @@ namespace TorneoAnual
             this.tabPage3.Text = "Clausura";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // cvClausura
+            // 
+            this.cvClausura.ActiveViewIndex = -1;
+            this.cvClausura.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cvClausura.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cvClausura.Location = new System.Drawing.Point(3, 70);
+            this.cvClausura.Name = "cvClausura";
+            this.cvClausura.Size = new System.Drawing.Size(1017, 503);
+            this.cvClausura.TabIndex = 1;
+            this.cvClausura.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
             // btnClausura
             // 
-            this.btnClausura.Location = new System.Drawing.Point(781, 45);
+            this.btnClausura.Location = new System.Drawing.Point(811, 3);
             this.btnClausura.Name = "btnClausura";
-            this.btnClausura.Size = new System.Drawing.Size(75, 23);
+            this.btnClausura.Size = new System.Drawing.Size(209, 61);
             this.btnClausura.TabIndex = 0;
-            this.btnClausura.Text = "button1";
+            this.btnClausura.Text = "Generar Reporte de Clausura";
             this.btnClausura.UseVisualStyleBackColor = true;
+            this.btnClausura.Click += new System.EventHandler(this.btnClausura_Click);
             // 
             // tabPage2
             // 
@@ -126,18 +212,19 @@ namespace TorneoAnual
             this.cvCerveza.ActiveViewIndex = -1;
             this.cvCerveza.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cvCerveza.Cursor = System.Windows.Forms.Cursors.Default;
-            this.cvCerveza.Location = new System.Drawing.Point(31, 129);
+            this.cvCerveza.Location = new System.Drawing.Point(3, 64);
             this.cvCerveza.Name = "cvCerveza";
-            this.cvCerveza.Size = new System.Drawing.Size(910, 375);
+            this.cvCerveza.Size = new System.Drawing.Size(1020, 509);
             this.cvCerveza.TabIndex = 1;
+            this.cvCerveza.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // btnCerveza
             // 
-            this.btnCerveza.Location = new System.Drawing.Point(771, 34);
+            this.btnCerveza.Location = new System.Drawing.Point(775, 6);
             this.btnCerveza.Name = "btnCerveza";
-            this.btnCerveza.Size = new System.Drawing.Size(75, 23);
+            this.btnCerveza.Size = new System.Drawing.Size(201, 52);
             this.btnCerveza.TabIndex = 0;
-            this.btnCerveza.Text = "button1";
+            this.btnCerveza.Text = "Generar Reporte Cerveza";
             this.btnCerveza.UseVisualStyleBackColor = true;
             this.btnCerveza.Click += new System.EventHandler(this.btnCerveza_Click);
             // 
@@ -182,25 +269,77 @@ namespace TorneoAnual
             this.btnGolf.Controls.Add(this.tabPage4);
             this.btnGolf.Controls.Add(this.tabPage5);
             this.btnGolf.Controls.Add(this.tabPage6);
+            this.btnGolf.Controls.Add(this.tabPage7);
             this.btnGolf.Location = new System.Drawing.Point(2, 65);
             this.btnGolf.Name = "btnGolf";
             this.btnGolf.SelectedIndex = 0;
             this.btnGolf.Size = new System.Drawing.Size(1031, 602);
             this.btnGolf.TabIndex = 6;
             // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.crystalReportViewer1);
+            this.tabPage7.Controls.Add(this.button1);
+            this.tabPage7.Controls.Add(this.dateTimePicker2);
+            this.tabPage7.Controls.Add(this.dateTimePicker1);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(1023, 576);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Alimentos";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(38, 32);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 0;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(335, 32);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker2.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(641, 32);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // crystalReportViewer1
+            // 
+            this.crystalReportViewer1.ActiveViewIndex = -1;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(6, 71);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.Size = new System.Drawing.Size(1014, 505);
+            this.crystalReportViewer1.TabIndex = 3;
+            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
             // Reporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1042, 683);
+            this.ClientSize = new System.Drawing.Size(1031, 668);
             this.Controls.Add(this.btnGolf);
             this.Name = "Reporte";
             this.Text = "Reporte";
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.btnGolf.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -219,5 +358,16 @@ namespace TorneoAnual
         private System.Windows.Forms.Button btnClausura;
         private System.Windows.Forms.Button btnCerveza;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer cvCerveza;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvClausura;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvConcierto;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvTenis;
+        private System.Windows.Forms.Button btnTenis;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvGolf;
+        private System.Windows.Forms.Button btnKGolf;
+        private System.Windows.Forms.TabPage tabPage7;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

@@ -64,7 +64,77 @@ namespace TorneoAnual
             cvCerveza.ReportSource = CRC;
         }
 
+        private void btnClausura_Click(object sender, EventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
 
+            SqlDataAdapter data = new SqlDataAdapter("Repo_Clausura", con);
+            data.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+
+            DataTable dClausura = new DataTable();
+            data.Fill(dClausura);
+
+            TorneoAnual.CrystalReports.CRClausura CRCla = new CrystalReports.CRClausura();
+            cvClausura.ReportSource = null;
+            cvClausura.ReportSource = CRCla;
+        
+        }
+
+        private void btnConcierto_Click(object sender, EventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+
+            SqlDataAdapter data = new SqlDataAdapter("Repo_Concierto", con);
+            data.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+
+            DataTable dConcierto = new DataTable();
+            data.Fill(dConcierto);
+
+            TorneoAnual.CrystalReports.CRConcierto CRCon = new CrystalReports.CRConcierto();
+            cvConcierto.ReportSource = null;
+            cvConcierto.ReportSource = CRCon;
+
+        }
+
+        private void btnKGolf_Click(object sender, EventArgs e)
+        {
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+
+            SqlDataAdapter data = new SqlDataAdapter("Repo_Golf", con);
+            data.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+
+            DataTable dGolf = new DataTable();
+            data.Fill(dGolf);
+
+            TorneoAnual.CrystalReports.CRGolf cRGolf = new CrystalReports.CRGolf();
+            cvGolf.ReportSource = null;
+            cvGolf.ReportSource = cRGolf;
+        }
+
+       
+        private void btnTenis_Click(object sender, EventArgs e)
+        {
+
+            if (con.State == ConnectionState.Closed)
+                con.Open();
+
+            SqlDataAdapter data = new SqlDataAdapter("Repo_Tenis", con);
+            data.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+
+            DataTable dTenis = new DataTable();
+            data.Fill(dTenis);
+
+            TorneoAnual.CrystalReports.CRTenis cRTenis = new CrystalReports.CRTenis();
+            cvTenis.ReportSource = null;
+            cvTenis.ReportSource = cRTenis;
+        }
     }
 
 

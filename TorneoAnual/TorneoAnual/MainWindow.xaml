@@ -98,7 +98,7 @@
                 <Image Source="Resources/Edit.png"  Height="130"  Width="136" Stretch="UniformToFill" />
                 <Button x:Name="btnReporte" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
                     HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,16,0" Grid.RowSpan="2" Click="btnReporte_Click" >
-                    <materialDesign:PackIcon Kind="Update" />
+                    <materialDesign:PackIcon Kind="Report" />
                 </Button>
                 <StackPanel Grid.Row="1" Margin="8 24 8 0">
                     <TextBlock FontWeight="Bold" TextAlignment="Center"><Run Text="Reporte"/></TextBlock>

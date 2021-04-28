@@ -148,10 +148,28 @@
     <Compile Include="Check.xaml.cs">
       <DependentUpon>Check.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReports\CRAlimentos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRAlimentos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReports\CRCerveza.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CRCerveza.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\CRClausura.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRClausura.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\CRGolf.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRGolf.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CrystalReports\CRInaguracion.cs">
@@ -160,10 +178,37 @@
       <DependentUpon>CRInaguracion.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="CrystalReports\CRConcierto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRConcierto.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReports\CRTenis.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRTenis.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Dataset\DCerveza.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DCerveza.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\DClausura.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DClausura.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\DConcierto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DConcierto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\DGolf.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DGolf.xsd</DependentUpon>
     </Compile>
     <Compile Include="Dataset\DInaguracion.cs">
       <DependentUpon>DInaguracion.xsd</DependentUpon>
@@ -172,6 +217,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DInaguracion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\DTenis.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DTenis.xsd</DependentUpon>
     </Compile>
     <Compile Include="Modelos\BitMapImagen.cs" />
     <Compile Include="Modelos\ConexionBD.cs" />
@@ -242,13 +292,33 @@
     <EmbeddedResource Include="CaptureForm.resx">
       <DependentUpon>CaptureForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\CRAlimentos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRAlimentos.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\CRCerveza.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRCerveza.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\CRClausura.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRClausura.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\CRGolf.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRGolf.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\CRInaguracion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRInaguracion.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\CRConcierto.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRConcierto.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\CRTenis.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRTenis.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -268,6 +338,39 @@
     <None Include="Dataset\DCerveza.xss">
       <DependentUpon>DCerveza.xsd</DependentUpon>
     </None>
+    <None Include="Dataset\DClausura.xsc">
+      <DependentUpon>DClausura.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DClausura.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DClausura.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\DClausura.xss">
+      <DependentUpon>DClausura.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DConcierto.xsc">
+      <DependentUpon>DConcierto.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DConcierto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DConcierto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\DConcierto.xss">
+      <DependentUpon>DConcierto.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DGolf.xsc">
+      <DependentUpon>DGolf.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DGolf.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DGolf.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\DGolf.xss">
+      <DependentUpon>DGolf.xsd</DependentUpon>
+    </None>
     <None Include="Dataset\DInaguracion.xsc">
       <DependentUpon>DInaguracion.xsd</DependentUpon>
     </None>
@@ -278,6 +381,17 @@
     </None>
     <None Include="Dataset\DInaguracion.xss">
       <DependentUpon>DInaguracion.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DTenis.xsc">
+      <DependentUpon>DTenis.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DTenis.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DTenis.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\DTenis.xss">
+      <DependentUpon>DTenis.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
