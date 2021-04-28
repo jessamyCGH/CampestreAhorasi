@@ -96,7 +96,6 @@ namespace TorneoAnual
 
             try
             {
-                Usuario usuario = new Usuario();
                 usuario.nombre = tbNombre.Text;
                 usuario.apellidoP = tbApellidoP.Text;
                 usuario.apellidoM = tbApellidoM.Text;
@@ -104,16 +103,10 @@ namespace TorneoAnual
                 usuario.tel = tbCelular.Text;
                 usuario.club = tbClub.Text;
                 usuario.categoriaTipo = CmbTorneo.Text;
-             //   usuario.imagen = picFoto.Source;
+                //usuario.imagen = picFoto.Source;
                 usuario.huella = Template.Bytes;
 
-                /*  string destino = @"C:\Checador\";
-
-                    string recurso = imgFoto.Source.ToString().Replace("file:///", "");
-
-                    File.Copy(recurso, destino + tbUrlFoto.Text, true);*/
-
-                int id = ConexionBD.Alta(usuario);
+                int id = conexion.Alta(usuario);
 
                 if (id > 0)
                 {
@@ -144,7 +137,8 @@ namespace TorneoAnual
             {
                 cmbTenis.IsEnabled = true;
                 cmbGolf.IsEnabled = false;
-                usuario.categoriaDescripcion = (string)chkTenis.Content;
+                usuario.categoriaTipo = "T";
+                //usuario.categoriaDescripcion = (string)chkTenis.Content;
                 chkGolf.IsChecked = false;
 
             }
@@ -157,12 +151,14 @@ namespace TorneoAnual
             {
                 cmbGolf.IsEnabled = true;
                 cmbTenis.IsEnabled = false;
-                usuario.categoriaDescripcion = (string)chkGolf.Content;
+                usuario.categoriaTipo = "G";
+                //usuario.categoriaDescripcion = (string)chkGolf.Content;
                 chkTenis.IsChecked = false;
 
             }
         }
-       #region CAMARA
+
+        #region CAMARA
         private void btnCamara_Click(object sender, RoutedEventArgs e)
         {
 
@@ -286,11 +282,44 @@ namespace TorneoAnual
         }
 
         private DPFP.Template Template;
-        #endregion
-    
 
-     
-     
+
+        #endregion
+
+        #region Documentacion
+        #endregion
+
+        private void cmbGolf_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Tomaremos el nombre seleccionado en el comboBox
+            var itemSeleccionado = (string)cmbGolf.SelectedItem;
+
+            if (itemSeleccionado != null)
+            {
+                usuario.categoriaDescripcion = itemSeleccionado;
+            }
+        }
+
+        private void cmbTennis_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Tomaremos el nombre seleccionado en el comboBox
+            var itemSeleccionado = (string)cmbTenis.SelectedItem;
+
+            if (itemSeleccionado != null)
+            {
+                usuario.categoriaDescripcion = itemSeleccionado;
+            }
+        }
+
+        private void CmbTorneo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var itemSeleccionado = (string)CmbTorneo.SelectedItem;
+
+            if (itemSeleccionado != null)
+            {
+                usuario.torneo = itemSeleccionado;
+            }
+        }
     }
 }
 

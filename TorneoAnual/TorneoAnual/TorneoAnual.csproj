@@ -78,11 +78,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Checador\Proyecto Checador\Checador\Checador\bin\Debug\DPFPShrNET.dll</HintPath>
     </Reference>
-    <Reference Include="DPFPShrXTypeLibNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=c0c98f712d5392a7, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-      <HintPath>..\..\Checador\Proyecto Checador\Checador\Checador\bin\Debug\DPFPShrXTypeLibNET.dll</HintPath>
-    </Reference>
     <Reference Include="DPFPVerNET, Version=1.6.1.0, Culture=neutral, PublicKeyToken=4de0a9c4dcc83984, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Checador\Proyecto Checador\Checador\Checador\bin\Debug\DPFPVerNET.dll</HintPath>
