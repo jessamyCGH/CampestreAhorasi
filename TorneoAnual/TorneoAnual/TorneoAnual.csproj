@@ -50,6 +50,9 @@
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="DarrenLee.Media">
       <HintPath>..\..\..\DarrenLee.Media.dll</HintPath>
     </Reference>
@@ -113,7 +116,9 @@
     <Reference Include="PA.Picture, Version=4.7.4.0, Culture=neutral, PublicKeyToken=efe7f84d28b0579c, processorArchitecture=MSIL">
       <HintPath>..\packages\PA.Picture.4.7.4\lib\net45\PA.Picture.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -143,28 +148,36 @@
     <Compile Include="Check.xaml.cs">
       <DependentUpon>Check.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Camara.cs">
-      <SubType>Form</SubType>
+    <Compile Include="CrystalReports\CRCerveza.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRCerveza.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Camara.Designer.cs">
-      <DependentUpon>Camara.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CRInaguracion.cs">
+    <Compile Include="CrystalReports\CRInaguracion.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CRInaguracion.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Dataset\DCerveza.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DCerveza.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\DInaguracion.cs">
+      <DependentUpon>DInaguracion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\DInaguracion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DInaguracion.xsd</DependentUpon>
     </Compile>
     <Compile Include="Modelos\BitMapImagen.cs" />
     <Compile Include="Modelos\ConexionBD.cs" />
     <Compile Include="Modelos\Usuario.cs" />
     <Compile Include="Modificar.xaml.cs">
       <DependentUpon>Modificar.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="DataInaguracion.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataInaguracion.xsd</DependentUpon>
     </Compile>
     <Compile Include="Registro.xaml.cs">
       <DependentUpon>Registro.xaml</DependentUpon>
@@ -226,13 +239,14 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Camara.resx">
-      <DependentUpon>Camara.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="CaptureForm.resx">
       <DependentUpon>CaptureForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CRInaguracion.rpt">
+    <EmbeddedResource Include="CrystalReports\CRCerveza.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRCerveza.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\CRInaguracion.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRInaguracion.cs</LastGenOutput>
     </EmbeddedResource>
@@ -243,18 +257,29 @@
     <EmbeddedResource Include="Reporte.resx">
       <DependentUpon>Reporte.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
-    <None Include="DataInaguracion.xsc">
-      <DependentUpon>DataInaguracion.xsd</DependentUpon>
+    <None Include="Dataset\DCerveza.xsc">
+      <DependentUpon>DCerveza.xsd</DependentUpon>
     </None>
-    <None Include="DataInaguracion.xsd">
+    <None Include="Dataset\DCerveza.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataInaguracion.Designer.cs</LastGenOutput>
+      <LastGenOutput>DCerveza.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DataInaguracion.xss">
-      <DependentUpon>DataInaguracion.xsd</DependentUpon>
+    <None Include="Dataset\DCerveza.xss">
+      <DependentUpon>DCerveza.xsd</DependentUpon>
     </None>
+    <None Include="Dataset\DInaguracion.xsc">
+      <DependentUpon>DInaguracion.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DInaguracion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DInaguracion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\DInaguracion.xss">
+      <DependentUpon>DInaguracion.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

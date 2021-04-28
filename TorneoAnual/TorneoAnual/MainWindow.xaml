@@ -17,7 +17,7 @@
         </Grid.ColumnDefinitions>
 
 
-        <materialDesign:Card Width="200" Height="319" Margin="158,155,138,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
+        <materialDesign:Card Width="200" Height="319" Margin="66,156,230,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="140" />
@@ -45,7 +45,7 @@
             </Grid>
         </materialDesign:Card>
 
-        <materialDesign:Card Grid.Column="1" Width="200" Height="319" Margin="203,155,197,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
+        <materialDesign:Card Grid.Column="1" Width="200" Height="319" Margin="101,158,299,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <Grid Margin="0,1,0,-1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="140" />
@@ -69,8 +69,8 @@
 
         <Rectangle Grid.ColumnSpan="4" Fill="#246777" Height="81" Stroke="Black" VerticalAlignment="Top" Margin="0,-2,0,0"/>
         <Label Content="Torneo Anual Campestre" Grid.Column="1" Margin="10,0" VerticalAlignment="Top" FontSize="50" Foreground="White" Grid.ColumnSpan="2" Height="80"/>
-       
-        <materialDesign:Card Grid.Column="2" Width="200" Height="319" Margin="144,154,152,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
+
+        <materialDesign:Card Grid.Column="2" Width="200" Height="319" Margin="42,157,58,0" VerticalAlignment="Top">
             <Grid Margin="0,1,0,-1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="140" />
@@ -85,6 +85,24 @@
                 <StackPanel Grid.Row="1" Margin="8 24 8 0">
                     <TextBlock FontWeight="Bold" TextAlignment="Center"><Run Text="Modificar"/></TextBlock>
                     <TextBlock TextWrapping="Wrap" VerticalAlignment="Center"><Run Text="Actualizar los datos del usuario"/></TextBlock>
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+        <materialDesign:Card Grid.Column="2" Width="200" Height="319" Margin="269,156,27,0" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <Grid Margin="0,1,0,-1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="140" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Image Source="Resources/Edit.png"  Height="130"  Width="136" Stretch="UniformToFill" />
+                <Button x:Name="btnReporte" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                    HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,16,0" Grid.RowSpan="2" Click="btnReporte_Click" >
+                    <materialDesign:PackIcon Kind="Update" />
+                </Button>
+                <StackPanel Grid.Row="1" Margin="8 24 8 0">
+                    <TextBlock FontWeight="Bold" TextAlignment="Center"><Run Text="Reporte"/></TextBlock>
+                    <TextBlock TextWrapping="Wrap" VerticalAlignment="Center"><Run Text="Si se desea concer la asitencia de los jugadores a uno de los eventos aqui puedes generar un reporte"/></TextBlock>
                 </StackPanel>
             </Grid>
         </materialDesign:Card>

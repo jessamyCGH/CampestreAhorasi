@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace TorneoAnual {
+namespace TorneoAnual.Dataset {
     
     
     /// <summary>
@@ -20,17 +20,17 @@ namespace TorneoAnual {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Data")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DCerveza")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Data : global::System.Data.DataSet {
+    public partial class DCerveza : global::System.Data.DataSet {
         
-        private Repo_InaguracionDataTable tableRepo_Inaguracion;
+        private Repo_CervezaDataTable tableRepo_Cerveza;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Data() {
+        public DCerveza() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace TorneoAnual {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected Data(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DCerveza(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace TorneoAnual {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Repo_Inaguracion"] != null)) {
-                    base.Tables.Add(new Repo_InaguracionDataTable(ds.Tables["Repo_Inaguracion"]));
+                if ((ds.Tables["Repo_Cerveza"] != null)) {
+                    base.Tables.Add(new Repo_CervezaDataTable(ds.Tables["Repo_Cerveza"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace TorneoAnual {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Repo_InaguracionDataTable Repo_Inaguracion {
+        public Repo_CervezaDataTable Repo_Cerveza {
             get {
-                return this.tableRepo_Inaguracion;
+                return this.tableRepo_Cerveza;
             }
         }
         
@@ -127,7 +127,7 @@ namespace TorneoAnual {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Data cln = ((Data)(base.Clone()));
+            DCerveza cln = ((DCerveza)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace TorneoAnual {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Repo_Inaguracion"] != null)) {
-                    base.Tables.Add(new Repo_InaguracionDataTable(ds.Tables["Repo_Inaguracion"]));
+                if ((ds.Tables["Repo_Cerveza"] != null)) {
+                    base.Tables.Add(new Repo_CervezaDataTable(ds.Tables["Repo_Cerveza"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace TorneoAnual {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableRepo_Inaguracion = ((Repo_InaguracionDataTable)(base.Tables["Repo_Inaguracion"]));
+            this.tableRepo_Cerveza = ((Repo_CervezaDataTable)(base.Tables["Repo_Cerveza"]));
             if ((initTable == true)) {
-                if ((this.tableRepo_Inaguracion != null)) {
-                    this.tableRepo_Inaguracion.InitVars();
+                if ((this.tableRepo_Cerveza != null)) {
+                    this.tableRepo_Cerveza.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace TorneoAnual {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Data";
+            this.DataSetName = "DCerveza";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Data.xsd";
+            this.Namespace = "http://tempuri.org/DCerveza.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableRepo_Inaguracion = new Repo_InaguracionDataTable();
-            base.Tables.Add(this.tableRepo_Inaguracion);
+            this.tableRepo_Cerveza = new Repo_CervezaDataTable();
+            base.Tables.Add(this.tableRepo_Cerveza);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeRepo_Inaguracion() {
+        private bool ShouldSerializeRepo_Cerveza() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace TorneoAnual {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Data ds = new Data();
+            DCerveza ds = new DCerveza();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,18 +270,16 @@ namespace TorneoAnual {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void Repo_InaguracionRowChangeEventHandler(object sender, Repo_InaguracionRowChangeEvent e);
+        public delegate void Repo_CervezaRowChangeEventHandler(object sender, Repo_CervezaRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Repo_InaguracionDataTable : global::System.Data.TypedTableBase<Repo_InaguracionRow> {
+        public partial class Repo_CervezaDataTable : global::System.Data.TypedTableBase<Repo_CervezaRow> {
             
             private global::System.Data.DataColumn columnnombre;
-            
-            private global::System.Data.DataColumn columnapellidoP;
             
             private global::System.Data.DataColumn columnid_cat;
             
@@ -289,10 +287,12 @@ namespace TorneoAnual {
             
             private global::System.Data.DataColumn columnfecha;
             
+            private global::System.Data.DataColumn columncountCervezas;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Repo_InaguracionDataTable() {
-                this.TableName = "Repo_Inaguracion";
+            public Repo_CervezaDataTable() {
+                this.TableName = "Repo_Cerveza";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -300,7 +300,7 @@ namespace TorneoAnual {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Repo_InaguracionDataTable(global::System.Data.DataTable table) {
+            internal Repo_CervezaDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -317,7 +317,7 @@ namespace TorneoAnual {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected Repo_InaguracionDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected Repo_CervezaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -327,14 +327,6 @@ namespace TorneoAnual {
             public global::System.Data.DataColumn nombreColumn {
                 get {
                     return this.columnnombre;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn apellidoPColumn {
-                get {
-                    return this.columnapellidoP;
                 }
             }
             
@@ -364,6 +356,14 @@ namespace TorneoAnual {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn countCervezasColumn {
+                get {
+                    return this.columncountCervezas;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -373,49 +373,49 @@ namespace TorneoAnual {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Repo_InaguracionRow this[int index] {
+            public Repo_CervezaRow this[int index] {
                 get {
-                    return ((Repo_InaguracionRow)(this.Rows[index]));
+                    return ((Repo_CervezaRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Repo_InaguracionRowChangeEventHandler Repo_InaguracionRowChanging;
+            public event Repo_CervezaRowChangeEventHandler Repo_CervezaRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Repo_InaguracionRowChangeEventHandler Repo_InaguracionRowChanged;
+            public event Repo_CervezaRowChangeEventHandler Repo_CervezaRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Repo_InaguracionRowChangeEventHandler Repo_InaguracionRowDeleting;
+            public event Repo_CervezaRowChangeEventHandler Repo_CervezaRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Repo_InaguracionRowChangeEventHandler Repo_InaguracionRowDeleted;
+            public event Repo_CervezaRowChangeEventHandler Repo_CervezaRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddRepo_InaguracionRow(Repo_InaguracionRow row) {
+            public void AddRepo_CervezaRow(Repo_CervezaRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Repo_InaguracionRow AddRepo_InaguracionRow(string nombre, string apellidoP, int id_cat, string club, System.DateTime fecha) {
-                Repo_InaguracionRow rowRepo_InaguracionRow = ((Repo_InaguracionRow)(this.NewRow()));
+            public Repo_CervezaRow AddRepo_CervezaRow(string nombre, int id_cat, string club, System.DateTime fecha, int countCervezas) {
+                Repo_CervezaRow rowRepo_CervezaRow = ((Repo_CervezaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nombre,
-                        apellidoP,
                         id_cat,
                         club,
-                        fecha};
-                rowRepo_InaguracionRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowRepo_InaguracionRow);
-                return rowRepo_InaguracionRow;
+                        fecha,
+                        countCervezas};
+                rowRepo_CervezaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowRepo_CervezaRow);
+                return rowRepo_CervezaRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                Repo_InaguracionDataTable cln = ((Repo_InaguracionDataTable)(base.Clone()));
+                Repo_CervezaDataTable cln = ((Repo_CervezaDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -423,17 +423,17 @@ namespace TorneoAnual {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new Repo_InaguracionDataTable();
+                return new Repo_CervezaDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnnombre = base.Columns["nombre"];
-                this.columnapellidoP = base.Columns["apellidoP"];
                 this.columnid_cat = base.Columns["id_cat"];
                 this.columnclub = base.Columns["club"];
                 this.columnfecha = base.Columns["fecha"];
+                this.columncountCervezas = base.Columns["countCervezas"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -441,48 +441,47 @@ namespace TorneoAnual {
             private void InitClass() {
                 this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre);
-                this.columnapellidoP = new global::System.Data.DataColumn("apellidoP", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnapellidoP);
                 this.columnid_cat = new global::System.Data.DataColumn("id_cat", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_cat);
                 this.columnclub = new global::System.Data.DataColumn("club", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnclub);
                 this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfecha);
+                this.columncountCervezas = new global::System.Data.DataColumn("countCervezas", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncountCervezas);
                 this.columnnombre.AllowDBNull = false;
                 this.columnnombre.MaxLength = 40;
-                this.columnapellidoP.AllowDBNull = false;
-                this.columnapellidoP.MaxLength = 20;
                 this.columnid_cat.AllowDBNull = false;
                 this.columnclub.AllowDBNull = false;
                 this.columnclub.MaxLength = 20;
                 this.columnfecha.AllowDBNull = false;
+                this.columncountCervezas.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Repo_InaguracionRow NewRepo_InaguracionRow() {
-                return ((Repo_InaguracionRow)(this.NewRow()));
+            public Repo_CervezaRow NewRepo_CervezaRow() {
+                return ((Repo_CervezaRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Repo_InaguracionRow(builder);
+                return new Repo_CervezaRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(Repo_InaguracionRow);
+                return typeof(Repo_CervezaRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.Repo_InaguracionRowChanged != null)) {
-                    this.Repo_InaguracionRowChanged(this, new Repo_InaguracionRowChangeEvent(((Repo_InaguracionRow)(e.Row)), e.Action));
+                if ((this.Repo_CervezaRowChanged != null)) {
+                    this.Repo_CervezaRowChanged(this, new Repo_CervezaRowChangeEvent(((Repo_CervezaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -490,8 +489,8 @@ namespace TorneoAnual {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.Repo_InaguracionRowChanging != null)) {
-                    this.Repo_InaguracionRowChanging(this, new Repo_InaguracionRowChangeEvent(((Repo_InaguracionRow)(e.Row)), e.Action));
+                if ((this.Repo_CervezaRowChanging != null)) {
+                    this.Repo_CervezaRowChanging(this, new Repo_CervezaRowChangeEvent(((Repo_CervezaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -499,8 +498,8 @@ namespace TorneoAnual {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.Repo_InaguracionRowDeleted != null)) {
-                    this.Repo_InaguracionRowDeleted(this, new Repo_InaguracionRowChangeEvent(((Repo_InaguracionRow)(e.Row)), e.Action));
+                if ((this.Repo_CervezaRowDeleted != null)) {
+                    this.Repo_CervezaRowDeleted(this, new Repo_CervezaRowChangeEvent(((Repo_CervezaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -508,14 +507,14 @@ namespace TorneoAnual {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.Repo_InaguracionRowDeleting != null)) {
-                    this.Repo_InaguracionRowDeleting(this, new Repo_InaguracionRowChangeEvent(((Repo_InaguracionRow)(e.Row)), e.Action));
+                if ((this.Repo_CervezaRowDeleting != null)) {
+                    this.Repo_CervezaRowDeleting(this, new Repo_CervezaRowChangeEvent(((Repo_CervezaRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveRepo_InaguracionRow(Repo_InaguracionRow row) {
+            public void RemoveRepo_CervezaRow(Repo_CervezaRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -524,7 +523,7 @@ namespace TorneoAnual {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Data ds = new Data();
+                DCerveza ds = new DCerveza();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -542,7 +541,7 @@ namespace TorneoAnual {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Repo_InaguracionDataTable";
+                attribute2.FixedValue = "Repo_CervezaDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -586,36 +585,25 @@ namespace TorneoAnual {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class Repo_InaguracionRow : global::System.Data.DataRow {
+        public partial class Repo_CervezaRow : global::System.Data.DataRow {
             
-            private Repo_InaguracionDataTable tableRepo_Inaguracion;
+            private Repo_CervezaDataTable tableRepo_Cerveza;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Repo_InaguracionRow(global::System.Data.DataRowBuilder rb) : 
+            internal Repo_CervezaRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableRepo_Inaguracion = ((Repo_InaguracionDataTable)(this.Table));
+                this.tableRepo_Cerveza = ((Repo_CervezaDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string nombre {
                 get {
-                    return ((string)(this[this.tableRepo_Inaguracion.nombreColumn]));
+                    return ((string)(this[this.tableRepo_Cerveza.nombreColumn]));
                 }
                 set {
-                    this[this.tableRepo_Inaguracion.nombreColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string apellidoP {
-                get {
-                    return ((string)(this[this.tableRepo_Inaguracion.apellidoPColumn]));
-                }
-                set {
-                    this[this.tableRepo_Inaguracion.apellidoPColumn] = value;
+                    this[this.tableRepo_Cerveza.nombreColumn] = value;
                 }
             }
             
@@ -623,10 +611,10 @@ namespace TorneoAnual {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public int id_cat {
                 get {
-                    return ((int)(this[this.tableRepo_Inaguracion.id_catColumn]));
+                    return ((int)(this[this.tableRepo_Cerveza.id_catColumn]));
                 }
                 set {
-                    this[this.tableRepo_Inaguracion.id_catColumn] = value;
+                    this[this.tableRepo_Cerveza.id_catColumn] = value;
                 }
             }
             
@@ -634,10 +622,10 @@ namespace TorneoAnual {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string club {
                 get {
-                    return ((string)(this[this.tableRepo_Inaguracion.clubColumn]));
+                    return ((string)(this[this.tableRepo_Cerveza.clubColumn]));
                 }
                 set {
-                    this[this.tableRepo_Inaguracion.clubColumn] = value;
+                    this[this.tableRepo_Cerveza.clubColumn] = value;
                 }
             }
             
@@ -645,10 +633,21 @@ namespace TorneoAnual {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public System.DateTime fecha {
                 get {
-                    return ((global::System.DateTime)(this[this.tableRepo_Inaguracion.fechaColumn]));
+                    return ((global::System.DateTime)(this[this.tableRepo_Cerveza.fechaColumn]));
                 }
                 set {
-                    this[this.tableRepo_Inaguracion.fechaColumn] = value;
+                    this[this.tableRepo_Cerveza.fechaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int countCervezas {
+                get {
+                    return ((int)(this[this.tableRepo_Cerveza.countCervezasColumn]));
+                }
+                set {
+                    this[this.tableRepo_Cerveza.countCervezasColumn] = value;
                 }
             }
         }
@@ -657,22 +656,22 @@ namespace TorneoAnual {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class Repo_InaguracionRowChangeEvent : global::System.EventArgs {
+        public class Repo_CervezaRowChangeEvent : global::System.EventArgs {
             
-            private Repo_InaguracionRow eventRow;
+            private Repo_CervezaRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Repo_InaguracionRowChangeEvent(Repo_InaguracionRow row, global::System.Data.DataRowAction action) {
+            public Repo_CervezaRowChangeEvent(Repo_CervezaRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Repo_InaguracionRow Row {
+            public Repo_CervezaRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -688,7 +687,7 @@ namespace TorneoAnual {
         }
     }
 }
-namespace TorneoAnual.DataTableAdapters {
+namespace TorneoAnual.Dataset.DCervezaTableAdapters {
     
     
     /// <summary>
@@ -700,7 +699,7 @@ namespace TorneoAnual.DataTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Repo_InaguracionTableAdapter : global::System.ComponentModel.Component {
+    public partial class Repo_CervezaTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -714,7 +713,7 @@ namespace TorneoAnual.DataTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Repo_InaguracionTableAdapter() {
+        public Repo_CervezaTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -811,12 +810,12 @@ namespace TorneoAnual.DataTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Repo_Inaguracion";
+            tableMapping.DataSetTable = "Repo_Cerveza";
             tableMapping.ColumnMappings.Add("nombre", "nombre");
-            tableMapping.ColumnMappings.Add("apellidoP", "apellidoP");
             tableMapping.ColumnMappings.Add("id_cat", "id_cat");
             tableMapping.ColumnMappings.Add("club", "club");
             tableMapping.ColumnMappings.Add("fecha", "fecha");
+            tableMapping.ColumnMappings.Add("countCervezas", "countCervezas");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -833,31 +832,17 @@ namespace TorneoAnual.DataTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.Repo_Inaguracion";
+            this._commandCollection[0].CommandText = "dbo.Repo_Cerveza";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaIn", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fechaFin", global::System.Data.SqlDbType.Date, 3, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Data.Repo_InaguracionDataTable dataTable, global::System.Nullable<global::System.DateTime> fechaIn, global::System.Nullable<global::System.DateTime> fechaFin) {
+        public virtual int Fill(DCerveza.Repo_CervezaDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((fechaIn.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(fechaIn.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((fechaFin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(fechaFin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -869,21 +854,9 @@ namespace TorneoAnual.DataTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Data.Repo_InaguracionDataTable GetData(global::System.Nullable<global::System.DateTime> fechaIn, global::System.Nullable<global::System.DateTime> fechaFin) {
+        public virtual DCerveza.Repo_CervezaDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((fechaIn.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(fechaIn.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((fechaFin.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(fechaFin.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            Data.Repo_InaguracionDataTable dataTable = new Data.Repo_InaguracionDataTable();
+            DCerveza.Repo_CervezaDataTable dataTable = new DCerveza.Repo_CervezaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -957,7 +930,7 @@ namespace TorneoAnual.DataTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(Data dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DCerveza dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -967,7 +940,7 @@ namespace TorneoAnual.DataTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(Data dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DCerveza dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -977,7 +950,7 @@ namespace TorneoAnual.DataTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(Data dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DCerveza dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1011,7 +984,7 @@ namespace TorneoAnual.DataTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(Data dataSet) {
+        public virtual int UpdateAll(DCerveza dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

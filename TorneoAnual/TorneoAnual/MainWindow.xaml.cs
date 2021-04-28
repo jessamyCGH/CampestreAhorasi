@@ -43,5 +43,11 @@ namespace TorneoAnual
             Modificar modificar = new Modificar();
                 modificar.Show();
         }
+
+        private void btnReporte_Click(object sender, RoutedEventArgs e)
+        {
+            Reporte modificar = new Reporte();
+            modificar.Show();
+        }
     }
 }

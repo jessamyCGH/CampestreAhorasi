@@ -111,9 +111,9 @@ namespace TorneoAnual
 
                     File.Copy(recurso, destino + tbUrlFoto.Text, true);*/
 
-                int id = ConexionBD.Alta(usuario);
+               // int id = ConexionBD.(usuario);
 
-                if (id > 0)
+               /* if (id > 0)
                 {
                     MessageBox.Show("Empleado guardado correctamente", "Guardar");
 
@@ -128,7 +128,7 @@ namespace TorneoAnual
                     //  dgEmpleados.DataContext = DatoEmpleado.MuestraEmpleados();
 
                 }
-
+               */
             }
             catch (Exception ex)
             {

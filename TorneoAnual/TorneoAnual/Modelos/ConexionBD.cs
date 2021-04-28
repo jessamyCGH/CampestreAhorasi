@@ -247,7 +247,7 @@ namespace TorneoAnual.Modelos
             conectarBDT.ConnectionString = cadena;
             conectarBDT.Open();
 
-            SqlCommand command = new SqlCommand("SELECT id FROM Usuarios WHERE nombre = @nombre AND apellidoP = @apellidoP AND apellidoM = @apellidoM", conectarBDT);
+            SqlCommand command = new SqlCommand("SELECT id FROM Usuario WHERE nombre = @nombre AND apellidoP = @apellidoP AND apellidoM = @apellidoM", conectarBDT);
             command.Parameters.AddWithValue("nombre", nombre);
             command.Parameters.AddWithValue("apellidoP", apellidop);
             command.Parameters.AddWithValue("apellidoM", apellidom);

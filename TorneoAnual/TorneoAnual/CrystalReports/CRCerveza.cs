@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TorneoAnual {
+namespace TorneoAnual.CrystalReports {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace TorneoAnual {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CRInaguracion : ReportClass {
+    public class CRCerveza : ReportClass {
         
-        public CRInaguracion() {
+        public CRCerveza() {
         }
         
         public override string ResourceName {
             get {
-                return "CRInaguracion.rpt";
+                return "CRCerveza.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace TorneoAnual {
         
         public override string FullResourceName {
             get {
-                return "TorneoAnual.CRInaguracion.rpt";
+                return "TorneoAnual.CrystalReports.CRCerveza.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace TorneoAnual {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCRInaguracion : Component, ICachedReport {
+    public class CachedCRCerveza : Component, ICachedReport {
         
-        public CachedCRInaguracion() {
+        public CachedCRCerveza() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace TorneoAnual {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CRInaguracion rpt = new CRInaguracion();
+            CRCerveza rpt = new CRCerveza();
             rpt.Site = this.Site;
             return rpt;
         }
