@@ -49,10 +49,7 @@ namespace TorneoAnual
             this.btnInaguracion = new System.Windows.Forms.Button();
             this.btnGolf = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.cvAlimentos = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -278,10 +275,7 @@ namespace TorneoAnual
             // 
             // tabPage7
             // 
-            this.tabPage7.Controls.Add(this.crystalReportViewer1);
-            this.tabPage7.Controls.Add(this.button1);
-            this.tabPage7.Controls.Add(this.dateTimePicker2);
-            this.tabPage7.Controls.Add(this.dateTimePicker1);
+            this.tabPage7.Controls.Add(this.cvAlimentos);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
@@ -289,40 +283,17 @@ namespace TorneoAnual
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Alimentos";
             this.tabPage7.UseVisualStyleBackColor = true;
+            this.tabPage7.Click += new System.EventHandler(this.tabPage7_Click);
             // 
-            // dateTimePicker1
+            // cvAlimentos
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(38, 32);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 0;
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(335, 32);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(641, 32);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // crystalReportViewer1
-            // 
-            this.crystalReportViewer1.ActiveViewIndex = -1;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(6, 71);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1014, 505);
-            this.crystalReportViewer1.TabIndex = 3;
-            this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            this.cvAlimentos.ActiveViewIndex = -1;
+            this.cvAlimentos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cvAlimentos.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cvAlimentos.Location = new System.Drawing.Point(0, 0);
+            this.cvAlimentos.Name = "cvAlimentos";
+            this.cvAlimentos.Size = new System.Drawing.Size(1020, 576);
+            this.cvAlimentos.TabIndex = 3;
             // 
             // Reporte
             // 
@@ -365,9 +336,6 @@ namespace TorneoAnual
         private CrystalDecisions.Windows.Forms.CrystalReportViewer cvGolf;
         private System.Windows.Forms.Button btnKGolf;
         private System.Windows.Forms.TabPage tabPage7;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvAlimentos;
     }
 }

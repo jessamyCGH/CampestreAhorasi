@@ -17,7 +17,7 @@ namespace TorneoAnual
 {
     public partial class Reporte : MaterialSkin.Controls.MaterialForm
     {
-
+        CrystalReports.CRAlimentos crA = new CrystalReports.CRAlimentos();
 
         public Reporte()
         {
@@ -134,6 +134,11 @@ namespace TorneoAnual
             TorneoAnual.CrystalReports.CRTenis cRTenis = new CrystalReports.CRTenis();
             cvTenis.ReportSource = null;
             cvTenis.ReportSource = cRTenis;
+        }
+
+        private void tabPage7_Click(object sender, EventArgs e)
+        {
+            cvAlimentos.ReportSource = crA;
         }
     }
 

@@ -66,6 +66,7 @@ namespace TorneoAnual
     
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
+            Usuario usuario = new Usuario();
             if (tbNombre.Text == "")
             {
                 MessageBox.Show("El campo Nombre debe ser especificado", "Error");
@@ -105,6 +106,7 @@ namespace TorneoAnual
                 usuario.categoriaTipo = CmbTorneo.Text;
                 //usuario.imagen = picFoto.Source;
                 usuario.huella = Template.Bytes;
+                usuario.categoriaDescripcion = cmbGolf.Text;
 
                 int id = conexion.Alta(usuario);
 

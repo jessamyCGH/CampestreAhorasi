@@ -1,0 +1,90 @@
+USE [TorneoAnual]
+GO
+/****** Object:  StoredProcedure [dbo].[Repo_Inaguracion]    Script Date: 28/04/2021 01:18:33 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+create procedure [dbo].[Repo_Inaguracion] 
+as 
+begin 
+SELECT  nombre, apellidoP, id_cat, club, fecha
+ from Inaguracion  
+ INNER JOIN Usuario 
+ on Inaguracion.id_user = Usuario.id 
+
+ end
+
+
+/****** Object:  StoredProcedure [dbo].[Repo_Inaguracion]    Script Date: 28/04/2021 01:18:33 a. m. ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ CREATE PROCEDURE [dbo].[Repo_Cerveza]
+ as 
+ begin 
+ SELECT  nombre, id_cat, club, fecha, countCervezas
+ from Cerveza  
+ INNER JOIN Usuario 
+ on Cerveza.id_user = Usuario.id 
+
+ end
+
+ SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ CREATE PROCEDURE [dbo].[Repo_Clausura]
+ as 
+ begin 
+ SELECT  nombre, id_cat, club, fecha
+ from Clausura  
+ INNER JOIN Usuario 
+ on Clausura.id_user = Usuario.id 
+
+ end
+
+  SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ CREATE PROCEDURE [dbo].[Repo_Concierto]
+ as 
+ begin 
+ SELECT  nombre, id_cat, club, fecha
+ from Concierto  
+ INNER JOIN Usuario 
+ on Concierto.id_user = Usuario.id 
+
+ end
+
+
+ SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ CREATE PROCEDURE [dbo].[Repo_Golf]
+ as 
+ begin 
+ SELECT  nombre, id_cat, club, fecha
+ from Golf  
+ INNER JOIN Usuario 
+ on Golf.id_user = Usuario.id 
+
+ end
+
+ SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ CREATE PROCEDURE [dbo].[Repo_Tenis]
+ as 
+ begin 
+ SELECT  nombre, id_cat, club, fecha
+ from Tennis  
+ INNER JOIN Usuario 
+ on Tennis.id_user = Usuario.id 
+
+ end
