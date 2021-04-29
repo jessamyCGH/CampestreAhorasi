@@ -25,7 +25,7 @@ namespace TorneoAnual.Modelos
         public string correo { get; set; }
         public byte [] imagen { get; set; }
 
-        public string fecha { get; set; }
+        public DateTime fecha { get; set; }
 
         public string categoriaDescripcion { get; set; }
 

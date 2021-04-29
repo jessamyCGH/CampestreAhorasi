@@ -21,15 +21,8 @@ namespace TorneoAnual.Modelos
             conectarBDT.ConnectionString = cadena;
         }
 
-        /*public static int Alta(Usuario usuario)
+        public static int update(Usuario usuario)
         {
-
-            
-
-            SqlCommand command = new SqlCommand("SELECT * FROM Categoria", conectarBDT);
-
-
-
             int res = 0;
 
             try
@@ -41,28 +34,21 @@ namespace TorneoAnual.Modelos
                     using (var command = conn.CreateCommand())
                     {
                         command.CommandType = CommandType.StoredProcedure;
-                        command.CommandText = "Alta";
-                        command.Parameters.AddWithValue("@nombre", usuario.nombre);
+                        command.CommandText = "update";
+                        command.Parameters.AddWithValue("@Nombre", usuario.nombre);
                         command.Parameters.AddWithValue("@apellidoP", usuario.apellidoP);
                         command.Parameters.AddWithValue("@apellidoM", usuario.apellidoM);
                         command.Parameters.AddWithValue("@correo", usuario.correo);
                         command.Parameters.AddWithValue("@tel", usuario.tel);
                         command.Parameters.AddWithValue("@club", usuario.club);
-
-                        SqlCommand command = new SqlCommand("SELECT * FROM Categoria", conectarBDT);
-
-
                         command.Parameters.AddWithValue("@id_cat", usuario.id_cat);
                         command.Parameters.AddWithValue("@huella", usuario.huella);
-                        command.Parameters.AddWithValue("@id_torneo", usuario.id_torneo );
-                        command.Parameters.AddWithValue("fecha_registro", DateTime.Now);
+                        command.Parameters.AddWithValue("@id_torneo", usuario.id_torneo);
+                        command.Parameters.AddWithValue("@imagen", usuario.imagen);
 
 
-
-                        SqlParameter param = new SqlParameter("Id", SqlDbType.Int);
-                        param.Value = 0;
-                        param.Direction = ParameterDirection.Output;
-                        command.Parameters.Add(param);
+                      
+                    
 
                         res = command.ExecuteNonQuery();
                     }
@@ -70,12 +56,13 @@ namespace TorneoAnual.Modelos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al dar de alta al empleado: " + ex.Message, "Error en Alta");
+                MessageBox.Show("Error al actualizar: " + ex.Message, "Error en Alta");
             }
 
             return res;
 
-        }*/
+        }
+
 
         public int Alta(Usuario usuario)
         {
@@ -97,21 +84,25 @@ namespace TorneoAnual.Modelos
                 {
                     id_cat = (int)reader["id_cat"];
                 }
+                reader.Close();
+
 
                 //Buscamos el id del torneo indicado
                 SqlCommand c2 = new SqlCommand("SELECT id_torneo FROM Torneo WHERE descripcion = @descripcion", conectarBDT);
 
                 c2.Parameters.AddWithValue("@descripcion", usuario.torneo);
 
-                reader = c2.ExecuteReader();
+                
+                SqlDataReader reader1 = c2.ExecuteReader();
 
                 int id_torneo = 0;
-                while (reader.Read())
+                while (reader1.Read())
                 {
-                    id_torneo = (int)reader["id_torneo"];
+                    id_torneo = (int)reader1["id_torneo"];
                 }
+                reader1.Close();
 
-                SqlCommand command = new SqlCommand("INSERT INTO Usuario(nombre,apellidoP,apellidoM,correo,tel,club,id_cat,huella,id_torneo,fecha_registro)VALUES(@nombre,@apellidoP,@apellidoM,@correo,@tel,@club,@id_cat,@huella,@id_torneo,@fecha_registro)", conectarBDT);
+                SqlCommand command = new SqlCommand("INSERT INTO Usuario(nombre,apellidoP,apellidoM,correo,tel,club,id_cat,huella,id_torneo,fecha_registro,imagen)VALUES(@nombre,@apellidoP,@apellidoM,@correo,@tel,@club,@id_cat,@huella,@id_torneo,@fecha_registro,@imagen)", conectarBDT);
 
                 command.Parameters.AddWithValue("@nombre", usuario.nombre);
                 command.Parameters.AddWithValue("@apellidoP", usuario.apellidoP);
@@ -122,7 +113,8 @@ namespace TorneoAnual.Modelos
                 command.Parameters.AddWithValue("@id_cat", id_cat);
                 command.Parameters.AddWithValue("@huella", usuario.huella);
                 command.Parameters.AddWithValue("@id_torneo", id_torneo);
-                command.Parameters.AddWithValue("fecha_registro", DateTime.Now);
+                command.Parameters.AddWithValue("@fecha_registro", DateTime.Now);
+                command.Parameters.AddWithValue("@imagen", usuario.imagen);
 
                 command.ExecuteReader();
 
@@ -136,6 +128,54 @@ namespace TorneoAnual.Modelos
         }
 
 
+        public Usuario GetdataUser(int id)
+        {
+            cadena = cadena.Replace("{nombrePC}", Environment.MachineName);
+            conectarBDT.ConnectionString = cadena;
+            conectarBDT.Open();
+            SqlCommand command = new SqlCommand("SELECT * FROM Usuario WHERE id = @id", conectarBDT);
+            command.Parameters.AddWithValue("@id", id);
+
+            SqlDataReader reader = command.ExecuteReader();
+            Usuario usuario = new Usuario();
+            while (reader.Read())
+            {
+                usuario.nombre = reader["nombre"] + "";
+                usuario.apellidoP = reader["apellidoP"] + "";
+                usuario.apellidoM = reader["apellidoM"] + "";
+                usuario.correo = reader["correo"] + "";
+                usuario.tel = reader["tel"] + "";
+                usuario.club = reader["club"] + "";
+                usuario.id_cat = (int)reader["id_cat"];
+                usuario.huella = (byte[])reader["huella"];
+                usuario.id_torneo = Convert.ToInt32(reader["id_torneo"].ToString()); 
+                usuario.imagen = (byte[]) reader["imagen"];
+            }
+
+            reader.Close();
+            return usuario;
+
+        }
+        public Usuario categoria (int id )
+        {
+            cadena = cadena.Replace("{nombrePC}", Environment.MachineName);
+            
+            SqlCommand command = new SqlCommand("SELECT * FROM Categoria WHERE id_cat = @id", conectarBDT);
+            command.Parameters.AddWithValue("@id", id);
+
+            SqlDataReader reader = command.ExecuteReader();
+            Usuario usuario = new Usuario();
+            while (reader.Read())
+            {
+                usuario.id_cat = (int)reader["id_cat"];
+                usuario.categoriaDescripcion = reader["descripcion"] + "";
+                usuario.categoriaTipo = reader["tipo"] + "";
+               
+            }
+
+            reader.Close();
+            return usuario;
+        }
 
         //Obtenemos las categorias de Golf para mostrarla en el cmbBox
         public ObservableCollection<string> obtenerCategoriasGolf()
@@ -256,7 +296,7 @@ namespace TorneoAnual.Modelos
             SqlDataReader reader = command.ExecuteReader();
 
             reader.Read();
-            var x = (int)reader.GetValue(0);
+            var x = (int)reader["id"];
 
             conectarBDT.Close();
             return x;

@@ -250,6 +250,6 @@ C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\Shockw
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\stdole.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.Reporte.resources
-C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csprojAssemblyReference.cache
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\Dapper.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\Dapper.xml
+C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csprojAssemblyReference.cache

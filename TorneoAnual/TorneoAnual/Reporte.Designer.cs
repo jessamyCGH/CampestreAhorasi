@@ -50,6 +50,7 @@ namespace TorneoAnual
             this.btnGolf = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.cvAlimentos = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.CRAlimentos1 = new TorneoAnual.CrystalReports.CRAlimentos();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -287,11 +288,12 @@ namespace TorneoAnual
             // 
             // cvAlimentos
             // 
-            this.cvAlimentos.ActiveViewIndex = -1;
+            this.cvAlimentos.ActiveViewIndex = 0;
             this.cvAlimentos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.cvAlimentos.Cursor = System.Windows.Forms.Cursors.Default;
             this.cvAlimentos.Location = new System.Drawing.Point(0, 0);
             this.cvAlimentos.Name = "cvAlimentos";
+            this.cvAlimentos.ReportSource = this.CRAlimentos1;
             this.cvAlimentos.Size = new System.Drawing.Size(1020, 576);
             this.cvAlimentos.TabIndex = 3;
             // 
@@ -337,5 +339,6 @@ namespace TorneoAnual
         private System.Windows.Forms.Button btnKGolf;
         private System.Windows.Forms.TabPage tabPage7;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer cvAlimentos;
+        private CrystalReports.CRAlimentos CRAlimentos1;
     }
 }

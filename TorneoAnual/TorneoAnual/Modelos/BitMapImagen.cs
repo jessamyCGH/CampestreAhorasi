@@ -19,6 +19,7 @@ namespace TorneoAnual.Modelos
             bi.BeginInit();
             MemoryStream ms = new MemoryStream();
             bitmap.Save(ms, ImageFormat.Bmp);
+            ms.ToArray();
             ms.Seek(0, SeekOrigin.Begin);
             bi.StreamSource = ms;
             bi.EndInit();

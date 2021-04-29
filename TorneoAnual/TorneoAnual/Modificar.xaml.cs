@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -28,6 +29,7 @@ namespace TorneoAnual
     {
         Usuario usuario = new Usuario();
         ConexionBD conexion = new ConexionBD();
+        BitmapImage bi;
 
         public ObservableCollection<FilterInfo> VideoDevices { get; set; }
 
@@ -53,8 +55,14 @@ namespace TorneoAnual
             GetVideoDevices();
 
 
-            //       CmbTorneo.ItemTemplate.LoadContent(conexion.obtenerTorneosActuales().ToArray());
             conexion = new ConexionBD();
+
+
+            //Con el metodo getAllUsers() obtendremos todos los nombres registrados en la base de datos
+            //para acomodarlos en nuestro comboBox
+            cmbNombre.ItemsSource = conexion.getAllNamesUsers().ToArray();
+            //       CmbTorneo.ItemTemplate.LoadContent(conexion.obtenerTorneosActuales().ToArray());
+
             cmbGolf.ItemsSource = conexion.obtenerCategoriasGolf().ToArray();
             cmbTenis.ItemsSource = conexion.obtenerCategoriasTennis().ToArray();
             CmbTorneo.ItemsSource = conexion.obtenerTorneosActuales().ToArray();
@@ -64,6 +72,7 @@ namespace TorneoAnual
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
+
             if (tbNombre.Text == "")
             {
                 MessageBox.Show("El campo Nombre debe ser especificado", "Error");
@@ -86,15 +95,10 @@ namespace TorneoAnual
                 return;
             }
 
-            if (Template == null)
-            {
-                MessageBox.Show("La huella del empleado debe ser capturada", "Error");
-                return;
-            }
+          
 
             try
             {
-                Usuario usuario = new Usuario();
                 usuario.nombre = tbNombre.Text;
                 usuario.apellidoP = tbApellidoP.Text;
                 usuario.apellidoM = tbApellidoM.Text;
@@ -102,33 +106,31 @@ namespace TorneoAnual
                 usuario.tel = tbCelular.Text;
                 usuario.club = tbClub.Text;
                 usuario.categoriaTipo = CmbTorneo.Text;
-                //   usuario.imagen = picFoto.Source;
-                usuario.huella = Template.Bytes;
+                //usuario.imagen = picFoto.Source;
+              //  usuario.huella = Template.Bytes;
 
-                /*  string destino = @"C:\Checador\";
 
-                    string recurso = imgFoto.Source.ToString().Replace("file:///", "");
+                int id = ConexionBD.update(usuario);
 
-                    File.Copy(recurso, destino + tbUrlFoto.Text, true);*/
-
-               // int id = ConexionBD.(usuario);
-
-               /* if (id > 0)
+                if (id > 0)
                 {
-                    MessageBox.Show("Empleado guardado correctamente", "Guardar");
 
-                    tbNombre.Text = "";
-                    tbApellidoP.Text = "";
-                    tbApellidoM.Text = "";
-                    tbClub.Text = "";
-                    tbCorreo.Text = "";
-                    tbCelular.Text = "";
+                    MessageBox.Show("jugador guardado correctamente", "Guardar");
+
+                    this.Close();
+                    /* tbNombre.Text = "";
+                     tbApellidoP.Text = "";
+                     tbApellidoM.Text = "";
+                     tbClub.Text = "";
+                     tbCorreo.Text = "";
+                     tbCelular.Text = "";*/
+
                     // picFoto.Source = null;
                     //  imgFoto.Source = null;
                     //  dgEmpleados.DataContext = DatoEmpleado.MuestraEmpleados();
 
                 }
-               */
+
             }
             catch (Exception ex)
             {
@@ -142,7 +144,8 @@ namespace TorneoAnual
             {
                 cmbTenis.IsEnabled = true;
                 cmbGolf.IsEnabled = false;
-                usuario.categoriaDescripcion = (string)chkTenis.Content;
+                usuario.categoriaTipo = "T";
+                //usuario.categoriaDescripcion = (string)chkTenis.Content;
                 chkGolf.IsChecked = false;
 
             }
@@ -155,11 +158,13 @@ namespace TorneoAnual
             {
                 cmbGolf.IsEnabled = true;
                 cmbTenis.IsEnabled = false;
-                usuario.categoriaDescripcion = (string)chkGolf.Content;
+                usuario.categoriaTipo = "G";
+                //usuario.categoriaDescripcion = (string)chkGolf.Content;
                 chkTenis.IsChecked = false;
 
             }
         }
+
         #region CAMARA
         private void btnCamara_Click(object sender, RoutedEventArgs e)
         {
@@ -180,9 +185,10 @@ namespace TorneoAnual
         {
             try
             {
-                BitmapImage bi;
+                // BitmapImage bi;
                 using (var bitmap = (Bitmap)eventArgs.Frame.Clone())
                 {
+
                     bi = bitmap.ToBitmapImage();
                 }
                 bi.Freeze(); // avoid cross thread operations and prevents leaks
@@ -218,6 +224,16 @@ namespace TorneoAnual
             {
                 _videoSource.SignalToStop();
                 _videoSource.NewFrame -= new NewFrameEventHandler(video_NewFrame);
+                byte[] data;
+                JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(bi));
+                using (System.IO.MemoryStream ms = new MemoryStream())
+                {
+                    encoder.Save(ms);
+                    data = ms.ToArray();
+                    usuario.imagen = data;
+                }
+
             }
         }
 
@@ -284,11 +300,117 @@ namespace TorneoAnual
         }
 
         private DPFP.Template Template;
+
+
         #endregion
 
+        #region Documentacion
+        #endregion
+
+        private void cmbGolf_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Tomaremos el nombre seleccionado en el comboBox
+            var itemSeleccionado = (string)cmbGolf.SelectedItem;
+
+            if (itemSeleccionado != null)
+            {
+                usuario.categoriaDescripcion = itemSeleccionado;
+            }
+        }
+
+        private void cmbTennis_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Tomaremos el nombre seleccionado en el comboBox
+            var itemSeleccionado = (string)cmbTenis.SelectedItem;
+
+            if (itemSeleccionado != null)
+            {
+                usuario.categoriaDescripcion = itemSeleccionado;
+            }
+        }
+
+        private void CmbTorneo_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var itemSeleccionado = (string)CmbTorneo.SelectedItem;
+
+            if (itemSeleccionado != null)
+            {
+                usuario.torneo = itemSeleccionado;
+            }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Tomaremos el nombre seleccionado en el comboBox
+            var itemSeleccionado = (string)cmbNombre.SelectedItem;
+
+            if (itemSeleccionado != null)
+            {
+                //Le hacemos un split por espacios para que nos quede un arreglo con los nombres del usuario
+                var array = itemSeleccionado.Split(' ');
+
+                //Utilizaremos el siguiente for para conjuntar todos los nombres del usuario en un string
+                //debido a que un usuario puede tener muchos nombres
+                string nombres = "";
+                for (int i = 0; i < array.Length - 2; i++)
+                {
+                    nombres += array[i] + " ";
+                }
+
+                //Le removemos el espacio que se le agrega al ultimo del for
+                nombres = nombres.Remove(nombres.Length - 1, 1);
+
+                //Buscamos en la base de datos su id y lo guardamos 
+                //sabiendo que el penultimo valor del arreglo es el apellido paterno y el ultimo el materno
+                int id = conexion.getIdUser(nombres, array[array.Length - 2], array[array.Length - 1]);
+                usuario = conexion.GetdataUser(id);
+
+                tbNombre.Text = usuario.nombre;
+                tbApellidoP.Text = usuario.apellidoP;
+                tbApellidoM.Text = usuario.apellidoM;
+                tbCorreo.Text = usuario.correo;
+                tbCelular.Text = usuario.tel;
+                tbClub.Text = usuario.club;
+                
+                var categoria = conexion.categoria(usuario.id_cat);
+                if (categoria.categoriaTipo == "T")
+                {
+                    cmbTenis.SelectedItem = categoria.categoriaDescripcion;
+                    chkGolf.IsChecked = false;
+                    chkTenis.IsChecked = true;
+                }
+                else
+                {
+                    cmbGolf.SelectedItem = categoria.categoriaDescripcion;
+                    chkGolf.IsChecked = true;
+                    chkTenis.IsChecked = false;
+                }
+
+                CmbTorneo.SelectedIndex = usuario.id_torneo - 1;
+
+                picFoto.Source = ByteToImage(usuario.imagen);
+                imgVerHuella.Visibility = Visibility.Visible;
+
+                // picFoto.Source = usuario.imagen;
 
 
+            }
 
-    }
+        }
+        public ImageSource ByteToImage(byte[] imageData)
+        {
+            BitmapImage biImg = new BitmapImage();
+            MemoryStream ms = new MemoryStream(imageData);
+            biImg.BeginInit();
+            biImg.StreamSource = ms;
+            biImg.EndInit();
+
+            ImageSource imgSrc = biImg as ImageSource;
+
+            return imgSrc;
+        }
+    }  
+
 }
+
 

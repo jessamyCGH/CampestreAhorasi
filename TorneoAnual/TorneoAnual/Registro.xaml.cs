@@ -22,6 +22,7 @@ using DarrenLee.Media;
 using Image = System.Windows.Controls.Image;
 using System.ComponentModel;
 using System.Threading;
+using System.IO;
 
 namespace TorneoAnual
 {
@@ -30,6 +31,7 @@ namespace TorneoAnual
     {
         Usuario usuario = new Usuario();
         ConexionBD conexion = new ConexionBD();
+        BitmapImage bi;
 
         public ObservableCollection<FilterInfo> VideoDevices { get; set; }
 
@@ -66,7 +68,7 @@ namespace TorneoAnual
     
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            Usuario usuario = new Usuario();
+     
             if (tbNombre.Text == "")
             {
                 MessageBox.Show("El campo Nombre debe ser especificado", "Error");
@@ -106,20 +108,23 @@ namespace TorneoAnual
                 usuario.categoriaTipo = CmbTorneo.Text;
                 //usuario.imagen = picFoto.Source;
                 usuario.huella = Template.Bytes;
-                usuario.categoriaDescripcion = cmbGolf.Text;
+              
 
                 int id = conexion.Alta(usuario);
 
                 if (id > 0)
                 {
+
                     MessageBox.Show("Empleado guardado correctamente", "Guardar");
 
-                    tbNombre.Text = "";
+                    this.Close();
+                   /* tbNombre.Text = "";
                     tbApellidoP.Text = "";
                     tbApellidoM.Text = "";
                     tbClub.Text = "";
                     tbCorreo.Text = "";
-                    tbCelular.Text = "";
+                    tbCelular.Text = "";*/
+                    
                    // picFoto.Source = null;
                   //  imgFoto.Source = null;
                     //  dgEmpleados.DataContext = DatoEmpleado.MuestraEmpleados();
@@ -180,9 +185,10 @@ namespace TorneoAnual
         {
             try
             {
-                BitmapImage bi;
+               // BitmapImage bi;
                 using (var bitmap = (Bitmap)eventArgs.Frame.Clone())
                 {
+                    
                     bi = bitmap.ToBitmapImage();
                 }
                 bi.Freeze(); // avoid cross thread operations and prevents leaks
@@ -218,6 +224,16 @@ namespace TorneoAnual
             {
                 _videoSource.SignalToStop();
                 _videoSource.NewFrame -= new NewFrameEventHandler(video_NewFrame);
+                byte[] data;
+                JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(bi));
+                using (System.IO.MemoryStream ms = new MemoryStream())
+                {
+                    encoder.Save(ms);
+                    data = ms.ToArray();
+                    usuario.imagen = data;
+                }
+
             }
         }
 
