@@ -399,7 +399,7 @@ namespace TorneoAnual.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Repo_CervezaRow AddRepo_CervezaRow(string nombre, int id_cat, string club, System.DateTime fecha, int countCervezas) {
+            public Repo_CervezaRow AddRepo_CervezaRow(string nombre, string id_cat, string club, System.DateTime fecha, int countCervezas) {
                 Repo_CervezaRow rowRepo_CervezaRow = ((Repo_CervezaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nombre,
@@ -441,7 +441,7 @@ namespace TorneoAnual.Dataset {
             private void InitClass() {
                 this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre);
-                this.columnid_cat = new global::System.Data.DataColumn("id_cat", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnid_cat = new global::System.Data.DataColumn("id_cat", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_cat);
                 this.columnclub = new global::System.Data.DataColumn("club", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnclub);
@@ -452,6 +452,7 @@ namespace TorneoAnual.Dataset {
                 this.columnnombre.AllowDBNull = false;
                 this.columnnombre.MaxLength = 40;
                 this.columnid_cat.AllowDBNull = false;
+                this.columnid_cat.MaxLength = 25;
                 this.columnclub.AllowDBNull = false;
                 this.columnclub.MaxLength = 20;
                 this.columnfecha.AllowDBNull = false;
@@ -609,9 +610,9 @@ namespace TorneoAnual.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int id_cat {
+            public string id_cat {
                 get {
-                    return ((int)(this[this.tableRepo_Cerveza.id_catColumn]));
+                    return ((string)(this[this.tableRepo_Cerveza.id_catColumn]));
                 }
                 set {
                     this[this.tableRepo_Cerveza.id_catColumn] = value;

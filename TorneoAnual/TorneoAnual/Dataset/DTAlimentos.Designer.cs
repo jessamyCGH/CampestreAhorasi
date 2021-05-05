@@ -20,17 +20,17 @@ namespace TorneoAnual.Dataset {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DClausura")]
+    [global::System.Xml.Serialization.XmlRootAttribute("DTAlimentos")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DClausura : global::System.Data.DataSet {
+    public partial class DTAlimentos : global::System.Data.DataSet {
         
-        private Repo_ClausuraDataTable tableRepo_Clausura;
+        private TicketAlimentosDataTable tableTicketAlimentos;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public DClausura() {
+        public DTAlimentos() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace TorneoAnual.Dataset {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected DClausura(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected DTAlimentos(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace TorneoAnual.Dataset {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Repo_Clausura"] != null)) {
-                    base.Tables.Add(new Repo_ClausuraDataTable(ds.Tables["Repo_Clausura"]));
+                if ((ds.Tables["TicketAlimentos"] != null)) {
+                    base.Tables.Add(new TicketAlimentosDataTable(ds.Tables["TicketAlimentos"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace TorneoAnual.Dataset {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public Repo_ClausuraDataTable Repo_Clausura {
+        public TicketAlimentosDataTable TicketAlimentos {
             get {
-                return this.tableRepo_Clausura;
+                return this.tableTicketAlimentos;
             }
         }
         
@@ -127,7 +127,7 @@ namespace TorneoAnual.Dataset {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DClausura cln = ((DClausura)(base.Clone()));
+            DTAlimentos cln = ((DTAlimentos)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace TorneoAnual.Dataset {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Repo_Clausura"] != null)) {
-                    base.Tables.Add(new Repo_ClausuraDataTable(ds.Tables["Repo_Clausura"]));
+                if ((ds.Tables["TicketAlimentos"] != null)) {
+                    base.Tables.Add(new TicketAlimentosDataTable(ds.Tables["TicketAlimentos"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace TorneoAnual.Dataset {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableRepo_Clausura = ((Repo_ClausuraDataTable)(base.Tables["Repo_Clausura"]));
+            this.tableTicketAlimentos = ((TicketAlimentosDataTable)(base.Tables["TicketAlimentos"]));
             if ((initTable == true)) {
-                if ((this.tableRepo_Clausura != null)) {
-                    this.tableRepo_Clausura.InitVars();
+                if ((this.tableTicketAlimentos != null)) {
+                    this.tableTicketAlimentos.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace TorneoAnual.Dataset {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DClausura";
+            this.DataSetName = "DTAlimentos";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DClausura.xsd";
+            this.Namespace = "http://tempuri.org/DTAlimentos.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableRepo_Clausura = new Repo_ClausuraDataTable();
-            base.Tables.Add(this.tableRepo_Clausura);
+            this.tableTicketAlimentos = new TicketAlimentosDataTable();
+            base.Tables.Add(this.tableTicketAlimentos);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeRepo_Clausura() {
+        private bool ShouldSerializeTicketAlimentos() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace TorneoAnual.Dataset {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DClausura ds = new DClausura();
+            DTAlimentos ds = new DTAlimentos();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,27 +270,25 @@ namespace TorneoAnual.Dataset {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void Repo_ClausuraRowChangeEventHandler(object sender, Repo_ClausuraRowChangeEvent e);
+        public delegate void TicketAlimentosRowChangeEventHandler(object sender, TicketAlimentosRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class Repo_ClausuraDataTable : global::System.Data.TypedTableBase<Repo_ClausuraRow> {
+        public partial class TicketAlimentosDataTable : global::System.Data.TypedTableBase<TicketAlimentosRow> {
             
             private global::System.Data.DataColumn columnnombre;
             
-            private global::System.Data.DataColumn columnid_cat;
+            private global::System.Data.DataColumn columntipo;
             
-            private global::System.Data.DataColumn columnclub;
-            
-            private global::System.Data.DataColumn columnfecha;
+            private global::System.Data.DataColumn columndescripcion;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Repo_ClausuraDataTable() {
-                this.TableName = "Repo_Clausura";
+            public TicketAlimentosDataTable() {
+                this.TableName = "TicketAlimentos";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -298,7 +296,7 @@ namespace TorneoAnual.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Repo_ClausuraDataTable(global::System.Data.DataTable table) {
+            internal TicketAlimentosDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -315,7 +313,7 @@ namespace TorneoAnual.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected Repo_ClausuraDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected TicketAlimentosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -330,25 +328,17 @@ namespace TorneoAnual.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn id_catColumn {
+            public global::System.Data.DataColumn tipoColumn {
                 get {
-                    return this.columnid_cat;
+                    return this.columntipo;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn clubColumn {
+            public global::System.Data.DataColumn descripcionColumn {
                 get {
-                    return this.columnclub;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn fechaColumn {
-                get {
-                    return this.columnfecha;
+                    return this.columndescripcion;
                 }
             }
             
@@ -363,48 +353,47 @@ namespace TorneoAnual.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Repo_ClausuraRow this[int index] {
+            public TicketAlimentosRow this[int index] {
                 get {
-                    return ((Repo_ClausuraRow)(this.Rows[index]));
+                    return ((TicketAlimentosRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Repo_ClausuraRowChangeEventHandler Repo_ClausuraRowChanging;
+            public event TicketAlimentosRowChangeEventHandler TicketAlimentosRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Repo_ClausuraRowChangeEventHandler Repo_ClausuraRowChanged;
+            public event TicketAlimentosRowChangeEventHandler TicketAlimentosRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Repo_ClausuraRowChangeEventHandler Repo_ClausuraRowDeleting;
+            public event TicketAlimentosRowChangeEventHandler TicketAlimentosRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event Repo_ClausuraRowChangeEventHandler Repo_ClausuraRowDeleted;
+            public event TicketAlimentosRowChangeEventHandler TicketAlimentosRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddRepo_ClausuraRow(Repo_ClausuraRow row) {
+            public void AddTicketAlimentosRow(TicketAlimentosRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Repo_ClausuraRow AddRepo_ClausuraRow(string nombre, string id_cat, string club, System.DateTime fecha) {
-                Repo_ClausuraRow rowRepo_ClausuraRow = ((Repo_ClausuraRow)(this.NewRow()));
+            public TicketAlimentosRow AddTicketAlimentosRow(string nombre, string tipo, string descripcion) {
+                TicketAlimentosRow rowTicketAlimentosRow = ((TicketAlimentosRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nombre,
-                        id_cat,
-                        club,
-                        fecha};
-                rowRepo_ClausuraRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowRepo_ClausuraRow);
-                return rowRepo_ClausuraRow;
+                        tipo,
+                        descripcion};
+                rowTicketAlimentosRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowTicketAlimentosRow);
+                return rowTicketAlimentosRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                Repo_ClausuraDataTable cln = ((Repo_ClausuraDataTable)(base.Clone()));
+                TicketAlimentosDataTable cln = ((TicketAlimentosDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -412,16 +401,15 @@ namespace TorneoAnual.Dataset {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new Repo_ClausuraDataTable();
+                return new TicketAlimentosDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnnombre = base.Columns["nombre"];
-                this.columnid_cat = base.Columns["id_cat"];
-                this.columnclub = base.Columns["club"];
-                this.columnfecha = base.Columns["fecha"];
+                this.columntipo = base.Columns["tipo"];
+                this.columndescripcion = base.Columns["descripcion"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -429,45 +417,42 @@ namespace TorneoAnual.Dataset {
             private void InitClass() {
                 this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre);
-                this.columnid_cat = new global::System.Data.DataColumn("id_cat", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_cat);
-                this.columnclub = new global::System.Data.DataColumn("club", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnclub);
-                this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfecha);
+                this.columntipo = new global::System.Data.DataColumn("tipo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntipo);
+                this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescripcion);
                 this.columnnombre.AllowDBNull = false;
                 this.columnnombre.MaxLength = 40;
-                this.columnid_cat.AllowDBNull = false;
-                this.columnid_cat.MaxLength = 25;
-                this.columnclub.AllowDBNull = false;
-                this.columnclub.MaxLength = 20;
-                this.columnfecha.AllowDBNull = false;
+                this.columntipo.AllowDBNull = false;
+                this.columntipo.MaxLength = 1;
+                this.columndescripcion.AllowDBNull = false;
+                this.columndescripcion.MaxLength = 25;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Repo_ClausuraRow NewRepo_ClausuraRow() {
-                return ((Repo_ClausuraRow)(this.NewRow()));
+            public TicketAlimentosRow NewTicketAlimentosRow() {
+                return ((TicketAlimentosRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new Repo_ClausuraRow(builder);
+                return new TicketAlimentosRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(Repo_ClausuraRow);
+                return typeof(TicketAlimentosRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.Repo_ClausuraRowChanged != null)) {
-                    this.Repo_ClausuraRowChanged(this, new Repo_ClausuraRowChangeEvent(((Repo_ClausuraRow)(e.Row)), e.Action));
+                if ((this.TicketAlimentosRowChanged != null)) {
+                    this.TicketAlimentosRowChanged(this, new TicketAlimentosRowChangeEvent(((TicketAlimentosRow)(e.Row)), e.Action));
                 }
             }
             
@@ -475,8 +460,8 @@ namespace TorneoAnual.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.Repo_ClausuraRowChanging != null)) {
-                    this.Repo_ClausuraRowChanging(this, new Repo_ClausuraRowChangeEvent(((Repo_ClausuraRow)(e.Row)), e.Action));
+                if ((this.TicketAlimentosRowChanging != null)) {
+                    this.TicketAlimentosRowChanging(this, new TicketAlimentosRowChangeEvent(((TicketAlimentosRow)(e.Row)), e.Action));
                 }
             }
             
@@ -484,8 +469,8 @@ namespace TorneoAnual.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.Repo_ClausuraRowDeleted != null)) {
-                    this.Repo_ClausuraRowDeleted(this, new Repo_ClausuraRowChangeEvent(((Repo_ClausuraRow)(e.Row)), e.Action));
+                if ((this.TicketAlimentosRowDeleted != null)) {
+                    this.TicketAlimentosRowDeleted(this, new TicketAlimentosRowChangeEvent(((TicketAlimentosRow)(e.Row)), e.Action));
                 }
             }
             
@@ -493,14 +478,14 @@ namespace TorneoAnual.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.Repo_ClausuraRowDeleting != null)) {
-                    this.Repo_ClausuraRowDeleting(this, new Repo_ClausuraRowChangeEvent(((Repo_ClausuraRow)(e.Row)), e.Action));
+                if ((this.TicketAlimentosRowDeleting != null)) {
+                    this.TicketAlimentosRowDeleting(this, new TicketAlimentosRowChangeEvent(((TicketAlimentosRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveRepo_ClausuraRow(Repo_ClausuraRow row) {
+            public void RemoveTicketAlimentosRow(TicketAlimentosRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -509,7 +494,7 @@ namespace TorneoAnual.Dataset {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DClausura ds = new DClausura();
+                DTAlimentos ds = new DTAlimentos();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -527,7 +512,7 @@ namespace TorneoAnual.Dataset {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "Repo_ClausuraDataTable";
+                attribute2.FixedValue = "TicketAlimentosDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -571,58 +556,47 @@ namespace TorneoAnual.Dataset {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class Repo_ClausuraRow : global::System.Data.DataRow {
+        public partial class TicketAlimentosRow : global::System.Data.DataRow {
             
-            private Repo_ClausuraDataTable tableRepo_Clausura;
+            private TicketAlimentosDataTable tableTicketAlimentos;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal Repo_ClausuraRow(global::System.Data.DataRowBuilder rb) : 
+            internal TicketAlimentosRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableRepo_Clausura = ((Repo_ClausuraDataTable)(this.Table));
+                this.tableTicketAlimentos = ((TicketAlimentosDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string nombre {
                 get {
-                    return ((string)(this[this.tableRepo_Clausura.nombreColumn]));
+                    return ((string)(this[this.tableTicketAlimentos.nombreColumn]));
                 }
                 set {
-                    this[this.tableRepo_Clausura.nombreColumn] = value;
+                    this[this.tableTicketAlimentos.nombreColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id_cat {
+            public string tipo {
                 get {
-                    return ((string)(this[this.tableRepo_Clausura.id_catColumn]));
+                    return ((string)(this[this.tableTicketAlimentos.tipoColumn]));
                 }
                 set {
-                    this[this.tableRepo_Clausura.id_catColumn] = value;
+                    this[this.tableTicketAlimentos.tipoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string club {
+            public string descripcion {
                 get {
-                    return ((string)(this[this.tableRepo_Clausura.clubColumn]));
+                    return ((string)(this[this.tableTicketAlimentos.descripcionColumn]));
                 }
                 set {
-                    this[this.tableRepo_Clausura.clubColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public System.DateTime fecha {
-                get {
-                    return ((global::System.DateTime)(this[this.tableRepo_Clausura.fechaColumn]));
-                }
-                set {
-                    this[this.tableRepo_Clausura.fechaColumn] = value;
+                    this[this.tableTicketAlimentos.descripcionColumn] = value;
                 }
             }
         }
@@ -631,22 +605,22 @@ namespace TorneoAnual.Dataset {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class Repo_ClausuraRowChangeEvent : global::System.EventArgs {
+        public class TicketAlimentosRowChangeEvent : global::System.EventArgs {
             
-            private Repo_ClausuraRow eventRow;
+            private TicketAlimentosRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Repo_ClausuraRowChangeEvent(Repo_ClausuraRow row, global::System.Data.DataRowAction action) {
+            public TicketAlimentosRowChangeEvent(TicketAlimentosRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public Repo_ClausuraRow Row {
+            public TicketAlimentosRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -662,7 +636,7 @@ namespace TorneoAnual.Dataset {
         }
     }
 }
-namespace TorneoAnual.Dataset.DClausuraTableAdapters {
+namespace TorneoAnual.Dataset.DTAlimentosTableAdapters {
     
     
     /// <summary>
@@ -674,7 +648,7 @@ namespace TorneoAnual.Dataset.DClausuraTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class Repo_ClausuraTableAdapter : global::System.ComponentModel.Component {
+    public partial class TicketAlimentosTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -688,7 +662,7 @@ namespace TorneoAnual.Dataset.DClausuraTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public Repo_ClausuraTableAdapter() {
+        public TicketAlimentosTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -785,11 +759,10 @@ namespace TorneoAnual.Dataset.DClausuraTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Repo_Clausura";
+            tableMapping.DataSetTable = "TicketAlimentos";
             tableMapping.ColumnMappings.Add("nombre", "nombre");
-            tableMapping.ColumnMappings.Add("id_cat", "id_cat");
-            tableMapping.ColumnMappings.Add("club", "club");
-            tableMapping.ColumnMappings.Add("fecha", "fecha");
+            tableMapping.ColumnMappings.Add("tipo", "tipo");
+            tableMapping.ColumnMappings.Add("descripcion", "descripcion");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -806,7 +779,7 @@ namespace TorneoAnual.Dataset.DClausuraTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.Repo_Clausura";
+            this._commandCollection[0].CommandText = "dbo.TicketAlimentos";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -815,7 +788,7 @@ namespace TorneoAnual.Dataset.DClausuraTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DClausura.Repo_ClausuraDataTable dataTable) {
+        public virtual int Fill(DTAlimentos.TicketAlimentosDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -828,9 +801,9 @@ namespace TorneoAnual.Dataset.DClausuraTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DClausura.Repo_ClausuraDataTable GetData() {
+        public virtual DTAlimentos.TicketAlimentosDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DClausura.Repo_ClausuraDataTable dataTable = new DClausura.Repo_ClausuraDataTable();
+            DTAlimentos.TicketAlimentosDataTable dataTable = new DTAlimentos.TicketAlimentosDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -904,7 +877,7 @@ namespace TorneoAnual.Dataset.DClausuraTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(DClausura dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DTAlimentos dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -914,7 +887,7 @@ namespace TorneoAnual.Dataset.DClausuraTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(DClausura dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DTAlimentos dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -924,7 +897,7 @@ namespace TorneoAnual.Dataset.DClausuraTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(DClausura dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DTAlimentos dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -958,7 +931,7 @@ namespace TorneoAnual.Dataset.DClausuraTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(DClausura dataSet) {
+        public virtual int UpdateAll(DTAlimentos dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

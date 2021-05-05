@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -47,6 +49,7 @@ namespace TorneoAnual
 
 
         private IVideoSource _videoSource;
+        SqlConnection cadena = new SqlConnection(@"Data Source= DESKTOP-JH5TK9;Initial Catalog=TorneoAnual; Integrated Security= True");
 
         public Modificar()
         {
@@ -110,7 +113,7 @@ namespace TorneoAnual
               //  usuario.huella = Template.Bytes;
 
 
-                int id = ConexionBD.update(usuario);
+                int id = conexion.Alta(usuario);
 
                 if (id > 0)
                 {
@@ -408,6 +411,17 @@ namespace TorneoAnual
             ImageSource imgSrc = biImg as ImageSource;
 
             return imgSrc;
+        }
+
+        private void btnEliminar_Click(object sender, RoutedEventArgs e)
+        {
+            cadena.Open();
+            SqlCommand cmd = cadena.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "delete from dbo.Usuario where nombre = '" + tbNombre.Text + "'";
+            cmd.ExecuteNonQuery();
+            cadena.Close();
+            MessageBox.Show("Borrado Exitosamente");
         }
     }  
 

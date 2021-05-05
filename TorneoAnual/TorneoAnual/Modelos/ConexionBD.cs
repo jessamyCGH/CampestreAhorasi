@@ -120,10 +120,10 @@ namespace TorneoAnual.Modelos
 
                 return 1;
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 return 0;
-               MessageBox.Show(e.Message);
+               //MessageBox.Show(e.Message);
             }
         }
 

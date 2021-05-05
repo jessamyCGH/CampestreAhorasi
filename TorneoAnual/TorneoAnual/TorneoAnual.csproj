@@ -260,6 +260,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DInaguracion.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Dataset\DTAlimentos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DTAlimentos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Dataset\DTenis.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -451,6 +456,17 @@
     </None>
     <None Include="Dataset\DInaguracion.xss">
       <DependentUpon>DInaguracion.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DTAlimentos.xsc">
+      <DependentUpon>DTAlimentos.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DTAlimentos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DTAlimentos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\DTAlimentos.xss">
+      <DependentUpon>DTAlimentos.xsd</DependentUpon>
     </None>
     <None Include="Dataset\DTenis.xsc">
       <DependentUpon>DTenis.xsd</DependentUpon>

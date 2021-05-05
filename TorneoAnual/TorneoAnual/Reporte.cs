@@ -77,6 +77,7 @@ namespace TorneoAnual
             data.Fill(dClausura);
 
             TorneoAnual.CrystalReports.CRClausura CRCla = new CrystalReports.CRClausura();
+            CRCla.Database.Tables["Repo_Clausura"].SetDataSource(dClausura);
             cvClausura.ReportSource = null;
             cvClausura.ReportSource = CRCla;
         
@@ -95,6 +96,7 @@ namespace TorneoAnual
             data.Fill(dConcierto);
 
             TorneoAnual.CrystalReports.CRConcierto CRCon = new CrystalReports.CRConcierto();
+            CRCon.Database.Tables["Repo_Concierto"].SetDataSource(dConcierto);
             cvConcierto.ReportSource = null;
             cvConcierto.ReportSource = CRCon;
 
@@ -113,6 +115,7 @@ namespace TorneoAnual
             data.Fill(dGolf);
 
             TorneoAnual.CrystalReports.CRGolf cRGolf = new CrystalReports.CRGolf();
+            cRGolf.Database.Tables["Repo_Golf"].SetDataSource(dGolf);
             cvGolf.ReportSource = null;
             cvGolf.ReportSource = cRGolf;
         }
@@ -132,6 +135,7 @@ namespace TorneoAnual
             data.Fill(dTenis);
 
             TorneoAnual.CrystalReports.CRTenis cRTenis = new CrystalReports.CRTenis();
+            cRTenis.Database.Tables["Repo_Tenis"].SetDataSource(dTenis);
             cvTenis.ReportSource = null;
             cvTenis.ReportSource = cRTenis;
         }
@@ -139,6 +143,8 @@ namespace TorneoAnual
         private void tabPage7_Click(object sender, EventArgs e)
         {
             cvAlimentos.ReportSource = crA;
+           // TorneoAnual.CrystalReports.CRAlimentos cRAlimentos = new CrystalReports.CRAlimentos();
+          //  cRAlimentos.Database.Tables[""]
         }
     }
 

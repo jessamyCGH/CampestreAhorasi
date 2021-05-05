@@ -46,7 +46,13 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="id_cat" msprop:Generator_ColumnVarNameInTable="columnid_cat" msprop:Generator_ColumnPropNameInRow="id_cat" msprop:Generator_ColumnPropNameInTable="id_catColumn" msprop:Generator_UserColumnName="id_cat" type="xs:int" />
+              <xs:element name="id_cat" msprop:Generator_ColumnVarNameInTable="columnid_cat" msprop:Generator_ColumnPropNameInRow="id_cat" msprop:Generator_ColumnPropNameInTable="id_catColumn" msprop:Generator_UserColumnName="id_cat">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="club" msprop:Generator_ColumnVarNameInTable="columnclub" msprop:Generator_ColumnPropNameInRow="club" msprop:Generator_ColumnPropNameInTable="clubColumn" msprop:Generator_UserColumnName="club">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
