@@ -32,7 +32,9 @@ namespace TorneoAnual
         Usuario usuario = new Usuario();
         ConexionBD conexion = new ConexionBD();
         BitmapImage bi;
-
+        string itemSeleccionado = "";
+       
+        
         public ObservableCollection<FilterInfo> VideoDevices { get; set; }
 
         public FilterInfo CurrentDevice
@@ -76,30 +78,6 @@ namespace TorneoAnual
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
 
-            if (tbNombre.Text == "")
-            {
-                MessageBox.Show("El campo Nombre debe ser especificado", "Error");
-                return;
-            }
-
-            if (tbApellidoP.Text == "")
-            {
-                MessageBox.Show("El campo Apellidos debe ser especificado", "Error");
-                return;
-            }
-            if (tbApellidoM.Text == "")
-            {
-                MessageBox.Show("El campo Apellidos debe ser especificado", "Error");
-                return;
-            }
-            if (tbCelular.Text == "")
-            {
-                MessageBox.Show("El campo Número de empleado debe ser especificado", "Error");
-                return;
-            }
-
-          
-
             try
             {
                 usuario.nombre = tbNombre.Text;
@@ -110,27 +88,18 @@ namespace TorneoAnual
                 usuario.club = tbClub.Text;
                 usuario.categoriaTipo = CmbTorneo.Text;
                 //usuario.imagen = picFoto.Source;
-              //  usuario.huella = Template.Bytes;
+               // usuario.huella = Template.Bytes;
 
 
-                int id = conexion.Alta(usuario);
+                int id = conexion.update(usuario);
 
                 if (id > 0)
                 {
 
-                    MessageBox.Show("jugador guardado correctamente", "Guardar");
+                    MessageBox.Show("Usuario guardado correctamente", "Guardar");
 
                     this.Close();
-                    /* tbNombre.Text = "";
-                     tbApellidoP.Text = "";
-                     tbApellidoM.Text = "";
-                     tbClub.Text = "";
-                     tbCorreo.Text = "";
-                     tbCelular.Text = "";*/
-
-                    // picFoto.Source = null;
-                    //  imgFoto.Source = null;
-                    //  dgEmpleados.DataContext = DatoEmpleado.MuestraEmpleados();
+                    
 
                 }
 
@@ -346,6 +315,7 @@ namespace TorneoAnual
         {
             //Tomaremos el nombre seleccionado en el comboBox
             var itemSeleccionado = (string)cmbNombre.SelectedItem;
+            
 
             if (itemSeleccionado != null)
             {
@@ -368,6 +338,7 @@ namespace TorneoAnual
                 int id = conexion.getIdUser(nombres, array[array.Length - 2], array[array.Length - 1]);
                 usuario = conexion.GetdataUser(id);
 
+                usuario.id = id;
                 tbNombre.Text = usuario.nombre;
                 tbApellidoP.Text = usuario.apellidoP;
                 tbApellidoM.Text = usuario.apellidoM;
@@ -395,9 +366,10 @@ namespace TorneoAnual
                 imgVerHuella.Visibility = Visibility.Visible;
 
                 // picFoto.Source = usuario.imagen;
-
-
+                
+                
             }
+           
 
         }
         public ImageSource ByteToImage(byte[] imageData)
@@ -415,15 +387,31 @@ namespace TorneoAnual
 
         private void btnEliminar_Click(object sender, RoutedEventArgs e)
         {
-            cadena.Open();
-            SqlCommand cmd = cadena.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "delete from dbo.Usuario where nombre = '" + tbNombre.Text + "'";
-            cmd.ExecuteNonQuery();
-            cadena.Close();
-            MessageBox.Show("Borrado Exitosamente");
+            try
+            {
+              
+                int id = conexion.delete(usuario);
+
+                if (id > 0)
+                {
+
+                    MessageBox.Show("Usuario guardado correctamente", "Guardar");
+
+                    this.Close();
+
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No fue posible guardar el Usuario: " + ex.Message, "Error en Guardar");
+            }
         }
-    }  
+
+
+    }
+    
 
 }
 

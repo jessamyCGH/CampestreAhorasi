@@ -25,6 +25,7 @@ namespace TorneoAnual
         private DPFP.Template Template;
         private DPFP.Verification.Verification Verificator;
         private DPFP.Capture.Capture Capturer;
+        Usuario usuario = new Usuario();
 
         //Generamos un objeto de la clase Conexion para por der hacer llamadas a la base de datos
         ConexionBD conexion;
@@ -35,6 +36,7 @@ namespace TorneoAnual
 
         //La siguiente variable guardara el nombre del usuario seleccionado
         string itemSeleccionado = "";
+        byte [] huella;
 
         //La siguiente variable guardara el id del usuario seleccionado en los Menus
         int id;
@@ -82,7 +84,7 @@ namespace TorneoAnual
 
                 //Buscamos en la base de datos su id y lo guardamos 
                 //sabiendo que el penultimo valor del arreglo es el apellido paterno y el ultimo el materno
-                id = conexion.getIdUser(nombres, array[array.Length - 2], array[array.Length - 1]);
+               id = conexion.getIdUser(nombres, array[array.Length - 2], array[array.Length - 1]);
 
                 //Usaremos un switch para conocer en que Menu se encuentra
                 bool res;
@@ -278,19 +280,19 @@ namespace TorneoAnual
             {
                 case "Inaguracion":
                     //Le agregaremos la entrega en la base de datos al usuario de Inaguracion
-                    conexion.setEntregadoInaguracion(id);
+                    conexion.setEntregadoInaguracion(usuario.id);
                     ChecarEntregado(true);
                     break;
 
                 case "Alimentos":
                     //Le agregaremos la entrega en la base de datos al usuario de Alimentos
-                    conexion.setEntregadoAlimentos(id);
+                    conexion.setEntregadoAlimentos(usuario.id);
                     ChecarEntregado(true);
                     break;
 
                 case "Cerveza":
                     //Le agregaremos la entrega en la base de datos al usuario de Cerveza
-                    conexion.setEntregadoCerveza(id, countCervezas += 2);
+                    conexion.setEntregadoCerveza(usuario.id, countCervezas += 2);
                     ChecarEntregado(true);
                     btnEntregado.Content = "Tomara otras 2";
                     btnEntregado.Visibility = Visibility.Visible;
@@ -299,25 +301,25 @@ namespace TorneoAnual
 
                 case "Tennis":
                     //Le agregaremos la entrega en la base de datos al usuario de Tennis
-                    conexion.setEntregadoTennis(id);
+                    conexion.setEntregadoTennis(usuario.id);
                     ChecarEntregado(true);
                     break;
 
                 case "Golf":
                     //Le agregaremos la entrega en la base de datos al usuario de Golf
-                    conexion.setEntregadoGolf(id);
+                    conexion.setEntregadoGolf(usuario.id);
                     ChecarEntregado(true);
                     break;
 
                 case "Concierto":
                     //Le agregaremos la entrega en la base de datos al usuario de Concierto
-                    conexion.setEntregadoConcierto(id);
+                    conexion.setEntregadoConcierto(usuario.id);
                     ChecarEntregado(true);
                     break;
 
                 case "Clausura":
                     //Le agregaremos la entrega en la base de datos al usuario de Clausura
-                    conexion.setEntregadoClausura(id);
+                    conexion.setEntregadoClausura(usuario.id);
                     ChecarEntregado(true);
                     break;
             }
@@ -364,13 +366,13 @@ namespace TorneoAnual
                 DPFP.Template template = new DPFP.Template();
                 Stream stream;
 
-                List<Usuario> empleados = ConexionBD.Muestra();
+                List<Usuario> conexiones = ConexionBD.Muestra();
 
-                foreach (var empleado in empleados)
+                foreach (var con in conexiones)
                 {
-                    if (empleado.huella != null)
+                    if (con.huella != null)
                     {
-                        stream = new MemoryStream(empleado.huella);
+                        stream = new MemoryStream(con.huella);
                         template = new DPFP.Template(stream);
                         try
                         {
@@ -385,7 +387,8 @@ namespace TorneoAnual
                         if (result.Verified)
                         {
                             this.Dispatcher.Invoke(new Function(delegate () {
-                                Desplegar(empleado);
+                                Desplegar(con);
+                                
                             }));
 
                             break;
@@ -453,61 +456,125 @@ namespace TorneoAnual
                 return null;
         }
 
-
-        public void Desplegar(Usuario usuario)
+        //Al momento de detetctar la huella, muestra los datos del jugador
+        public void Desplegar(Usuario user)
         {
-          //  string url = "";
+            
+            lblNom.Content = user.nombre;
+            lblApellidos.Content = user.apellidoP;
+            lblNumero.Content = user.apellidoM;
+            picFoto.Source = ByteToImage(user.imagen);
 
-            lblNom.Content = usuario.nombre;
-            lblApellidos.Content = usuario.apellidoP;
-            lblNumero.Content = usuario.club;
-           /* if (usuario.Foto != "" && usuario.Foto != null)
-            {
-                url = "C:/Checador/" + empleado.Foto;
-            }
-            else
-                url = "C:/Checador/noimage.png";*/
+            this.usuario = user;
 
-          /*  BitmapImage foto = new BitmapImage();
-            foto.BeginInit();
-            foto.UriSource = new Uri(url);
-            foto.EndInit();
-            foto.Freeze();*/
 
-          //  imgPerfil.Source = foto;
+            
+        }
 
+        //metodo la mostrar la imagen
+        public ImageSource ByteToImage(byte[] imageData)
+        {
+            BitmapImage biImg = new BitmapImage();
+            MemoryStream ms = new MemoryStream(imageData);
+            biImg.BeginInit();
+            biImg.StreamSource = ms;
+            biImg.EndInit();
+
+            ImageSource imgSrc = biImg as ImageSource;
+
+            return imgSrc;
         }
 
 
+        // Se reinician los componentes
         public void Reset()
         {
             lblNom.Content = "¡Bienvenido!";
             lblApellidos.Content = "Que tengas buen día";
             lblNumero.Content = "Coloca tu dedo en el lector";
+            picFoto.Source = null;
 
-          //  BitmapImage foto = new BitmapImage();
-           // foto.BeginInit();
-          //  foto.UriSource = new Uri("../../Resources/perfil_generico.png", UriKind.Relative);
-            //foto.EndInit();
-            //foto.Freeze();
-
-          //  imgPerfil.Source = foto;
+          
         }
 
-
+        
         #region EventHandler Members:
 
         public void OnComplete(object Capture, string ReaderSerialNumber, DPFP.Sample Sample)
         {
+
+          
             this.Dispatcher.Invoke(new Function(delegate () {
                 lblReporte.Content = "Huella leida.";
-             //   lblStatus.Content = "Espere por favor.";
                 Process(Sample);
+
+                bool res;
+                switch (menuSeleccionado)
+                {
+                    case "Inaguracion":
+                        //Verificaremos si ya la fue entregado Inaguracion
+                        res = conexion.getEntregadoInaguracion(usuario.id);
+                        ChecarEntregado(res);
+                        break;
+
+                    case "Alimentos":
+                        //Verificaremos si ya la fue entregado Alimentos
+                        res = conexion.getEntregadoAlimentos(usuario.id);
+                        ChecarEntregado(res);
+                        break;
+
+                    case "Cerveza":
+                        //Verificaremos si ya la fue entregado Alimentos
+                        countCervezas = conexion.getEntregadoCerveza(usuario.id);
+                        if (countCervezas == 0)
+                        {
+                            ChecarEntregado(false);
+                        }
+                        else
+                        {
+                            ChecarEntregado(true);
+                            btnEntregado.Content = "Tomara otras 2";
+                            btnEntregado.Visibility = Visibility.Visible;
+                            btnEntregado.IsEnabled = true;
+                        }
+                        break;
+
+                    case "Tennis":
+                        //Verificaremos si ya la fue entregado Tennis
+                        res = conexion.getEntregadoTennis(usuario.id);
+                        ChecarEntregado(res);
+                        break;
+
+                    case "Golf":
+                        //Verificaremos si ya la fue entregado Golf
+                        res = conexion.getEntregadoGolf(usuario.id);
+                        ChecarEntregado(res);
+                        break;
+
+                    case "Concierto":
+                        //Verificaremos si ya la fue entregado Concierto
+                        res = conexion.getEntregadoConcierto(usuario.id);
+                        ChecarEntregado(res);
+                        break;
+
+                    case "Clausura":
+                        //Verificaremos si ya la fue entregado Clausura
+                        res = conexion.getEntregadoClausura(usuario.id);
+                        ChecarEntregado(res);
+                        break;
+                }
+
+
+
             }));
 
             System.Threading.Thread.Sleep(5000);
 
+          
+           
             this.Dispatcher.Invoke(new Function(delegate () {
+               
+
                 Reset();
             }));
 

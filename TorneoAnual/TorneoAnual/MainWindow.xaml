@@ -95,8 +95,12 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
-                <Image Source="Resources/Edit.png"  Height="130"  Width="136" Stretch="UniformToFill" />
-                <Button x:Name="btnReporte" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                <Image
+                    Source="Resources/re.png" 
+                    Stretch="UniformToFill" Margin="30,10,56,0" 
+                    />
+                <Button 
+                    x:Name="btnReporte" Grid.Row="0" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
                     HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,16,0" Grid.RowSpan="2" Click="btnReporte_Click" >
                     <materialDesign:PackIcon Kind="Report" />
                 </Button>

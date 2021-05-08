@@ -46,12 +46,12 @@
         </Button>
 
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCaptura" ToolTip="Editar foto" Grid.Column="2" Margin="559,574,151,0" VerticalAlignment="Top" Click="BtnRegistro_Click" Height="73" Background="#FF454949">
+            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCaptura" ToolTip="Actualizar Huella" Grid.Column="2" Margin="559,574,151,0" VerticalAlignment="Top" Click="BtnRegistro_Click" Height="73" Background="#FF454949">
             <Image Source="Resources/fingerprint.png"></Image>
         </Button>
 
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnGuarda" ToolTip="Guardar" Grid.Column="2" Margin="664,574,71,0" VerticalAlignment="Top" Height="70" Click="btnGuardar_Click" Background="#FF374644" >
+            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnGuarda" ToolTip="Actualizar Datos" Grid.Column="2" Margin="664,574,71,0" VerticalAlignment="Top" Height="70" Click="btnGuardar_Click" Background="#FF374644" >
             Actualizar
         </Button>
         <Button

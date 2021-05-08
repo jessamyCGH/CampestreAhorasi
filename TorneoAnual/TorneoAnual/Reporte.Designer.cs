@@ -304,6 +304,7 @@ namespace TorneoAnual
             this.ClientSize = new System.Drawing.Size(1031, 668);
             this.Controls.Add(this.btnGolf);
             this.Name = "Reporte";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte";
             this.tabPage6.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);

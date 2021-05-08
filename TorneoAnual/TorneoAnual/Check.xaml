@@ -8,53 +8,57 @@
   
         xmlns:local="clr-namespace:TorneoAnual"
         mc:Ignorable="d"
-        Title="Check-In" Height="757" Width="834" Loaded="Window_Loaded" Closed="Window_Closed"  >
+        Title="Check-In" Height="757" Width="834" Loaded="Window_Loaded" Closed="Window_Closed" WindowStartupLocation="CenterScreen" >
     <Grid Margin="0,0,2,-31">
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="85*"/>
+            <ColumnDefinition Width="121*"/>
+        </Grid.ColumnDefinitions>
+
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnInaguracion" 
             ToolTip="Editar foto"
-            Margin="50,45,685,0"
+            Margin="50,45,201,0"
             VerticalAlignment="Top" 
             Click="btnInaguracion_Click" 
             Height="80">
             Inaguracion
         </Button>
-        
+
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnAlimentos" 
             ToolTip="Editar foto" 
-            Margin="144,45,591,0" 
+            Margin="144,45,107,0" 
             VerticalAlignment="Top" 
             Click="btnAlimentos_Click" 
             Height="80">
             Alimentos
         </Button>
-        
+
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnCerveza" 
             ToolTip="Editar foto" 
-            Margin="238,45,504,0" 
+            Margin="238,45,20,0" 
             VerticalAlignment="Top" 
             Click="btnCerveza_Click" 
             Height="80">
             Cerveza
         </Button>
-        
+
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnTennis" 
             ToolTip="Editar foto" 
-            Margin="442,45,302,0" 
+            Margin="102,45,302,0" 
             VerticalAlignment="Top" 
             Click="btnTennis_Click" 
-            Height="80">
+            Height="80" Grid.Column="1">
             Tennis
         </Button>
-        
+
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnGolf" 
@@ -62,29 +66,29 @@
             Margin="325,45,419,0" 
             VerticalAlignment="Top" 
             Click="btnGolf_Click" 
-            Height="80">
+            Height="80" Grid.ColumnSpan="2">
             Golf
         </Button>
-        
+
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnConcierto" 
             ToolTip="Editar foto" 
-            Margin="527,45,202,0" 
+            Margin="187,45,202,0" 
             VerticalAlignment="Top" 
             Click="btnConcierto_Click" 
-            Height="80">
+            Height="80" Grid.Column="1">
             Concierto
         </Button>
-        
+
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnClausura" 
             ToolTip="Editar foto" 
-            Margin="627,45,107,0" 
+            Margin="287,45,107,0" 
             VerticalAlignment="Top" 
             Click="btnClausura_Click" 
-            Height="80">
+            Height="80" Grid.Column="1">
             Clausura
         </Button>
 
@@ -93,7 +97,7 @@
             Content="Buscar por Nombre:" 
             x:Name="lblNombre" 
             Height="30" 
-            Margin="55,0,542,503" 
+            Margin="55,0,58,503" 
             VerticalAlignment="Bottom" 
             FontWeight="Bold" 
             FontSize="16"/>
@@ -102,7 +106,7 @@
             Content="Inaguracion" 
             x:Name="lblTitulo" 
             Height="30" 
-            Margin="115,0,522,563" 
+            Margin="115,0,38,563" 
             VerticalAlignment="Bottom" 
             FontWeight="Bold" 
             FontSize="16"/>
@@ -114,13 +118,34 @@
             Margin="115,0,482,342" 
             VerticalAlignment="Bottom" 
             FontWeight="Bold" 
-            FontSize="16"/>
+            FontSize="16" Grid.ColumnSpan="2"/>
 
-        <Label Content="" x:Name="lblNom" Height="30" Margin="95,0,562,287" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="10" />
+        <Label 
+            Content="" 
+            x:Name="lblNom" 
+            Height="30" 
+            Margin="95,0,78,287" 
+            VerticalAlignment="Bottom" 
+            FontWeight="Bold" 
+            FontSize="10" />
 
-        <Label Content="" x:Name="lblApellidos" Height="30" Margin="95,0,562,237" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="10" />
+        <Label 
+            Content="" 
+            x:Name="lblApellidos" 
+            Height="30" 
+            Margin="95,0,78,237" 
+            VerticalAlignment="Bottom" 
+            FontWeight="Bold" 
+            FontSize="10" />
 
-        <Label Content="" x:Name="lblNumero" Height="30" Margin="95,0,562,202" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="10" />
+        <Label 
+            Content="" 
+            x:Name="lblNumero" 
+            Height="30" 
+            Margin="95,0,78,202" 
+            VerticalAlignment="Bottom" 
+            FontWeight="Bold" 
+            FontSize="10" />
 
 
 
@@ -128,10 +153,10 @@
             Content="Verificar Entrega" 
             x:Name="lblEntregado" 
             Height="49" 
-            Margin="540,0,59,555" 
+            Margin="187,0,44,555" 
             VerticalAlignment="Bottom" 
             FontWeight="Bold" 
-            FontSize="26"/>
+            FontSize="26" Grid.Column="1"/>
 
         <ComboBox
             materialDesign:HintAssist.Hint="Ingresa el nombre del usuario"
@@ -141,8 +166,8 @@
             Margin="50,250,387,0" 
             FontSize="15" 
             Height="50" 
-            SelectionChanged="CbBoxNombre_SelectedValueChanged" />
-       
+            SelectionChanged="CbBoxNombre_SelectedValueChanged" Grid.ColumnSpan="2" />
+
         <Button 
             x:Name="btnFalse" 
             Grid.Row="0"
@@ -153,12 +178,12 @@
             Margin="0,0,44,437" 
             Height="110" 
             Width="125" 
-            Background="Black">
+            Background="Black" Grid.Column="1">
             <Image
                 Source="Resources/false.png">
             </Image>
         </Button>
-        
+
         <Button
             x:Name="btnTrue" 
             Grid.Row="0" 
@@ -169,21 +194,22 @@
             Margin="0,0,174,437" 
             Height="110" 
             Width="125"
-            Background="Black">
+            Background="Black" Grid.Column="1">
             <Image 
                 Source="Resources/True.png">
             </Image>
         </Button>
-        
+
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnEntregado"
             ToolTip="Editar foto" 
             Visibility="Hidden" 
-            Margin="563,340,79,0" 
+            Margin="223,340,79,0" 
             VerticalAlignment="Top" 
             Click="btnEntregado_Click" 
-            Height="30" Content=""/>
+            Height="30" Content="" Grid.Column="1"/>
+        <Image x:Name="picFoto" Grid.Column="1" HorizontalAlignment="Left" Height="250" Margin="165,385,0,0" VerticalAlignment="Top" Width="275"/>
 
 
 

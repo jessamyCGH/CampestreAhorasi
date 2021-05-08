@@ -15,7 +15,13 @@
         </Grid.ColumnDefinitions>
 
         <TextBox
-  materialDesign:HintAssist.Hint="Nombre" x:Name="tbNombre" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,38,416,0" FontSize="20" />
+            materialDesign:HintAssist.Hint="Nombre"
+            x:Name="tbNombre" 
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+            VerticalAlignment="Top"
+            Grid.Column="1"
+            Margin="56,38,416,0"
+            FontSize="20" />
         <TextBox
             materialDesign:HintAssist.Hint="Apellido Paterno" x:Name="tbApellidoP" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,101,416,0" FontSize="20"/>
         <TextBox
@@ -27,11 +33,30 @@
         <TextBox
             materialDesign:HintAssist.Hint="Club" x:Name="tbClub" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,366,416,0" FontSize="20" />
         <ComboBox
-            materialDesign:HintAssist.Hint="Torneo" x:Name="CmbTorneo" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,426,416,0" FontSize="20" SelectionChanged="CmbTorneo_SelectionChanged" />
+            materialDesign:HintAssist.Hint="Torneo" 
+            x:Name="CmbTorneo" 
+            Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+            VerticalAlignment="Top" 
+            Grid.Column="1" 
+            Margin="56,426,416,0" 
+            FontSize="20" 
+            SelectionChanged="CmbTorneo_SelectionChanged" />
         <ComboBox
-            materialDesign:HintAssist.Hint="Categoria Golf"  IsEnabled="False" x:Name="cmbGolf" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,533,416,0" FontSize="20" Text="" SelectionChanged="cmbGolf_SelectionChanged" />
+            materialDesign:HintAssist.Hint="Categoria Golf"  
+            IsEnabled="False" 
+            x:Name="cmbGolf" 
+            Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+            VerticalAlignment="Top" 
+            Grid.Column="1" 
+            Margin="56,533,416,0" 
+            FontSize="20" 
+            Text="" 
+            SelectionChanged="cmbGolf_SelectionChanged" />
         <ComboBox
-            materialDesign:HintAssist.Hint="Categoria Tenis" x:Name="cmbTenis" IsEnabled="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,591,416,0" FontSize="20" Text="" SelectionChanged="cmbTennis_SelectionChanged" />
+            materialDesign:HintAssist.Hint="Categoria Tenis" 
+            x:Name="cmbTenis" 
+            IsEnabled="False"
+            Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,591,416,0" FontSize="20" Text="" SelectionChanged="cmbTennis_SelectionChanged" />
 
         <CheckBox
             Content="Golf" x:Name="chkGolf" Style="{StaticResource MaterialDesignAccentCheckBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,491,649,0" FontSize="20" Height="39" Checked="chkGolf_CheckedChanged" />
@@ -43,18 +68,60 @@
         </Button>
 
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCaptura" ToolTip="Editar foto" Grid.Column="1" Margin="559,574,151,0" VerticalAlignment="Top" Click="BtnRegistro_Click" Height="73" Background="#FF454949">
-            <Image Source="Resources/fingerprint.png"></Image>
+            Style="{StaticResource MaterialDesignRaisedButton}" 
+            x:Name="btnCaptura" 
+            ToolTip="Capturar Huella" 
+            Grid.Column="1" 
+            Margin="559,574,151,0" 
+            VerticalAlignment="Top" 
+            Click="BtnRegistro_Click" 
+            Height="73" 
+            Background="#FF454949">
+            <Image
+            Source="Resources/fingerprint.png">
+            </Image>
         </Button>
 
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnGuardar" ToolTip="Guardar" Grid.Column="1" Margin="664,591,24,0" VerticalAlignment="Top" Height="53" Click="btnGuardar_Click" Background="#FF374644" >
+            Style="{StaticResource MaterialDesignRaisedButton}" 
+            x:Name="btnGuardar" 
+            ToolTip="Guardar Datos" 
+            Grid.Column="1" 
+            Margin="664,591,24,0" 
+            VerticalAlignment="Top" 
+            Height="53" 
+            Click="btnGuardar_Click" 
+            
+            Background="#FF374644" >
             Guardar
         </Button>
-        <Image Grid.Column="1" x:Name="imgVerHuella" Source="Resources/autenticacion.png" Stretch="Uniform" Visibility="Hidden" Height="102" Margin="600,450,24,0" VerticalAlignment="Top"/>
-        <Image x:Name="picFoto" Source="Resources/fo.png" Height="305" Margin="424,50,42,0" VerticalAlignment="Top" Grid.Column="1" Grid.ColumnSpan="2" />
+             <Image 
+                 Grid.Column="1" 
+                 x:Name="imgVerHuella" 
+                 Source="Resources/autenticacion.png" 
+                 Stretch="Uniform" 
+                 Visibility="Hidden" 
+                 Height="102" 
+                 Margin="600,450,24,0" 
+                 VerticalAlignment="Top"/>
+        <Image 
+            x:Name="picFoto" 
+            Source="Resources/fo.png" 
+            Height="305" 
+            Margin="424,50,42,0" 
+            VerticalAlignment="Top" 
+            Grid.Column="1" 
+            Grid.ColumnSpan="2" />
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCapturar" ToolTip="Editar foto" Grid.Column="1" Margin="664,365,71,0" VerticalAlignment="Top" Height="40" Background="#FF454949" Click="btnCapturar_Click">
+            Style="{StaticResource MaterialDesignRaisedButton}" 
+            x:Name="btnCapturar" 
+            ToolTip="Capturar foto" 
+            Grid.Column="1" 
+            Margin="664,365,71,0" 
+            VerticalAlignment="Top" 
+            Height="40" 
+            Background="#FF454949" 
+            Click="btnCapturar_Click">
             <Image Source="Resources/flash.png"></Image>
         </Button>
 

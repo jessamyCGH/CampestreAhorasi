@@ -68,8 +68,48 @@ namespace TorneoAnual
     
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-     
+         
+                                
             if (tbNombre.Text == "")
+            {
+                MessageBox.Show("El campo Nombre debe ser especificado", "Error");
+                return;
+            }
+
+            if (tbApellidoP.Text == "")
+            {
+                MessageBox.Show("El campo Apellidos debe ser especificado", "Error");
+                return;
+            }
+            if (tbApellidoM.Text == "")
+            {
+                MessageBox.Show("El campo Apellidos debe ser especificado", "Error");
+                return;
+            }
+            if (tbCorreo.Text == "")
+            {
+                MessageBox.Show("El campo Número de empleado debe ser especificado", "Error");
+                return;
+            }
+            if (tbClub.Text=="")
+            {
+                MessageBox.Show("El campo Número de empleado debe ser especificado", "Error");
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(tbCelular.Text) && tbCelular.Text.Length == 10)
+            {
+                MessageBox.Show("El campo Número de empleado debe ser especificado", "Error");
+                return;
+            }
+
+            if (Template == null)
+            {
+                MessageBox.Show("La huella del empleado debe ser capturada", "Error");
+                return;
+            }
+            #region comentado
+            /*if (tbNombre.Text == "")
             {
                 MessageBox.Show("El campo Nombre debe ser especificado", "Error");
                 return;
@@ -95,10 +135,10 @@ namespace TorneoAnual
             {
                 MessageBox.Show("La huella del empleado debe ser capturada", "Error");
                 return;
-            }
-
-            try
-            {
+            }*/
+            #endregion
+             try
+              {
                 usuario.nombre = tbNombre.Text;
                 usuario.apellidoP = tbApellidoP.Text;
                 usuario.apellidoM = tbApellidoM.Text;
@@ -115,19 +155,9 @@ namespace TorneoAnual
                 if (id > 0)
                 {
 
-                    MessageBox.Show("Empleado guardado correctamente", "Guardar");
+                    MessageBox.Show("Jugador guardado correctamente", "Guardar");
 
                     this.Close();
-                   /* tbNombre.Text = "";
-                    tbApellidoP.Text = "";
-                    tbApellidoM.Text = "";
-                    tbClub.Text = "";
-                    tbCorreo.Text = "";
-                    tbCelular.Text = "";*/
-                    
-                   // picFoto.Source = null;
-                  //  imgFoto.Source = null;
-                    //  dgEmpleados.DataContext = DatoEmpleado.MuestraEmpleados();
 
                 }
 

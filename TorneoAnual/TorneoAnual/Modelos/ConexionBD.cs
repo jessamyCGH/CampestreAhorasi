@@ -15,51 +15,111 @@ namespace TorneoAnual.Modelos
     {
         string cadena = @"Data Source= localhost; initial Catalog=TorneoAnual; Integrated Security= True";
         public SqlConnection conectarBDT = new SqlConnection();
+        
 
        
         public ConexionBD() {
             conectarBDT.ConnectionString = cadena;
         }
 
-        public static int update(Usuario usuario)
+        public int update(Usuario usuario)
         {
-            int res = 0;
+
 
             try
             {
-                using (var conn = new SqlConnection("Data Source = localhost; initial catalog = TorneoAnual; Integrated Security = True "))
+                cadena = cadena.Replace("{nombrePC}", Environment.MachineName);
+                conectarBDT.ConnectionString = cadena;
+                conectarBDT.Open();
+
+
+                //Buscamos el id de la categoria indicada
+                SqlCommand c1 = new SqlCommand("SELECT id_cat FROM Categoria WHERE descripcion = @categoria", conectarBDT);
+
+                c1.Parameters.AddWithValue("@categoria", usuario.categoriaDescripcion);
+
+                SqlDataReader reader = c1.ExecuteReader();
+
+                int id_cat = 0;
+                while (reader.Read())
                 {
-                    conn.Open();
-
-                    using (var command = conn.CreateCommand())
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.CommandText = "update";
-                        command.Parameters.AddWithValue("@Nombre", usuario.nombre);
-                        command.Parameters.AddWithValue("@apellidoP", usuario.apellidoP);
-                        command.Parameters.AddWithValue("@apellidoM", usuario.apellidoM);
-                        command.Parameters.AddWithValue("@correo", usuario.correo);
-                        command.Parameters.AddWithValue("@tel", usuario.tel);
-                        command.Parameters.AddWithValue("@club", usuario.club);
-                        command.Parameters.AddWithValue("@id_cat", usuario.id_cat);
-                        command.Parameters.AddWithValue("@huella", usuario.huella);
-                        command.Parameters.AddWithValue("@id_torneo", usuario.id_torneo);
-                        command.Parameters.AddWithValue("@imagen", usuario.imagen);
-
-
-                      
-                    
-
-                        res = command.ExecuteNonQuery();
-                    }
+                    id_cat = (int)reader["id_cat"];
                 }
+                
+                reader.Close();
+
+
+                //Buscamos el id del torneo indicado
+                SqlCommand c2 = new SqlCommand("SELECT id_torneo FROM Torneo WHERE descripcion = @descripcion", conectarBDT);
+
+                c2.Parameters.AddWithValue("@descripcion", usuario.torneo);
+
+
+                SqlDataReader reader1 = c2.ExecuteReader();
+
+                int id_torneo = 0;
+                while (reader1.Read())
+                {
+                    id_torneo = (int)reader1["id_torneo"];
+                }
+                reader1.Close();
+
+
+                
+                SqlCommand command = new SqlCommand("UPDATE Usuario SET nombre = @nombre ,apellidoP = @apellidoP ,apellidoM = @apellidoM, correo = @correo, tel = @tel, club = @club, id_cat = @id_cat, huella = @huella, id_torneo = @id_torneo, imagen = @imagen  WHERE id = @id ", conectarBDT);
+
+                command.Parameters.AddWithValue("@id", usuario.id);
+                command.Parameters.AddWithValue("@nombre", usuario.nombre);
+                command.Parameters.AddWithValue("@apellidoP", usuario.apellidoP);
+                command.Parameters.AddWithValue("@apellidoM", usuario.apellidoM);
+                command.Parameters.AddWithValue("@correo", usuario.correo);
+                command.Parameters.AddWithValue("@tel", usuario.tel);
+                command.Parameters.AddWithValue("@club", usuario.club);
+                command.Parameters.AddWithValue("@id_cat", id_cat);
+                command.Parameters.AddWithValue("@huella", usuario.huella);
+                command.Parameters.AddWithValue("@id_torneo", id_torneo);
+               // command.Parameters.AddWithValue("@fecha_registro", DateTime.Now);
+                command.Parameters.AddWithValue("@imagen", usuario.imagen);
+
+                command.ExecuteReader();
+
+                return 1;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                MessageBox.Show("Error al actualizar: " + ex.Message, "Error en Alta");
+               
+                MessageBox.Show(e.Message);
+                return 0;
             }
 
-            return res;
+        }
+        public int delete(Usuario usuario)
+        {
+
+
+            try
+            {
+                cadena = cadena.Replace("{nombrePC}", Environment.MachineName);
+                conectarBDT.ConnectionString = cadena;
+                conectarBDT.Open();
+
+
+                SqlCommand command = new SqlCommand("DELETE FROM Usuario WHERE id = @id ", conectarBDT);
+
+                command.Parameters.AddWithValue("@id", usuario.id);
+
+
+
+                command.ExecuteReader();
+
+                return 1;
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message);
+                return 0;
+            }
 
         }
 
@@ -117,11 +177,14 @@ namespace TorneoAnual.Modelos
                 command.Parameters.AddWithValue("@imagen", usuario.imagen);
 
                 command.ExecuteReader();
+                conectarBDT.Close();
+                
 
                 return 1;
             }
             catch (Exception )
             {
+                conectarBDT.Close();
                 return 0;
                //MessageBox.Show(e.Message);
             }
@@ -129,6 +192,8 @@ namespace TorneoAnual.Modelos
 
 
         public Usuario GetdataUser(int id)
+          
+
         {
             cadena = cadena.Replace("{nombrePC}", Environment.MachineName);
             conectarBDT.ConnectionString = cadena;
@@ -153,13 +218,17 @@ namespace TorneoAnual.Modelos
             }
 
             reader.Close();
+            conectarBDT.Close();
             return usuario;
 
         }
         public Usuario categoria (int id )
         {
             cadena = cadena.Replace("{nombrePC}", Environment.MachineName);
-            
+            conectarBDT.ConnectionString = cadena;
+            conectarBDT.Open();
+
+
             SqlCommand command = new SqlCommand("SELECT * FROM Categoria WHERE id_cat = @id", conectarBDT);
             command.Parameters.AddWithValue("@id", id);
 
@@ -174,6 +243,7 @@ namespace TorneoAnual.Modelos
             }
 
             reader.Close();
+            conectarBDT.Close();
             return usuario;
         }
 
@@ -199,7 +269,7 @@ namespace TorneoAnual.Modelos
             }
 
             conectarBDT.Close();
-
+            reader.Close();
             return categorias;
 
         }
@@ -224,7 +294,7 @@ namespace TorneoAnual.Modelos
             }
 
             conectarBDT.Close();
-
+            reader.Close();
             return categorias;
 
         }
@@ -250,7 +320,7 @@ namespace TorneoAnual.Modelos
             }
 
             conectarBDT.Close();
-
+            reader.Close();
             return torneos;
         }
 
@@ -279,7 +349,7 @@ namespace TorneoAnual.Modelos
             }
 
             conectarBDT.Close();
-
+            reader.Close();
             return nombres;
         }
         public int getIdUser(string nombre, string apellidop, string apellidom)
@@ -299,6 +369,27 @@ namespace TorneoAnual.Modelos
             var x = (int)reader["id"];
 
             conectarBDT.Close();
+            reader.Close();
+            return x;
+        }
+
+        public int getIdHuella(byte [] huella)
+        {
+            cadena = cadena.Replace("{nombrePC}", Environment.MachineName);
+            conectarBDT.ConnectionString = cadena;
+            conectarBDT.Open();
+
+            SqlCommand command = new SqlCommand("SELECT id FROM Usuario WHERE huella = @huella", conectarBDT);
+
+            command.Parameters.AddWithValue("huella", huella);
+            SqlDataReader reader = command.ExecuteReader();
+           
+
+            reader.Read();
+            var x = (int)reader["id"];
+
+            conectarBDT.Close();
+            reader.Close();
             return x;
         }
 
@@ -317,11 +408,14 @@ namespace TorneoAnual.Modelos
             if (reader.HasRows)
             {
                 conectarBDT.Close();
+                reader.Close();
                 return true;
             }
             else
+            { 
                 conectarBDT.Close();
-            {
+                reader.Close();
+
                 return false;
             }
         }
@@ -338,6 +432,7 @@ namespace TorneoAnual.Modelos
 
             command.ExecuteReader();
             conectarBDT.Close();
+          
         }
 
         #endregion
@@ -431,6 +526,7 @@ namespace TorneoAnual.Modelos
 
                 command.ExecuteReader();
                 conectarBDT.Close();
+                reader.Close();
             }
             else
             {
@@ -442,6 +538,7 @@ namespace TorneoAnual.Modelos
 
                 command.ExecuteReader();
                 conectarBDT.Close();
+                reader.Close();
             }
         }
 
@@ -463,11 +560,13 @@ namespace TorneoAnual.Modelos
             if (reader.HasRows)
             {
                 conectarBDT.Close();
+                reader.Close();
                 return true;
             }
             else
             {
                 conectarBDT.Close();
+                reader.Close();
                 return false;
             }
         }
@@ -484,6 +583,7 @@ namespace TorneoAnual.Modelos
 
             command.ExecuteReader();
             conectarBDT.Close();
+           
         }
 
         #endregion
@@ -504,11 +604,13 @@ namespace TorneoAnual.Modelos
             if (reader.HasRows)
             {
                 conectarBDT.Close();
+                reader.Close();
                 return true;
             }
             else
             {
                 conectarBDT.Close();
+                reader.Close();
                 return false;
             }
         }
@@ -525,6 +627,7 @@ namespace TorneoAnual.Modelos
 
             command.ExecuteReader();
             conectarBDT.Close();
+
         }
 
         #endregion
@@ -545,11 +648,13 @@ namespace TorneoAnual.Modelos
             if (reader.HasRows)
             {
                 conectarBDT.Close();
+                reader.Close();
                 return true;
             }
             else
             {
                 conectarBDT.Close();
+                reader.Close();
                 return false;
             }
         }
@@ -586,11 +691,13 @@ namespace TorneoAnual.Modelos
             if (reader.HasRows)
             {
                 conectarBDT.Close();
+                reader.Close();
                 return true;
             }
             else
             {
                 conectarBDT.Close();
+                reader.Close();
                 return false;
             }
         }
@@ -639,6 +746,7 @@ namespace TorneoAnual.Modelos
                                     us.nombre = dr["nombre"].ToString();
                                     us.apellidoP = dr["apellidoP"].ToString();
                                     us.club = dr["club"].ToString();
+                                    us.imagen = (byte[])dr["imagen"];
                                     if (dr["huella"].ToString() != "")
                                         us.huella = (byte[])dr["huella"];
                                     else
