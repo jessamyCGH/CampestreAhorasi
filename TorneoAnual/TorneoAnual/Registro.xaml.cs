@@ -70,46 +70,9 @@ namespace TorneoAnual
         {
          
                                 
-            if (tbNombre.Text == "")
-            {
-                MessageBox.Show("El campo Nombre debe ser especificado", "Error");
-                return;
-            }
-
-            if (tbApellidoP.Text == "")
-            {
-                MessageBox.Show("El campo Apellidos debe ser especificado", "Error");
-                return;
-            }
-            if (tbApellidoM.Text == "")
-            {
-                MessageBox.Show("El campo Apellidos debe ser especificado", "Error");
-                return;
-            }
-            if (tbCorreo.Text == "")
-            {
-                MessageBox.Show("El campo Número de empleado debe ser especificado", "Error");
-                return;
-            }
-            if (tbClub.Text=="")
-            {
-                MessageBox.Show("El campo Número de empleado debe ser especificado", "Error");
-                return;
-            }
-
-            if (!string.IsNullOrEmpty(tbCelular.Text) && tbCelular.Text.Length == 10)
-            {
-                MessageBox.Show("El campo Número de empleado debe ser especificado", "Error");
-                return;
-            }
-
-            if (Template == null)
-            {
-                MessageBox.Show("La huella del empleado debe ser capturada", "Error");
-                return;
-            }
+        
             #region comentado
-            /*if (tbNombre.Text == "")
+            if (tbNombre.Text == "")
             {
                 MessageBox.Show("El campo Nombre debe ser especificado", "Error");
                 return;
@@ -135,7 +98,7 @@ namespace TorneoAnual
             {
                 MessageBox.Show("La huella del empleado debe ser capturada", "Error");
                 return;
-            }*/
+            }
             #endregion
              try
               {
@@ -155,7 +118,7 @@ namespace TorneoAnual
                 if (id > 0)
                 {
 
-                    MessageBox.Show("Jugador guardado correctamente", "Guardar");
+                    MessageBox.Show("usuario guardado correctamente", "Guardar");
 
                     this.Close();
 

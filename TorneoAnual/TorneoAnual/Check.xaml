@@ -19,18 +19,20 @@
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnInaguracion" 
             ToolTip="Editar foto"
-            Margin="50,45,201,0"
+            Margin="50,45,183,0"
             VerticalAlignment="Top" 
             Click="btnInaguracion_Click" 
-            Height="80">
+            Height="93" Background="#FF777C7B" RenderTransformOrigin="0.483,0.838" FontSize="14">
+            
             Inaguracion
+            
         </Button>
 
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnAlimentos" 
             ToolTip="Editar foto" 
-            Margin="144,45,107,0" 
+            Margin="176,45,75,0" 
             VerticalAlignment="Top" 
             Click="btnAlimentos_Click" 
             Height="80">
@@ -41,10 +43,10 @@
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnCerveza" 
             ToolTip="Editar foto" 
-            Margin="238,45,20,0" 
+            Margin="270,45,472,0" 
             VerticalAlignment="Top" 
             Click="btnCerveza_Click" 
-            Height="80">
+            Height="80" Grid.ColumnSpan="2">
             Cerveza
         </Button>
 
@@ -63,10 +65,10 @@
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnGolf" 
             ToolTip="Editar foto" 
-            Margin="325,45,419,0" 
+            Margin="17,45,387,0" 
             VerticalAlignment="Top" 
             Click="btnGolf_Click" 
-            Height="80" Grid.ColumnSpan="2">
+            Height="80" Grid.Column="1">
             Golf
         </Button>
 

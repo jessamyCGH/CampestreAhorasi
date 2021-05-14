@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -26,6 +28,7 @@ namespace TorneoAnual
         private DPFP.Verification.Verification Verificator;
         private DPFP.Capture.Capture Capturer;
         Usuario usuario = new Usuario();
+       
 
         //Generamos un objeto de la clase Conexion para por der hacer llamadas a la base de datos
         ConexionBD conexion;
@@ -84,27 +87,32 @@ namespace TorneoAnual
 
                 //Buscamos en la base de datos su id y lo guardamos 
                 //sabiendo que el penultimo valor del arreglo es el apellido paterno y el ultimo el materno
-               id = conexion.getIdUser(nombres, array[array.Length - 2], array[array.Length - 1]);
+                usuario = new Usuario();
+                usuario.id = conexion.getIdUser(nombres, array[array.Length - 2], array[array.Length - 1]);
+                
 
                 //Usaremos un switch para conocer en que Menu se encuentra
                 bool res;
+
                 switch (menuSeleccionado)
                 {
                     case "Inaguracion":
                         //Verificaremos si ya la fue entregado Inaguracion
-                        res = conexion.getEntregadoInaguracion(id);
+                        res = conexion.getEntregadoInaguracion(usuario.id);
                         ChecarEntregado(res);
+                       
+
                         break;
 
                     case "Alimentos":
                         //Verificaremos si ya la fue entregado Alimentos
-                        res = conexion.getEntregadoAlimentos(id);
+                        res = conexion.getEntregadoAlimentos(usuario.id);
                         ChecarEntregado(res);
                         break;
 
                     case "Cerveza":
                         //Verificaremos si ya la fue entregado Alimentos
-                        countCervezas = conexion.getEntregadoCerveza(id);
+                        countCervezas = conexion.getEntregadoCerveza(usuario.id);
                         if (countCervezas == 0)
                         {
                             ChecarEntregado(false);
@@ -120,25 +128,25 @@ namespace TorneoAnual
 
                     case "Tennis":
                         //Verificaremos si ya la fue entregado Tennis
-                        res = conexion.getEntregadoTennis(id);
+                        res = conexion.getEntregadoTennis(usuario.id);
                         ChecarEntregado(res);
                         break;
 
                     case "Golf":
                         //Verificaremos si ya la fue entregado Golf
-                        res = conexion.getEntregadoGolf(id);
+                        res = conexion.getEntregadoGolf(usuario.id);
                         ChecarEntregado(res);
                         break;
 
                     case "Concierto":
                         //Verificaremos si ya la fue entregado Concierto
-                        res = conexion.getEntregadoConcierto(id);
+                        res = conexion.getEntregadoConcierto(usuario.id);
                         ChecarEntregado(res);
                         break;
 
                     case "Clausura":
                         //Verificaremos si ya la fue entregado Clausura
-                        res = conexion.getEntregadoClausura(id);
+                        res = conexion.getEntregadoClausura(usuario.id);
                         ChecarEntregado(res);
                         break;
                 }
@@ -276,18 +284,50 @@ namespace TorneoAnual
         private void btnEntregado_Click(object sender, EventArgs e)
         {
             //Usaremos un switch para conocer en que Menu se encuentra
+           
             switch (menuSeleccionado)
             {
+                
                 case "Inaguracion":
+                   
                     //Le agregaremos la entrega en la base de datos al usuario de Inaguracion
                     conexion.setEntregadoInaguracion(usuario.id);
                     ChecarEntregado(true);
+                    
+                    //usuario = new Usuario();
+                    if (btnEntregado.IsPressed == false)
+                    {
+                        List<Usuario> conexiones = ConexionBD.Muestra2(usuario);
+                        TorneoAnual.CrystalReports.TicketInaguracion tIna = new CrystalReports.TicketInaguracion();
+                        
+                        tIna.SetParameterValue("Nombre", usuario.nombre);
+                        tIna.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                        tIna.SetParameterValue("Tipo", usuario.categoriaTipo);
+                        tIna.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                        tIna.PrintToPrinter(1, true, 1, 2);
+                        tIna.Close();
+                        tIna.Dispose();
+                    }
                     break;
 
                 case "Alimentos":
                     //Le agregaremos la entrega en la base de datos al usuario de Alimentos
                     conexion.setEntregadoAlimentos(usuario.id);
                     ChecarEntregado(true);
+
+                    if (btnEntregado.IsPressed == false)
+                    {
+                        List<Usuario> conexiones = ConexionBD.Muestra2(usuario);
+                        TorneoAnual.CrystalReports.TicketAlimento tAli = new CrystalReports.TicketAlimento();
+
+                        tAli.SetParameterValue("Nombre", usuario.nombre);
+                        tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                        tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                        tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                        tAli.PrintToPrinter(1, true, 1, 2);
+                        tAli.Close();
+                        tAli.Dispose();
+                    }
                     break;
 
                 case "Cerveza":
@@ -297,30 +337,98 @@ namespace TorneoAnual
                     btnEntregado.Content = "Tomara otras 2";
                     btnEntregado.Visibility = Visibility.Visible;
                     btnEntregado.IsEnabled = true;
+
+                    if (btnEntregado.IsPressed == false)
+                    {
+                        List<Usuario> conexiones = ConexionBD.Muestra2(usuario);
+                        TorneoAnual.CrystalReports.TicketCerveza tCer = new CrystalReports.TicketCerveza();
+
+                        tCer.SetParameterValue("Nombre", usuario.nombre);
+                        tCer.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                        tCer.SetParameterValue("Tipo", usuario.categoriaTipo);
+                        tCer.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                        tCer.PrintToPrinter(1, true, 1, 2);
+                        tCer.Close();
+                        tCer.Dispose();
+                    }
                     break;
 
                 case "Tennis":
                     //Le agregaremos la entrega en la base de datos al usuario de Tennis
                     conexion.setEntregadoTennis(usuario.id);
                     ChecarEntregado(true);
+                    if (btnEntregado.IsPressed == false)
+                    {
+                        List<Usuario> conexiones = ConexionBD.Muestra2(usuario);
+                        TorneoAnual.CrystalReports.TicketTenis tTen = new CrystalReports.TicketTenis();
+
+                        tTen.SetParameterValue("Nombre", usuario.nombre);
+                        tTen.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                        tTen.SetParameterValue("Tipo", usuario.categoriaTipo);
+                        tTen.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                        tTen.PrintToPrinter(1, true, 1, 2);
+                        tTen.Close();
+                        tTen.Dispose();
+                    }
                     break;
 
                 case "Golf":
                     //Le agregaremos la entrega en la base de datos al usuario de Golf
                     conexion.setEntregadoGolf(usuario.id);
                     ChecarEntregado(true);
+
+                    if (btnEntregado.IsPressed == false)
+                    {
+                        List<Usuario> conexiones = ConexionBD.Muestra2(usuario);
+                        TorneoAnual.CrystalReports.TicketKGolf tGo = new CrystalReports.TicketKGolf();
+
+                        tGo.SetParameterValue("Nombre", usuario.nombre);
+                        tGo.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                        tGo.SetParameterValue("Tipo", usuario.categoriaTipo);
+                        tGo.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                        tGo.PrintToPrinter(1, true, 1, 2);
+                        tGo.Close();
+                        tGo.Dispose();
+                    }
                     break;
 
                 case "Concierto":
                     //Le agregaremos la entrega en la base de datos al usuario de Concierto
                     conexion.setEntregadoConcierto(usuario.id);
                     ChecarEntregado(true);
+                    if (btnEntregado.IsPressed == false)
+                    {
+                        List<Usuario> conexiones = ConexionBD.Muestra2(usuario);
+                        TorneoAnual.CrystalReports.ticketConcierto tCon = new CrystalReports.ticketConcierto();
+
+                        tCon.SetParameterValue("Nombre", usuario.nombre);
+                        tCon.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                        tCon.SetParameterValue("Tipo", usuario.categoriaTipo);
+                        tCon.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                        tCon.PrintToPrinter(1, true, 1, 2);
+                        tCon.Close();
+                        tCon.Dispose();
+                    }
                     break;
 
                 case "Clausura":
                     //Le agregaremos la entrega en la base de datos al usuario de Clausura
                     conexion.setEntregadoClausura(usuario.id);
                     ChecarEntregado(true);
+
+                    if (btnEntregado.IsPressed == false)
+                    {
+                        List<Usuario> conexiones = ConexionBD.Muestra2(usuario);
+                        TorneoAnual.CrystalReports.ticketClausura tCla = new CrystalReports.ticketClausura();
+
+                        tCla.SetParameterValue("Nombre", usuario.nombre);
+                        tCla.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                        tCla.SetParameterValue("Tipo", usuario.categoriaTipo);
+                        tCla.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                        tCla.PrintToPrinter(1, true, 1, 2);
+                        tCla.Close();
+                        tCla.Dispose();
+                    }
                     break;
             }
         }
@@ -461,8 +569,8 @@ namespace TorneoAnual
         {
             
             lblNom.Content = user.nombre;
-            lblApellidos.Content = user.apellidoP;
-            lblNumero.Content = user.apellidoM;
+            lblApellidos.Content = user.categoriaTipo;
+            lblNumero.Content = user.categoriaDescripcion;
             picFoto.Source = ByteToImage(user.imagen);
 
             this.usuario = user;
@@ -515,12 +623,52 @@ namespace TorneoAnual
                         //Verificaremos si ya la fue entregado Inaguracion
                         res = conexion.getEntregadoInaguracion(usuario.id);
                         ChecarEntregado(res);
+
+                        if (btnEntregado.IsVisible)
+                        {
+                            conexion.setEntregadoInaguracion(usuario.id);
+                            ChecarEntregado(true);
+                            List<Usuario> conexiones = ConexionBD.Muestra();
+                            TorneoAnual.CrystalReports.TicketInaguracion tAli = new CrystalReports.TicketInaguracion();
+
+                            tAli.SetParameterValue("Nombre", usuario.nombre);
+                            tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                            tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                            tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                            tAli.PrintToPrinter(1, true, 1, 2);
+                            tAli.Close();
+                            tAli.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El jugador ya registro su asistencia");
+                        }
+
                         break;
 
                     case "Alimentos":
                         //Verificaremos si ya la fue entregado Alimentos
                         res = conexion.getEntregadoAlimentos(usuario.id);
                         ChecarEntregado(res);
+                        if (btnEntregado.IsVisible)
+                        {
+                            conexion.setEntregadoAlimentos(usuario.id);
+                            ChecarEntregado(true);
+                            List<Usuario> conexiones = ConexionBD.Muestra();
+                            TorneoAnual.CrystalReports.TicketAlimento tAli = new CrystalReports.TicketAlimento();
+
+                            tAli.SetParameterValue("Nombre", usuario.nombre);
+                            tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                            tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                            tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                            tAli.PrintToPrinter(1, true, 1, 2);
+                            tAli.Close();
+                            tAli.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El jugador ya registro su asistencia");
+                        }
                         break;
 
                     case "Cerveza":
@@ -532,10 +680,24 @@ namespace TorneoAnual
                         }
                         else
                         {
+                           
                             ChecarEntregado(true);
-                            btnEntregado.Content = "Tomara otras 2";
-                            btnEntregado.Visibility = Visibility.Visible;
-                            btnEntregado.IsEnabled = true;
+                           // btnEntregado.Content = "Tomara otras 2";
+                           // btnEntregado.Visibility = Visibility.Visible;
+                          //  btnEntregado.IsEnabled = true;
+                            conexion.setEntregadoCerveza(usuario.id, countCervezas += 2);
+
+
+                            List<Usuario> conexiones = ConexionBD.Muestra();
+                            TorneoAnual.CrystalReports.TicketAlimento tAli = new CrystalReports.TicketAlimento();
+
+                            tAli.SetParameterValue("Nombre", usuario.nombre);
+                            tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                            tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                            tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                            tAli.PrintToPrinter(1, true, 1, 2);
+                            tAli.Close();
+                            tAli.Dispose();
                         }
                         break;
 
@@ -543,24 +705,104 @@ namespace TorneoAnual
                         //Verificaremos si ya la fue entregado Tennis
                         res = conexion.getEntregadoTennis(usuario.id);
                         ChecarEntregado(res);
+
+                        if (btnEntregado.IsVisible)
+                        {
+                            conexion.setEntregadoTennis(usuario.id);
+                            ChecarEntregado(true);
+                            List<Usuario> conexiones = ConexionBD.Muestra();
+                            TorneoAnual.CrystalReports.TicketTenis tAli = new CrystalReports.TicketTenis();
+
+                            tAli.SetParameterValue("Nombre", usuario.nombre);
+                            tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                            tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                            tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                            tAli.PrintToPrinter(1, true, 1, 2);
+                            tAli.Close();
+                            tAli.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El jugador ya registro su asistencia");
+                        }
                         break;
 
                     case "Golf":
                         //Verificaremos si ya la fue entregado Golf
                         res = conexion.getEntregadoGolf(usuario.id);
                         ChecarEntregado(res);
+
+                        if (btnEntregado.IsVisible)
+                        {
+                            conexion.setEntregadoGolf(usuario.id);
+                            ChecarEntregado(true);
+                            List<Usuario> conexiones = ConexionBD.Muestra();
+                            TorneoAnual.CrystalReports.TicketKGolf tAli = new CrystalReports.TicketKGolf();
+
+                            tAli.SetParameterValue("Nombre", usuario.nombre);
+                            tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                            tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                            tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                            tAli.PrintToPrinter(1, true, 1, 2);
+                            tAli.Close();
+                            tAli.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El jugador ya registro su asistencia");
+                        }
                         break;
 
                     case "Concierto":
                         //Verificaremos si ya la fue entregado Concierto
                         res = conexion.getEntregadoConcierto(usuario.id);
                         ChecarEntregado(res);
+
+                        if (btnEntregado.IsVisible)
+                        {
+                            conexion.setEntregadoConcierto(usuario.id);
+                            ChecarEntregado(true);
+                            List<Usuario> conexiones = ConexionBD.Muestra();
+                            TorneoAnual.CrystalReports.TicketKGolf tAli = new CrystalReports.TicketKGolf();
+
+                            tAli.SetParameterValue("Nombre", usuario.nombre);
+                            tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                            tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                            tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                            tAli.PrintToPrinter(1, true, 1, 2);
+                            tAli.Close();
+                            tAli.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El jugador ya registro su asistencia");
+                        }
                         break;
 
                     case "Clausura":
                         //Verificaremos si ya la fue entregado Clausura
                         res = conexion.getEntregadoClausura(usuario.id);
                         ChecarEntregado(res);
+                        if (btnEntregado.IsVisible)
+                        {
+                            conexion.setEntregadoClausura(usuario.id);
+                            ChecarEntregado(true);
+                            List<Usuario> conexiones = ConexionBD.Muestra();
+                            TorneoAnual.CrystalReports.ticketClausura tAli = new CrystalReports.ticketClausura();
+
+                            tAli.SetParameterValue("Nombre", usuario.nombre);
+                            tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                            tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                            tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                            tAli.PrintToPrinter(1, true, 1, 2);
+                            tAli.Close();
+                            tAli.Dispose();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El jugador ya registro su asistencia");
+                        }
+
                         break;
                 }
 
@@ -601,7 +843,7 @@ namespace TorneoAnual
         {
 
             this.Dispatcher.Invoke(new Function(delegate () {
-                lblReporte.Content = "La Huella leida fue conectada";
+                lblReporte.Content = "La Huella fue conectada";
             }));
         }
 
@@ -624,5 +866,8 @@ namespace TorneoAnual
         #endregion
         #endregion
 
+
+
+        
     }
 }

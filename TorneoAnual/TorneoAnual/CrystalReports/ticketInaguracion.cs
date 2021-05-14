@@ -16,14 +16,14 @@ namespace TorneoAnual.CrystalReports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ticketInaguracion : ReportClass {
+    public class TicketInaguracion : ReportClass {
         
-        public ticketInaguracion() {
+        public TicketInaguracion() {
         }
         
         public override string ResourceName {
             get {
-                return "ticketInaguracion.rpt";
+                return "TicketInaguracion.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace TorneoAnual.CrystalReports {
         
         public override string FullResourceName {
             get {
-                return "TorneoAnual.CrystalReports.ticketInaguracion.rpt";
+                return "TorneoAnual.CrystalReports.TicketInaguracion.rpt";
             }
             set {
                 // Do nothing
@@ -87,12 +87,36 @@ namespace TorneoAnual.CrystalReports {
                 return this.ReportDefinition.Sections[4];
             }
         }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_Nombre {
+            get {
+                return this.DataDefinition.ParameterFields[0];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_Categoria {
+            get {
+                return this.DataDefinition.ParameterFields[1];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.Shared.IParameterField Parameter_Tipo {
+            get {
+                return this.DataDefinition.ParameterFields[2];
+            }
+        }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedticketInaguracion : Component, ICachedReport {
+    public class CachedTicketInaguracion : Component, ICachedReport {
         
-        public CachedticketInaguracion() {
+        public CachedTicketInaguracion() {
         }
         
         [Browsable(false)]
@@ -129,7 +153,7 @@ namespace TorneoAnual.CrystalReports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ticketInaguracion rpt = new ticketInaguracion();
+            TicketInaguracion rpt = new TicketInaguracion();
             rpt.Site = this.Site;
             return rpt;
         }

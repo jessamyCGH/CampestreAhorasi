@@ -46,6 +46,7 @@ namespace TorneoAnual
             CRI.Database.Tables["Repo_Inaguracion"].SetDataSource(dInaguracion);
             cvInaguracion.ReportSource = null;
             cvInaguracion.ReportSource = CRI;
+            
         }
 
         private void btnCerveza_Click(object sender, EventArgs e)

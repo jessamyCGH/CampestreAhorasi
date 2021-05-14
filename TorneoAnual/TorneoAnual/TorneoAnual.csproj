@@ -163,6 +163,12 @@
     <Compile Include="Check.xaml.cs">
       <DependentUpon>Check.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CrystalReports\TicketInaguracion.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TicketInaguracion.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CrystalReports\CRAlimentos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -229,12 +235,6 @@
       <DependentUpon>ticketConcierto.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CrystalReports\ticketInaguracion.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ticketInaguracion.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="CrystalReports\TicketKGolf.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -274,6 +274,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DInaguracion.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\DMuesta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DMuesta.xsd</DependentUpon>
     </Compile>
     <Compile Include="Dataset\DTAlimentos.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -354,6 +359,10 @@
     <EmbeddedResource Include="CaptureForm.resx">
       <DependentUpon>CaptureForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReports\TicketInaguracion.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>TicketInaguracion.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\CRAlimentos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRAlimentos.cs</LastGenOutput>
@@ -397,10 +406,6 @@
     <EmbeddedResource Include="CrystalReports\ticketConcierto.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ticketConcierto.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReports\ticketInaguracion.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ticketInaguracion.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CrystalReports\TicketKGolf.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -471,6 +476,17 @@
     </None>
     <None Include="Dataset\DInaguracion.xss">
       <DependentUpon>DInaguracion.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DMuesta.xsc">
+      <DependentUpon>DMuesta.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\DMuesta.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DMuesta.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\DMuesta.xss">
+      <DependentUpon>DMuesta.xsd</DependentUpon>
     </None>
     <None Include="Dataset\DTAlimentos.xsc">
       <DependentUpon>DTAlimentos.xsd</DependentUpon>

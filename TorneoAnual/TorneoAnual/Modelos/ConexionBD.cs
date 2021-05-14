@@ -24,8 +24,6 @@ namespace TorneoAnual.Modelos
 
         public int update(Usuario usuario)
         {
-
-
             try
             {
                 cadena = cadena.Replace("{nombrePC}", Environment.MachineName);
@@ -299,8 +297,6 @@ namespace TorneoAnual.Modelos
 
         }
 
-
-
         // Se hace una peticion para seleccionar los Torneos que esten vigentes recientemente 
         public ObservableCollection<string> obtenerTorneosActuales()
         {
@@ -368,8 +364,8 @@ namespace TorneoAnual.Modelos
             reader.Read();
             var x = (int)reader["id"];
 
-            conectarBDT.Close();
-            reader.Close();
+           conectarBDT.Close();
+            //reader.Close();
             return x;
         }
 
@@ -445,7 +441,7 @@ namespace TorneoAnual.Modelos
             conectarBDT.ConnectionString = cadena;
             conectarBDT.Open();
 
-            SqlCommand command = new SqlCommand("SELECT id_user,fecha FROM Alimentos WHERE id_user = @id_user", conectarBDT);
+            SqlCommand command = new SqlCommand("SELECT id_user,fecha FROM Alimentos WHERE id_user = @id_user and fecha >= convert (date,SYSDATETIME())", conectarBDT);
             command.Parameters.AddWithValue("id_user", id_user);
 
             SqlDataReader reader = command.ExecuteReader();
@@ -746,6 +742,8 @@ namespace TorneoAnual.Modelos
                                     us.nombre = dr["nombre"].ToString();
                                     us.apellidoP = dr["apellidoP"].ToString();
                                     us.club = dr["club"].ToString();
+                                    us.categoriaTipo = dr["id_cat"].ToString();
+                                    us.categoriaDescripcion = dr["id_cat1"].ToString();
                                     us.imagen = (byte[])dr["imagen"];
                                     if (dr["huella"].ToString() != "")
                                         us.huella = (byte[])dr["huella"];
@@ -769,6 +767,64 @@ namespace TorneoAnual.Modelos
             return listaUsuario;
         }
         #endregion
+
+        public static List<Usuario> Muestra2(Usuario us)
+        {
+           //Usuario us = new Usuario();
+            List<Usuario> listaUsuario = new List<Usuario>();
+
+            try
+            {
+                using (var conn = new SqlConnection("Data Source = localhost; initial catalog = TorneoAnual; Integrated Security = True "))
+                {
+                    conn.Open();
+
+                    using (var command = conn.CreateCommand())
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.CommandText = "MuestraID";
+                        command.Parameters.AddWithValue("id",us.id);
+                     
+
+
+                        using (DbDataReader dr = command.ExecuteReader())
+                        {
+                            if (dr.HasRows)
+                            {
+                                while (dr.Read())
+                                {
+                                    
+
+                                    us.id = int.Parse(dr["id"].ToString());
+                                    us.nombre = dr["nombre"].ToString();
+                                    us.apellidoP = dr["apellidoP"].ToString();
+                                    us.club = dr["club"].ToString();
+                                    us.categoriaTipo = dr["id_cat"].ToString();
+                                    us.categoriaDescripcion = dr["id_cat1"].ToString();
+                                    us.imagen = (byte[])dr["imagen"];
+                                   // if (dr["huella"].ToString() != "")
+                                        us.huella = (byte[])dr["huella"];
+                                  //  else
+                                   //     us.huella = null;
+
+                                    listaUsuario.Add(us);
+
+                                }
+                            }
+                        }
+                       
+
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al consultar Usuarios: " + ex.Message, "Error");
+            }
+
+            return listaUsuario;
+        }
 
     }
 }

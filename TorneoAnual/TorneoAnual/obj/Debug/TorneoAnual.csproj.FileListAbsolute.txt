@@ -88,8 +88,6 @@ C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\Torneo
 C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csproj.CopyComplete
 C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.exe
 C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.pdb
-C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x64\VisioForge_Audio_Enhancer_x64.ax
-C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x64\VisioForge_Video_Effects_Pro_x64.ax
 C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\Modificar.g.cs
 C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x86\atl100.dll
 C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x86\MediaInfo.dll
@@ -150,6 +148,7 @@ C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\Modifi
 C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.Camara.resources
 C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.CaptureForm.resources
 C:\Users\ruben\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.Reporte.resources
+C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x86\atl100.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x86\MediaInfo.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x86\msvcp100.dll
@@ -173,9 +172,11 @@ C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x64\ms
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x64\VisioForge_DXP64.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x64\VisioForge_MFP64.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x64\VisioForge_Audio_ChannelMapper_x64.ax
+C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x64\VisioForge_Audio_Enhancer_x64.ax
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x64\VisioForge_Audio_Mixer_x64.ax
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x64\VisioForge_D2D_Video_Renderer_x64.ax
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x64\VisioForge_RGB2YUV_x64.ax
+C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x64\VisioForge_Video_Effects_Pro_x64.ax
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x64\VisioForge_Video_Mixer_x64.ax
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x64\VisioForge_Video_Resize_x64.ax
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\x64\VisioForge_YUV2RGB_x64.ax
@@ -198,7 +199,6 @@ C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\FlashC
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\FormFactory.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\MahApps.Metro.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\MaterialDesignColors.dll
-C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\MaterialForms.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\MaterialSkin.dll
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\bin\Debug\PA.Picture.dll
@@ -252,4 +252,3 @@ C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\Torneo
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csproj.CopyComplete
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.exe
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.pdb
-C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csprojAssemblyReference.cache
