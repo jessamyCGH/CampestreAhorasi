@@ -395,7 +395,7 @@ namespace TorneoAnual
                 if (id > 0)
                 {
 
-                    MessageBox.Show("Usuario guardado correctamente", "Guardar");
+                    MessageBox.Show("El jugador fue eliminado correctamente", "Guardar");
 
                     this.Close();
 

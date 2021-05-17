@@ -29,10 +29,26 @@ namespace TorneoAnual
         /// </summary>
         private void InitializeComponent()
         {
+            this.CRAlimentos1 = new TorneoAnual.CrystalReports.CRAlimentos();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cvAlimentos = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dtFinal = new System.Windows.Forms.DateTimePicker();
+            this.dtInicio = new System.Windows.Forms.DateTimePicker();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dttenisf = new System.Windows.Forms.DateTimePicker();
+            this.dttenisi = new System.Windows.Forms.DateTimePicker();
             this.cvTenis = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.btnTenis = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dtf = new System.Windows.Forms.DateTimePicker();
+            this.dtini = new System.Windows.Forms.DateTimePicker();
             this.cvGolf = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.btnKGolf = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -48,9 +64,7 @@ namespace TorneoAnual
             this.cvInaguracion = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.btnInaguracion = new System.Windows.Forms.Button();
             this.btnGolf = new System.Windows.Forms.TabControl();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
-            this.cvAlimentos = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.CRAlimentos1 = new TorneoAnual.CrystalReports.CRAlimentos();
+            this.tabPage7.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -58,11 +72,83 @@ namespace TorneoAnual
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.btnGolf.SuspendLayout();
-            this.tabPage7.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.label2);
+            this.tabPage7.Controls.Add(this.label1);
+            this.tabPage7.Controls.Add(this.cvAlimentos);
+            this.tabPage7.Controls.Add(this.button1);
+            this.tabPage7.Controls.Add(this.dtFinal);
+            this.tabPage7.Controls.Add(this.dtInicio);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(1023, 576);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "Alimentos";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(316, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Hasta:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(45, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Desde:";
+            // 
+            // cvAlimentos
+            // 
+            this.cvAlimentos.ActiveViewIndex = -1;
+            this.cvAlimentos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.cvAlimentos.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cvAlimentos.Location = new System.Drawing.Point(-4, 85);
+            this.cvAlimentos.Name = "cvAlimentos";
+            this.cvAlimentos.Size = new System.Drawing.Size(1024, 491);
+            this.cvAlimentos.TabIndex = 3;
+            this.cvAlimentos.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(606, 22);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(115, 33);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Generar Reporte";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dtFinal
+            // 
+            this.dtFinal.Location = new System.Drawing.Point(368, 32);
+            this.dtFinal.Name = "dtFinal";
+            this.dtFinal.Size = new System.Drawing.Size(200, 20);
+            this.dtFinal.TabIndex = 1;
+            // 
+            // dtInicio
+            // 
+            this.dtInicio.Location = new System.Drawing.Point(97, 32);
+            this.dtInicio.Name = "dtInicio";
+            this.dtInicio.Size = new System.Drawing.Size(200, 20);
+            this.dtInicio.TabIndex = 0;
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.label5);
+            this.tabPage6.Controls.Add(this.label6);
+            this.tabPage6.Controls.Add(this.dttenisf);
+            this.tabPage6.Controls.Add(this.dttenisi);
             this.tabPage6.Controls.Add(this.cvTenis);
             this.tabPage6.Controls.Add(this.btnTenis);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
@@ -72,6 +158,38 @@ namespace TorneoAnual
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "KitTenis";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(307, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Hasta:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(36, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Desde:";
+            // 
+            // dttenisf
+            // 
+            this.dttenisf.Location = new System.Drawing.Point(359, 15);
+            this.dttenisf.Name = "dttenisf";
+            this.dttenisf.Size = new System.Drawing.Size(200, 20);
+            this.dttenisf.TabIndex = 7;
+            // 
+            // dttenisi
+            // 
+            this.dttenisi.Location = new System.Drawing.Point(88, 15);
+            this.dttenisi.Name = "dttenisi";
+            this.dttenisi.Size = new System.Drawing.Size(200, 20);
+            this.dttenisi.TabIndex = 6;
             // 
             // cvTenis
             // 
@@ -96,6 +214,10 @@ namespace TorneoAnual
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.label3);
+            this.tabPage5.Controls.Add(this.label4);
+            this.tabPage5.Controls.Add(this.dtf);
+            this.tabPage5.Controls.Add(this.dtini);
             this.tabPage5.Controls.Add(this.cvGolf);
             this.tabPage5.Controls.Add(this.btnKGolf);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
@@ -105,6 +227,38 @@ namespace TorneoAnual
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Kit Golf";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(294, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Hasta:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(23, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Desde:";
+            // 
+            // dtf
+            // 
+            this.dtf.Location = new System.Drawing.Point(346, 35);
+            this.dtf.Name = "dtf";
+            this.dtf.Size = new System.Drawing.Size(200, 20);
+            this.dtf.TabIndex = 7;
+            // 
+            // dtini
+            // 
+            this.dtini.Location = new System.Drawing.Point(75, 35);
+            this.dtini.Name = "dtini";
+            this.dtini.Size = new System.Drawing.Size(200, 20);
+            this.dtini.TabIndex = 6;
             // 
             // cvGolf
             // 
@@ -119,7 +273,7 @@ namespace TorneoAnual
             // 
             // btnKGolf
             // 
-            this.btnKGolf.Location = new System.Drawing.Point(365, 20);
+            this.btnKGolf.Location = new System.Drawing.Point(612, 32);
             this.btnKGolf.Name = "btnKGolf";
             this.btnKGolf.Size = new System.Drawing.Size(75, 23);
             this.btnKGolf.TabIndex = 0;
@@ -274,29 +428,6 @@ namespace TorneoAnual
             this.btnGolf.Size = new System.Drawing.Size(1031, 602);
             this.btnGolf.TabIndex = 6;
             // 
-            // tabPage7
-            // 
-            this.tabPage7.Controls.Add(this.cvAlimentos);
-            this.tabPage7.Location = new System.Drawing.Point(4, 22);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1023, 576);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "Alimentos";
-            this.tabPage7.UseVisualStyleBackColor = true;
-            this.tabPage7.Click += new System.EventHandler(this.tabPage7_Click);
-            // 
-            // cvAlimentos
-            // 
-            this.cvAlimentos.ActiveViewIndex = 0;
-            this.cvAlimentos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.cvAlimentos.Cursor = System.Windows.Forms.Cursors.Default;
-            this.cvAlimentos.Location = new System.Drawing.Point(0, 0);
-            this.cvAlimentos.Name = "cvAlimentos";
-            this.cvAlimentos.ReportSource = this.CRAlimentos1;
-            this.cvAlimentos.Size = new System.Drawing.Size(1020, 576);
-            this.cvAlimentos.TabIndex = 3;
-            // 
             // Reporte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,40 +437,56 @@ namespace TorneoAnual
             this.Name = "Reporte";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte";
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
             this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
             this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.btnGolf.ResumeLayout(false);
-            this.tabPage7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+        private CrystalReports.CRAlimentos CRAlimentos1;
+        private System.Windows.Forms.TabPage tabPage7;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvAlimentos;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dtFinal;
+        private System.Windows.Forms.DateTimePicker dtInicio;
         private System.Windows.Forms.TabPage tabPage6;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvTenis;
+        private System.Windows.Forms.Button btnTenis;
         private System.Windows.Forms.TabPage tabPage5;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvGolf;
+        private System.Windows.Forms.Button btnKGolf;
         private System.Windows.Forms.TabPage tabPage4;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvConcierto;
+        private System.Windows.Forms.Button btnConcierto;
         private System.Windows.Forms.TabPage tabPage3;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvClausura;
+        private System.Windows.Forms.Button btnClausura;
         private System.Windows.Forms.TabPage tabPage2;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvCerveza;
+        private System.Windows.Forms.Button btnCerveza;
         private System.Windows.Forms.TabPage tabPage1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer cvInaguracion;
         private System.Windows.Forms.Button btnInaguracion;
         private System.Windows.Forms.TabControl btnGolf;
-        private System.Windows.Forms.Button btnConcierto;
-        private System.Windows.Forms.Button btnClausura;
-        private System.Windows.Forms.Button btnCerveza;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvCerveza;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvClausura;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvConcierto;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvTenis;
-        private System.Windows.Forms.Button btnTenis;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvGolf;
-        private System.Windows.Forms.Button btnKGolf;
-        private System.Windows.Forms.TabPage tabPage7;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer cvAlimentos;
-        private CrystalReports.CRAlimentos CRAlimentos1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dttenisf;
+        private System.Windows.Forms.DateTimePicker dttenisi;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DateTimePicker dtf;
+        private System.Windows.Forms.DateTimePicker dtini;
     }
 }

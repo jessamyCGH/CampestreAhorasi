@@ -105,48 +105,55 @@ namespace TorneoAnual
 
         private void btnKGolf_Click(object sender, EventArgs e)
         {
-            if (con.State == ConnectionState.Closed)
-                con.Open();
-
-            SqlDataAdapter data = new SqlDataAdapter("Repo_Golf", con);
-            data.SelectCommand.CommandType = CommandType.StoredProcedure;
-
-
-            DataTable dGolf = new DataTable();
-            data.Fill(dGolf);
-
             TorneoAnual.CrystalReports.CRGolf cRGolf = new CrystalReports.CRGolf();
-            cRGolf.Database.Tables["Repo_Golf"].SetDataSource(dGolf);
+            cRGolf.SetParameterValue("@Inicial", dtini.Value.Date);
+            cRGolf.SetParameterValue("@Final", dtf.Value.Date);
             cvGolf.ReportSource = null;
             cvGolf.ReportSource = cRGolf;
+        
         }
 
        
         private void btnTenis_Click(object sender, EventArgs e)
         {
 
-            if (con.State == ConnectionState.Closed)
-                con.Open();
+            /*  if (con.State == ConnectionState.Closed)
+                  con.Open();
 
-            SqlDataAdapter data = new SqlDataAdapter("Repo_Tenis", con);
-            data.SelectCommand.CommandType = CommandType.StoredProcedure;
+              SqlDataAdapter data = new SqlDataAdapter("Repo_Tenis", con);
+              data.SelectCommand.CommandType = CommandType.StoredProcedure;
 
 
-            DataTable dTenis = new DataTable();
-            data.Fill(dTenis);
+              DataTable dTenis = new DataTable();
+              data.Fill(dTenis);
+
+              TorneoAnual.CrystalReports.CRTenis cRTenis = new CrystalReports.CRTenis();
+              cRTenis.Database.Tables["Repo_Tenis"].SetDataSource(dTenis);
+              cvTenis.ReportSource = null;
+              cvTenis.ReportSource = cRTenis;*/
 
             TorneoAnual.CrystalReports.CRTenis cRTenis = new CrystalReports.CRTenis();
-            cRTenis.Database.Tables["Repo_Tenis"].SetDataSource(dTenis);
+            cRTenis.SetParameterValue("@Inicio", dttenisi.Value.Date);
+            cRTenis.SetParameterValue("@fin", dttenisf.Value.Date);
             cvTenis.ReportSource = null;
             cvTenis.ReportSource = cRTenis;
         }
 
-        private void tabPage7_Click(object sender, EventArgs e)
+
+
+        private void button1_Click(object sender, EventArgs e)
         {
-            cvAlimentos.ReportSource = crA;
-           // TorneoAnual.CrystalReports.CRAlimentos cRAlimentos = new CrystalReports.CRAlimentos();
-          //  cRAlimentos.Database.Tables[""]
+            TorneoAnual.CrystalReports.CRAlimentos cRAlimentos = new CrystalReports.CRAlimentos();
+            cRAlimentos.SetParameterValue("@Inicial", dtInicio.Value.Date );
+            cRAlimentos.SetParameterValue("@Final", dtFinal.Value.Date);
+            cvAlimentos.ReportSource = null;
+            cvAlimentos.ReportSource = cRAlimentos;
+
+
+
         }
+
+      
     }
 
 

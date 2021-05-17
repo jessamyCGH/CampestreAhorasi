@@ -252,3 +252,4 @@ C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\Torneo
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csproj.CopyComplete
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.exe
 C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.pdb
+C:\Users\jessa\Desktop\CampestreAhorasi\TorneoAnual\TorneoAnual\obj\Debug\TorneoAnual.csprojAssemblyReference.cache

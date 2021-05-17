@@ -24,7 +24,7 @@ namespace TorneoAnual.Dataset {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class DTAlimentos : global::System.Data.DataSet {
         
-        private TicketAlimentosDataTable tableTicketAlimentos;
+        private FechaDataTable tableFecha;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace TorneoAnual.Dataset {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["TicketAlimentos"] != null)) {
-                    base.Tables.Add(new TicketAlimentosDataTable(ds.Tables["TicketAlimentos"]));
+                if ((ds.Tables["Fecha"] != null)) {
+                    base.Tables.Add(new FechaDataTable(ds.Tables["Fecha"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace TorneoAnual.Dataset {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public TicketAlimentosDataTable TicketAlimentos {
+        public FechaDataTable Fecha {
             get {
-                return this.tableTicketAlimentos;
+                return this.tableFecha;
             }
         }
         
@@ -152,8 +152,8 @@ namespace TorneoAnual.Dataset {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["TicketAlimentos"] != null)) {
-                    base.Tables.Add(new TicketAlimentosDataTable(ds.Tables["TicketAlimentos"]));
+                if ((ds.Tables["Fecha"] != null)) {
+                    base.Tables.Add(new FechaDataTable(ds.Tables["Fecha"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace TorneoAnual.Dataset {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableTicketAlimentos = ((TicketAlimentosDataTable)(base.Tables["TicketAlimentos"]));
+            this.tableFecha = ((FechaDataTable)(base.Tables["Fecha"]));
             if ((initTable == true)) {
-                if ((this.tableTicketAlimentos != null)) {
-                    this.tableTicketAlimentos.InitVars();
+                if ((this.tableFecha != null)) {
+                    this.tableFecha.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace TorneoAnual.Dataset {
             this.Namespace = "http://tempuri.org/DTAlimentos.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableTicketAlimentos = new TicketAlimentosDataTable();
-            base.Tables.Add(this.tableTicketAlimentos);
+            this.tableFecha = new FechaDataTable();
+            base.Tables.Add(this.tableFecha);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerializeTicketAlimentos() {
+        private bool ShouldSerializeFecha() {
             return false;
         }
         
@@ -270,25 +270,25 @@ namespace TorneoAnual.Dataset {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void TicketAlimentosRowChangeEventHandler(object sender, TicketAlimentosRowChangeEvent e);
+        public delegate void FechaRowChangeEventHandler(object sender, FechaRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class TicketAlimentosDataTable : global::System.Data.TypedTableBase<TicketAlimentosRow> {
+        public partial class FechaDataTable : global::System.Data.TypedTableBase<FechaRow> {
             
             private global::System.Data.DataColumn columnnombre;
             
-            private global::System.Data.DataColumn columntipo;
+            private global::System.Data.DataColumn columnid_cat;
             
-            private global::System.Data.DataColumn columndescripcion;
+            private global::System.Data.DataColumn columnid_cat1;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TicketAlimentosDataTable() {
-                this.TableName = "TicketAlimentos";
+            public FechaDataTable() {
+                this.TableName = "Fecha";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -296,7 +296,7 @@ namespace TorneoAnual.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal TicketAlimentosDataTable(global::System.Data.DataTable table) {
+            internal FechaDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -313,7 +313,7 @@ namespace TorneoAnual.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected TicketAlimentosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected FechaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -328,17 +328,17 @@ namespace TorneoAnual.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn tipoColumn {
+            public global::System.Data.DataColumn id_catColumn {
                 get {
-                    return this.columntipo;
+                    return this.columnid_cat;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn descripcionColumn {
+            public global::System.Data.DataColumn id_cat1Column {
                 get {
-                    return this.columndescripcion;
+                    return this.columnid_cat1;
                 }
             }
             
@@ -353,47 +353,47 @@ namespace TorneoAnual.Dataset {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TicketAlimentosRow this[int index] {
+            public FechaRow this[int index] {
                 get {
-                    return ((TicketAlimentosRow)(this.Rows[index]));
+                    return ((FechaRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event TicketAlimentosRowChangeEventHandler TicketAlimentosRowChanging;
+            public event FechaRowChangeEventHandler FechaRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event TicketAlimentosRowChangeEventHandler TicketAlimentosRowChanged;
+            public event FechaRowChangeEventHandler FechaRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event TicketAlimentosRowChangeEventHandler TicketAlimentosRowDeleting;
+            public event FechaRowChangeEventHandler FechaRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event TicketAlimentosRowChangeEventHandler TicketAlimentosRowDeleted;
+            public event FechaRowChangeEventHandler FechaRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AddTicketAlimentosRow(TicketAlimentosRow row) {
+            public void AddFechaRow(FechaRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TicketAlimentosRow AddTicketAlimentosRow(string nombre, string tipo, string descripcion) {
-                TicketAlimentosRow rowTicketAlimentosRow = ((TicketAlimentosRow)(this.NewRow()));
+            public FechaRow AddFechaRow(string nombre, string id_cat, string id_cat1) {
+                FechaRow rowFechaRow = ((FechaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nombre,
-                        tipo,
-                        descripcion};
-                rowTicketAlimentosRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowTicketAlimentosRow);
-                return rowTicketAlimentosRow;
+                        id_cat,
+                        id_cat1};
+                rowFechaRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowFechaRow);
+                return rowFechaRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                TicketAlimentosDataTable cln = ((TicketAlimentosDataTable)(base.Clone()));
+                FechaDataTable cln = ((FechaDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -401,15 +401,15 @@ namespace TorneoAnual.Dataset {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new TicketAlimentosDataTable();
+                return new FechaDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnnombre = base.Columns["nombre"];
-                this.columntipo = base.Columns["tipo"];
-                this.columndescripcion = base.Columns["descripcion"];
+                this.columnid_cat = base.Columns["id_cat"];
+                this.columnid_cat1 = base.Columns["id_cat1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -417,42 +417,42 @@ namespace TorneoAnual.Dataset {
             private void InitClass() {
                 this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnnombre);
-                this.columntipo = new global::System.Data.DataColumn("tipo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntipo);
-                this.columndescripcion = new global::System.Data.DataColumn("descripcion", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndescripcion);
+                this.columnid_cat = new global::System.Data.DataColumn("id_cat", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_cat);
+                this.columnid_cat1 = new global::System.Data.DataColumn("id_cat1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_cat1);
                 this.columnnombre.AllowDBNull = false;
                 this.columnnombre.MaxLength = 40;
-                this.columntipo.AllowDBNull = false;
-                this.columntipo.MaxLength = 1;
-                this.columndescripcion.AllowDBNull = false;
-                this.columndescripcion.MaxLength = 25;
+                this.columnid_cat.AllowDBNull = false;
+                this.columnid_cat.MaxLength = 25;
+                this.columnid_cat1.AllowDBNull = false;
+                this.columnid_cat1.MaxLength = 1;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TicketAlimentosRow NewTicketAlimentosRow() {
-                return ((TicketAlimentosRow)(this.NewRow()));
+            public FechaRow NewFechaRow() {
+                return ((FechaRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new TicketAlimentosRow(builder);
+                return new FechaRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(TicketAlimentosRow);
+                return typeof(FechaRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.TicketAlimentosRowChanged != null)) {
-                    this.TicketAlimentosRowChanged(this, new TicketAlimentosRowChangeEvent(((TicketAlimentosRow)(e.Row)), e.Action));
+                if ((this.FechaRowChanged != null)) {
+                    this.FechaRowChanged(this, new FechaRowChangeEvent(((FechaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -460,8 +460,8 @@ namespace TorneoAnual.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.TicketAlimentosRowChanging != null)) {
-                    this.TicketAlimentosRowChanging(this, new TicketAlimentosRowChangeEvent(((TicketAlimentosRow)(e.Row)), e.Action));
+                if ((this.FechaRowChanging != null)) {
+                    this.FechaRowChanging(this, new FechaRowChangeEvent(((FechaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -469,8 +469,8 @@ namespace TorneoAnual.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.TicketAlimentosRowDeleted != null)) {
-                    this.TicketAlimentosRowDeleted(this, new TicketAlimentosRowChangeEvent(((TicketAlimentosRow)(e.Row)), e.Action));
+                if ((this.FechaRowDeleted != null)) {
+                    this.FechaRowDeleted(this, new FechaRowChangeEvent(((FechaRow)(e.Row)), e.Action));
                 }
             }
             
@@ -478,14 +478,14 @@ namespace TorneoAnual.Dataset {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.TicketAlimentosRowDeleting != null)) {
-                    this.TicketAlimentosRowDeleting(this, new TicketAlimentosRowChangeEvent(((TicketAlimentosRow)(e.Row)), e.Action));
+                if ((this.FechaRowDeleting != null)) {
+                    this.FechaRowDeleting(this, new FechaRowChangeEvent(((FechaRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemoveTicketAlimentosRow(TicketAlimentosRow row) {
+            public void RemoveFechaRow(FechaRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -512,7 +512,7 @@ namespace TorneoAnual.Dataset {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "TicketAlimentosDataTable";
+                attribute2.FixedValue = "FechaDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -556,47 +556,47 @@ namespace TorneoAnual.Dataset {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class TicketAlimentosRow : global::System.Data.DataRow {
+        public partial class FechaRow : global::System.Data.DataRow {
             
-            private TicketAlimentosDataTable tableTicketAlimentos;
+            private FechaDataTable tableFecha;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal TicketAlimentosRow(global::System.Data.DataRowBuilder rb) : 
+            internal FechaRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableTicketAlimentos = ((TicketAlimentosDataTable)(this.Table));
+                this.tableFecha = ((FechaDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string nombre {
                 get {
-                    return ((string)(this[this.tableTicketAlimentos.nombreColumn]));
+                    return ((string)(this[this.tableFecha.nombreColumn]));
                 }
                 set {
-                    this[this.tableTicketAlimentos.nombreColumn] = value;
+                    this[this.tableFecha.nombreColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string tipo {
+            public string id_cat {
                 get {
-                    return ((string)(this[this.tableTicketAlimentos.tipoColumn]));
+                    return ((string)(this[this.tableFecha.id_catColumn]));
                 }
                 set {
-                    this[this.tableTicketAlimentos.tipoColumn] = value;
+                    this[this.tableFecha.id_catColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string descripcion {
+            public string id_cat1 {
                 get {
-                    return ((string)(this[this.tableTicketAlimentos.descripcionColumn]));
+                    return ((string)(this[this.tableFecha.id_cat1Column]));
                 }
                 set {
-                    this[this.tableTicketAlimentos.descripcionColumn] = value;
+                    this[this.tableFecha.id_cat1Column] = value;
                 }
             }
         }
@@ -605,22 +605,22 @@ namespace TorneoAnual.Dataset {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class TicketAlimentosRowChangeEvent : global::System.EventArgs {
+        public class FechaRowChangeEvent : global::System.EventArgs {
             
-            private TicketAlimentosRow eventRow;
+            private FechaRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TicketAlimentosRowChangeEvent(TicketAlimentosRow row, global::System.Data.DataRowAction action) {
+            public FechaRowChangeEvent(FechaRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TicketAlimentosRow Row {
+            public FechaRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -648,7 +648,7 @@ namespace TorneoAnual.Dataset.DTAlimentosTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class TicketAlimentosTableAdapter : global::System.ComponentModel.Component {
+    public partial class FechaTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -662,7 +662,7 @@ namespace TorneoAnual.Dataset.DTAlimentosTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public TicketAlimentosTableAdapter() {
+        public FechaTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -759,10 +759,10 @@ namespace TorneoAnual.Dataset.DTAlimentosTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "TicketAlimentos";
+            tableMapping.DataSetTable = "Fecha";
             tableMapping.ColumnMappings.Add("nombre", "nombre");
-            tableMapping.ColumnMappings.Add("tipo", "tipo");
-            tableMapping.ColumnMappings.Add("descripcion", "descripcion");
+            tableMapping.ColumnMappings.Add("id_cat", "id_cat");
+            tableMapping.ColumnMappings.Add("id_cat1", "id_cat1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -779,17 +779,31 @@ namespace TorneoAnual.Dataset.DTAlimentosTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.TicketAlimentos";
+            this._commandCollection[0].CommandText = "dbo.Fecha";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Inicial", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Final", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DTAlimentos.TicketAlimentosDataTable dataTable) {
+        public virtual int Fill(DTAlimentos.FechaDataTable dataTable, global::System.Nullable<global::System.DateTime> Inicial, global::System.Nullable<global::System.DateTime> Final) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((Inicial.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Inicial.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Final.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(Final.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -801,9 +815,21 @@ namespace TorneoAnual.Dataset.DTAlimentosTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DTAlimentos.TicketAlimentosDataTable GetData() {
+        public virtual DTAlimentos.FechaDataTable GetData(global::System.Nullable<global::System.DateTime> Inicial, global::System.Nullable<global::System.DateTime> Final) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DTAlimentos.TicketAlimentosDataTable dataTable = new DTAlimentos.TicketAlimentosDataTable();
+            if ((Inicial.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(Inicial.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((Final.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(Final.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            DTAlimentos.FechaDataTable dataTable = new DTAlimentos.FechaDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

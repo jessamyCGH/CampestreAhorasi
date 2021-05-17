@@ -9,53 +9,51 @@
         Title="Modificar/Eliminar" Height="782" Width="1074" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5*"/>
-            <ColumnDefinition Width="91*"/>
-            <ColumnDefinition Width="800"/>
-            <ColumnDefinition Width="96*"/>
+            <ColumnDefinition Width="7*"/>
+            <ColumnDefinition Width="117*"/>
+            <ColumnDefinition Width="809"/>
+            <ColumnDefinition Width="133*"/>
         </Grid.ColumnDefinitions>
-        <TextBox
-  materialDesign:HintAssist.Hint="id" x:Name="tbid" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="47,65,425,0" FontSize="20" />
 
         <TextBox
-  materialDesign:HintAssist.Hint="Nombre" x:Name="tbNombre" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="44,125,428,0" FontSize="20" />
+  materialDesign:HintAssist.Hint="Nombre" x:Name="tbNombre" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="53,99,419,0" FontSize="20" Height="55" />
         <TextBox
-            materialDesign:HintAssist.Hint="Apellido Paterno" x:Name="tbApellidoP" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="44,181,428,0" FontSize="20"/>
+            materialDesign:HintAssist.Hint="Apellido Paterno" x:Name="tbApellidoP" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="53,155,419,0" FontSize="20" Height="55"/>
         <TextBox
-            materialDesign:HintAssist.Hint="Apellido Materno" x:Name="tbApellidoM" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="44,248,428,0" FontSize="20" />
+            materialDesign:HintAssist.Hint="Apellido Materno" x:Name="tbApellidoM" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="53,222,419,0" FontSize="20" Height="55" />
         <TextBox
-            materialDesign:HintAssist.Hint="Correo" x:Name="tbCorreo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="44,316,428,0" FontSize="20" />
+            materialDesign:HintAssist.Hint="Correo" x:Name="tbCorreo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="53,290,419,0" FontSize="20" Height="55" />
         <TextBox
-            materialDesign:HintAssist.Hint="Celular" x:Name="tbCelular" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="44,379,428,0" FontSize="20"/>
+            materialDesign:HintAssist.Hint="Celular" x:Name="tbCelular" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="53,353,419,0" FontSize="20" Height="55"/>
         <TextBox
-            materialDesign:HintAssist.Hint="Club" x:Name="tbClub" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="44,446,428,0" FontSize="20" />
+            materialDesign:HintAssist.Hint="Club" x:Name="tbClub" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="53,420,419,0" FontSize="20" Height="55" />
         <ComboBox
-            materialDesign:HintAssist.Hint="Torneo" x:Name="CmbTorneo" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="2" Margin="44,506,428,0" FontSize="20" SelectionChanged="CmbTorneo_SelectionChanged" />
+            materialDesign:HintAssist.Hint="Torneo" x:Name="CmbTorneo" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="2" Margin="53,480,419,0" FontSize="20" SelectionChanged="CmbTorneo_SelectionChanged" Height="56" />
         <ComboBox
-            materialDesign:HintAssist.Hint="Categoria Golf"  IsEnabled="False" x:Name="cmbGolf" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="2" Margin="44,613,428,0" FontSize="20" Text="" SelectionChanged="cmbGolf_SelectionChanged" />
+            materialDesign:HintAssist.Hint="Categoria Golf"  IsEnabled="False" x:Name="cmbGolf" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="2" Margin="53,587,419,0" FontSize="20" Text="" SelectionChanged="cmbGolf_SelectionChanged" Height="56" />
         <ComboBox
-            materialDesign:HintAssist.Hint="Categoria Tenis" x:Name="cmbTenis" IsEnabled="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="2" Margin="44,671,428,0" FontSize="20" Text="" SelectionChanged="cmbTennis_SelectionChanged" />
+            materialDesign:HintAssist.Hint="Categoria Tenis" x:Name="cmbTenis" IsEnabled="False" Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="2" Margin="53,645,419,0" FontSize="20" Text="" SelectionChanged="cmbTennis_SelectionChanged" Height="56" />
 
         <CheckBox
-            Content="Golf" x:Name="chkGolf" Style="{StaticResource MaterialDesignAccentCheckBox}" VerticalAlignment="Top" Grid.Column="2" Margin="44,571,661,0" FontSize="20" Height="39" Checked="chkGolf_CheckedChanged" />
+            Content="Golf" x:Name="chkGolf" Style="{StaticResource MaterialDesignAccentCheckBox}" VerticalAlignment="Top" Grid.Column="2" Margin="42,545,663,0" FontSize="20" Height="39" Checked="chkGolf_CheckedChanged" />
         <CheckBox
-            Content="Tennis" x:Name="chkTenis" Style="{StaticResource MaterialDesignAccentCheckBox}" VerticalAlignment="Top" Grid.Column="2" Margin="203,571,446,0" FontSize="20" Height="39" Checked="chkTenis_CheckedChanged"  />
+            Content="Tennis" x:Name="chkTenis" Style="{StaticResource MaterialDesignAccentCheckBox}" VerticalAlignment="Top" Grid.Column="2" Margin="212,545,437,0" FontSize="20" Height="39" Checked="chkTenis_CheckedChanged"  />
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCamara" ToolTip="Editar foto" Grid.Column="2" Margin="584,366,151,0"  VerticalAlignment="Top" Click="btnCamara_Click" Height="39" Background="#FF131515">
             <Image Source="Resources/Camara.png"></Image>
         </Button>
 
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCaptura" ToolTip="Actualizar Huella" Grid.Column="2" Margin="559,574,151,0" VerticalAlignment="Top" Click="BtnRegistro_Click" Height="73" Background="#FF454949">
-            <Image Source="Resources/fingerprint.png"></Image>
+            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCaptura" ToolTip="Actualizar Huella" Grid.Column="2" Margin="535,628,175,0" VerticalAlignment="Top" Click="BtnRegistro_Click" Height="73" Background="#FF454949">
+            <Image Source="Resources/fingerprint.png"></Image>           
         </Button>
 
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnGuarda" ToolTip="Actualizar Datos" Grid.Column="2" Margin="664,574,71,0" VerticalAlignment="Top" Height="70" Click="btnGuardar_Click" Background="#FF374644" >
+            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnGuarda" ToolTip="Actualizar Datos" Grid.Column="2" Margin="639,628,71,0" VerticalAlignment="Top" Height="90" Click="btnGuardar_Click" Background="#FF374644" >
             Actualizar
         </Button>
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnREliminar" ToolTip="Guardar" Grid.Column="2" Margin="735,574,0,0" VerticalAlignment="Top" Height="70" Click="btnEliminar_Click" Background="#FF374644" >
+            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnREliminar" ToolTip="Guardar" Grid.Column="2" Margin="760,631,108,0" VerticalAlignment="Top" Height="70" Click="btnEliminar_Click" Background="#FF374644" Grid.ColumnSpan="2" >
             Eliminar
         </Button>
         <Image Grid.Column="2" x:Name="imgVerHuella" Source="Resources/autenticacion.png" Stretch="Uniform" Visibility="Hidden" Height="102" Margin="600,450,24,0" VerticalAlignment="Top"/>
@@ -64,7 +62,8 @@
             Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCapturar" ToolTip="Editar foto" Grid.Column="2" Margin="664,365,71,0" VerticalAlignment="Top" Height="40" Background="#FF454949" Click="btnCapturar_Click">
             <Image Source="Resources/flash.png"></Image>
         </Button>
-        <ComboBox  x:Name="cmbNombre" Grid.Column="2" HorizontalAlignment="Left" Margin="47,35,0,0" VerticalAlignment="Top" Width="325" SelectionChanged="ComboBox_SelectionChanged"/>
+        <ComboBox  x:Name="cmbNombre" Grid.Column="2" HorizontalAlignment="Left" Margin="47,35,0,0" VerticalAlignment="Top" Width="325" SelectionChanged="ComboBox_SelectionChanged" Height="25"/>
+        <Image Source ="Resources/nom.png" Grid.Column="2" HorizontalAlignment="Left" Height="28" Margin="10,126,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="0.406,0.048"/>
 
 
 

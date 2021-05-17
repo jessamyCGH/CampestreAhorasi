@@ -90,7 +90,7 @@ namespace TorneoAnual.CrystalReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_fechaIn {
+        public CrystalDecisions.Shared.IParameterField Parameter_Inicial {
             get {
                 return this.DataDefinition.ParameterFields[0];
             }
@@ -98,7 +98,7 @@ namespace TorneoAnual.CrystalReports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_fechaFin {
+        public CrystalDecisions.Shared.IParameterField Parameter_Final {
             get {
                 return this.DataDefinition.ParameterFields[1];
             }
