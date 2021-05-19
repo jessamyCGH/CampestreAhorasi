@@ -8,8 +8,8 @@
   
         xmlns:local="clr-namespace:TorneoAnual"
         mc:Ignorable="d"
-        Title="Check-In" Height="757" Width="834" Loaded="Window_Loaded" Closed="Window_Closed" WindowStartupLocation="CenterScreen" >
-    <Grid Margin="0,0,2,-31">
+        Title="Check-In" Height="773" Width="943" Loaded="Window_Loaded" Closed="Window_Closed" WindowStartupLocation="CenterScreen" Icon="Resources/logo.png">
+    <Grid Margin="2,0,0,-31">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="85*"/>
             <ColumnDefinition Width="121*"/>
@@ -17,36 +17,37 @@
 
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
-            x:Name="btnInaguracion" 
-            ToolTip="Editar foto"
-            Margin="50,45,183,0"
-            VerticalAlignment="Top" 
-            Click="btnInaguracion_Click" 
-            Height="93" Background="#FF777C7B" RenderTransformOrigin="0.483,0.838" FontSize="14">
-            
-            Inaguracion
-            
-        </Button>
-
-        <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnAlimentos" 
-            ToolTip="Editar foto" 
-            Margin="176,45,75,0" 
+           
+            Margin="155,46,103,0" 
             VerticalAlignment="Top" 
             Click="btnAlimentos_Click" 
-            Height="80">
+            Height="107"
+            Foreground="Transparent"
+            VerticalContentAlignment="Bottom"
+            >
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/alimentos.png"/>
+            </Button.Background>
+
             Alimentos
         </Button>
 
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnCerveza" 
-            ToolTip="Editar foto" 
-            Margin="270,45,472,0" 
+          
+            Margin="284,46,527,0" 
             VerticalAlignment="Top" 
             Click="btnCerveza_Click" 
-            Height="80" Grid.ColumnSpan="2">
+            Height="107" Grid.ColumnSpan="2"
+            FontFamily="Arial Black"
+            Foreground="Transparent"
+            >
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/cerveza.png"/>
+            </Button.Background>
+
             Cerveza
         </Button>
 
@@ -54,10 +55,16 @@
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnTennis" 
             ToolTip="Editar foto" 
-            Margin="102,45,302,0" 
+            Margin="153,46,273,0" 
             VerticalAlignment="Top" 
             Click="btnTennis_Click" 
-            Height="80" Grid.Column="1">
+            Height="107"
+            Grid.Column="1"
+            Foreground="Transparent"
+            >
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/tennis.png"/>
+            </Button.Background>
             Tennis
         </Button>
 
@@ -65,10 +72,15 @@
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnGolf" 
             ToolTip="Editar foto" 
-            Margin="17,45,387,0" 
+            Margin="26,47,400,0" 
             VerticalAlignment="Top" 
             Click="btnGolf_Click" 
-            Height="80" Grid.Column="1">
+            Height="106" Grid.Column="1"
+            Foreground="Transparent"
+            >
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/golf.png"/>
+            </Button.Background>
             Golf
         </Button>
 
@@ -76,10 +88,16 @@
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnConcierto" 
             ToolTip="Editar foto" 
-            Margin="187,45,202,0" 
+            Margin="280,47,146,0" 
             VerticalAlignment="Top" 
             Click="btnConcierto_Click" 
-            Height="80" Grid.Column="1">
+            Height="106"
+            Grid.Column="1"
+            Foreground="Transparent"
+            >
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/concierto.png"/>
+            </Button.Background>
             Concierto
         </Button>
 
@@ -87,10 +105,15 @@
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnClausura" 
             ToolTip="Editar foto" 
-            Margin="287,45,107,0" 
+            Margin="407,49,19,0" 
             VerticalAlignment="Top" 
             Click="btnClausura_Click" 
-            Height="80" Grid.Column="1">
+            Height="104" Grid.Column="1"
+            Foreground="Transparent"
+            >
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/Clausura.png"/>
+            </Button.Background>
             Clausura
         </Button>
 
@@ -107,67 +130,69 @@
         <Label 
             Content="Inaguracion" 
             x:Name="lblTitulo" 
-            Height="30" 
-            Margin="115,0,38,563" 
+            Height="55" 
+            Margin="115,0,78,549" 
             VerticalAlignment="Bottom" 
             FontWeight="Bold" 
-            FontSize="16"/>
+            FontSize="26" RenderTransformOrigin="0.467,0.182"/>
 
         <Label 
             Content="" 
             x:Name="lblReporte" 
             Height="30" 
-            Margin="115,0,482,342" 
+            Margin="55,0,482,342" 
             VerticalAlignment="Bottom" 
             FontWeight="Bold" 
-            FontSize="16" Grid.ColumnSpan="2"/>
+            FontSize="20" Grid.ColumnSpan="2"/>
 
         <Label 
             Content="" 
             x:Name="lblNom" 
-            Height="30" 
-            Margin="95,0,78,287" 
+            Height="36" 
+            Margin="95,0,58,287" 
             VerticalAlignment="Bottom" 
             FontWeight="Bold" 
-            FontSize="10" />
+            
+            FontSize="20" FontFamily="Century Gothic" />
 
         <Label 
             Content="" 
             x:Name="lblApellidos" 
-            Height="30" 
-            Margin="95,0,78,237" 
+            Height="38" 
+            Margin="95,0,58,229" 
             VerticalAlignment="Bottom" 
             FontWeight="Bold" 
-            FontSize="10" />
+            FontSize="20" />
 
         <Label 
             Content="" 
             x:Name="lblNumero" 
-            Height="30" 
-            Margin="95,0,78,202" 
+            Height="36" 
+            Margin="95,0,58,170" 
             VerticalAlignment="Bottom" 
             FontWeight="Bold" 
-            FontSize="10" />
+            FontSize="20" />
 
 
 
         <Label 
-            Content="Verificar Entrega" 
+            Content="    Verificar Entrega" 
             x:Name="lblEntregado" 
             Height="49" 
-            Margin="187,0,44,555" 
+            Margin="212,0,19,555" 
             VerticalAlignment="Bottom" 
             FontWeight="Bold" 
             FontSize="26" Grid.Column="1"/>
 
         <ComboBox
-            materialDesign:HintAssist.Hint="Ingresa el nombre del usuario"
+            materialDesign:HintAssist.Hint=" Seleccionar el nombre del usuario"
             x:Name="cbBoxNombre" 
             Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
             VerticalAlignment="Top"
             Margin="50,250,387,0" 
             FontSize="15" 
             Height="50" 
+            ItemsSource="{Binding }"
             SelectionChanged="CbBoxNombre_SelectedValueChanged" Grid.ColumnSpan="2" />
 
         <Button 
@@ -177,7 +202,7 @@
             IsEnabled="False"
             HorizontalAlignment="Right" 
             VerticalAlignment="Bottom" 
-            Margin="0,0,44,437" 
+            Margin="0,0,63,437" 
             Height="110" 
             Width="125" 
             Background="Black" Grid.Column="1">
@@ -193,7 +218,7 @@
             IsEnabled="False"
             HorizontalAlignment="Right"
             VerticalAlignment="Bottom" 
-            Margin="0,0,174,437" 
+            Margin="0,0,193,437" 
             Height="110" 
             Width="125"
             Background="Black" Grid.Column="1">
@@ -212,6 +237,80 @@
             Click="btnEntregado_Click" 
             Height="30" Content="" Grid.Column="1"/>
         <Image x:Name="picFoto" Grid.Column="1" HorizontalAlignment="Left" Height="250" Margin="165,385,0,0" VerticalAlignment="Top" Width="275"/>
+        <Button
+            Style="{StaticResource MaterialDesignRaisedButton}" 
+            x:Name="btnInaguracion"
+            Margin="29,45,234,0"
+            VerticalAlignment="Top" 
+            Click="btnInaguracion_Click" 
+            Height="108" 
+            RenderTransformOrigin="0.483,0.838"
+            FontSize="14"
+            Content="Inaguracion" 
+            Foreground="Transparent"
+            
+            VerticalContentAlignment="Bottom"
+            >
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/Apertura.png"/>
+            </Button.Background>
+        </Button>
+        <Label 
+            Content="   INAGURACION" 
+            HorizontalAlignment="Left" 
+            Margin="29,20,0,0" 
+            VerticalAlignment="Top" 
+            FontWeight="ExtraBold"
+            Width="122" 
+            Foreground="#DD000000"/>
+        <Label 
+            Content="     ALIMENTOS" 
+            HorizontalAlignment="Left" 
+            Margin="156,20,0,0" 
+            VerticalAlignment="Top" 
+            FontWeight="ExtraBold"
+            Width="122" 
+            Foreground="#DD000000"/>
+        <Label 
+            Content="        CERVEZA" 
+            HorizontalAlignment="Left" 
+            Margin="284,20,0,0" 
+            VerticalAlignment="Top" 
+            FontWeight="ExtraBold"
+            Width="122" 
+            Foreground="#DD000000" Grid.ColumnSpan="2"/>
+        <Label 
+            Content="            GOLF" 
+            HorizontalAlignment="Left" 
+            Margin="26,23,0,0" 
+            VerticalAlignment="Top" 
+            FontWeight="ExtraBold"
+            Width="122" 
+            Foreground="#DD000000" Grid.Column="1"/>
+        <Label 
+            Content="        TENNIS" 
+            HorizontalAlignment="Left" 
+            Margin="153,20,0,0" 
+            VerticalAlignment="Top" 
+            FontWeight="ExtraBold"
+            Width="122" 
+            Foreground="#DD000000" Grid.Column="1"/>
+        <Label 
+            Content="       CONCIERTO" 
+            HorizontalAlignment="Left" 
+            Margin="280,20,0,0" 
+            VerticalAlignment="Top" 
+            FontWeight="ExtraBold"
+            Width="122" 
+            Foreground="#DD000000" Grid.Column="1"/>
+        <Label 
+            Content="        CLAUSURA" 
+            HorizontalAlignment="Left" 
+            Margin="407,20,0,0" 
+            VerticalAlignment="Top" 
+            FontWeight="ExtraBold"
+            Width="122" 
+            Foreground="#DD000000" Grid.Column="1"/>
 
 
 

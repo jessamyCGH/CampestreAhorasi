@@ -80,26 +80,33 @@ namespace TorneoAnual
 
             if (tbApellidoP.Text == "")
             {
-                MessageBox.Show("El campo Apellidos debe ser especificado", "Error");
+                MessageBox.Show("El campo Apellido Paterno debe ser especificado", "Error");
                 return;
             }
             if (tbApellidoM.Text == "")
             {
-                MessageBox.Show("El campo Apellidos debe ser especificado", "Error");
+                MessageBox.Show("El campo Apellido materno debe ser especificado", "Error");
                 return;
             }
-            if (tbCelular.Text == "")
+            if (tbCelular.Text.Trim().Length != 10)
             {
-                MessageBox.Show("El campo Número de empleado debe ser especificado", "Error");
+                MessageBox.Show("El telefono debe de tener 10 digitos", "Error");
                 return;
             }
+            if (tbClub.Text == "")
+            {
+                MessageBox.Show("Ingrese el club al que pertenece", "Error");
+                return;
+            }
+          
 
             if (Template == null)
             {
-                MessageBox.Show("La huella del empleado debe ser capturada", "Error");
+                MessageBox.Show("La huella del jugador debe ser capturada", "Error");
                 return;
             }
             #endregion
+           
              try
               {
                 usuario.nombre = tbNombre.Text;
@@ -111,23 +118,44 @@ namespace TorneoAnual
                 usuario.categoriaTipo = CmbTorneo.Text;
                 //usuario.imagen = picFoto.Source;
                 usuario.huella = Template.Bytes;
-              
 
+             
                 int id = conexion.Alta(usuario);
+
+                if(id == 0)
+                {
+                    MessageBox.Show("Capturar foto del Jugador");
+                }
 
                 if (id > 0)
                 {
 
-                    MessageBox.Show("usuario guardado correctamente", "Guardar");
+                    MessageBox.Show("Jugador guardado correctamente", "Guardar");
+                    
+                   tbNombre.Text= "";
+                   tbApellidoP.Text = "";
+                   tbApellidoM.Text = "";
+                   tbCorreo.Text = "";
+                   tbCelular.Text = "";
+                   tbClub.Text = "";
+                   CmbTorneo.Text = "";
+                    cmbGolf.Text = "";
+                    cmbTenis.Text = "";
+                    chkGolf.IsChecked = false;
+                    chkTenis.IsChecked = false;
+                    cmbGolf.IsEnabled = false;
+                    cmbTenis.IsEnabled = false;
+                    picFoto.Source = null;
+                    imgVerHuella.Visibility = Visibility.Hidden;
+                    // var image = new Image { Source = "Resources/fo.png" };
 
-                    this.Close();
 
                 }
 
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No fue posible guardar el Usuario: " + ex.Message, "Error en Guardar");
+                MessageBox.Show("No fue posible guardar el Jugador: " + ex.Message, "Error en Guardar");
             }
         }
 
@@ -176,22 +204,28 @@ namespace TorneoAnual
         //Muestra la imagen en pantalla 
         private void video_NewFrame(object sender, AForge.Video.NewFrameEventArgs eventArgs)
         {
-            try
+
+            
             {
-               // BitmapImage bi;
-                using (var bitmap = (Bitmap)eventArgs.Frame.Clone())
+                try
                 {
-                    
-                    bi = bitmap.ToBitmapImage();
+                    // BitmapImage bi;
+                    using (var bitmap = (Bitmap)eventArgs.Frame.Clone())
+                    {
+
+                        bi = bitmap.ToBitmapImage();
+                    }
+                    bi.Freeze(); // avoid cross thread operations and prevents leaks
+                    Dispatcher.BeginInvoke(new ThreadStart(delegate { picFoto.Source = bi; }));
                 }
-                bi.Freeze(); // avoid cross thread operations and prevents leaks
-                Dispatcher.BeginInvoke(new ThreadStart(delegate { picFoto.Source = bi; }));
+                catch (Exception exc)
+                {
+                    MessageBox.Show("Error" + exc.Message);
+                    StopCamera();
+                }
             }
-            catch (Exception exc)
-            {
-                MessageBox.Show("Error" + exc.Message);
-                StopCamera();
-            }
+           
+            
         }
 
 

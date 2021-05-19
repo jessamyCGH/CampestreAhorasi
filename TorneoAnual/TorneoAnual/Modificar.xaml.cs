@@ -87,8 +87,8 @@ namespace TorneoAnual
                 usuario.tel = tbCelular.Text;
                 usuario.club = tbClub.Text;
                 usuario.categoriaTipo = CmbTorneo.Text;
-                //usuario.imagen = picFoto.Source;
-               // usuario.huella = Template.Bytes;
+               // usuario.imagen = picFoto.;
+        //       usuario.huella = Template.Bytes;
 
 
                 int id = conexion.update(usuario);

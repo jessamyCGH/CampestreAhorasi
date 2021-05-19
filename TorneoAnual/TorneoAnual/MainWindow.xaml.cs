@@ -49,5 +49,7 @@ namespace TorneoAnual
             Reporte modificar = new Reporte();
             modificar.Show();
         }
+
+       
     }
 }

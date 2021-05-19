@@ -23,7 +23,11 @@ namespace TorneoAnual
         {
             InitializeComponent();
             
+
         }
+
+        
+
 
         SqlConnection con = new SqlConnection(@"Data Source= localhost; initial Catalog=TorneoAnual; Integrated Security= True");
      
@@ -32,6 +36,10 @@ namespace TorneoAnual
 
         private void btnInaguracion_Click(object sender, EventArgs e)
         {
+            dtf.Visible = false;
+            dtini.Visible = false;
+            lblDesde.Visible = false;
+            lblHasta.Visible = false;
 
             if (con.State == ConnectionState.Closed)
                 con.Open();
@@ -44,13 +52,18 @@ namespace TorneoAnual
             con.Close();
             TorneoAnual.CrystalReports.CRInaguracion CRI = new CrystalReports.CRInaguracion();
             CRI.Database.Tables["Repo_Inaguracion"].SetDataSource(dInaguracion);
-            cvInaguracion.ReportSource = null;
-            cvInaguracion.ReportSource = CRI;
+            cv.ReportSource = null;
+            cv.ReportSource = CRI;
             
         }
 
         private void btnCerveza_Click(object sender, EventArgs e)
         {
+            dtf.Visible = false;
+            dtini.Visible = false;
+            lblDesde.Visible = false;
+            lblHasta.Visible = false;
+
             if (con.State == ConnectionState.Closed)
                 con.Open();
             SqlDataAdapter data = new SqlDataAdapter("Repo_Cerveza", con);
@@ -61,12 +74,17 @@ namespace TorneoAnual
 
             TorneoAnual.CrystalReports.CRCerveza CRC = new CrystalReports.CRCerveza();
             CRC.Database.Tables["Repo_Cerveza"].SetDataSource(dCerveza);
-            cvCerveza.ReportSource = null;
-            cvCerveza.ReportSource = CRC;
+            cv.ReportSource = null;
+            cv.ReportSource = CRC;
         }
 
         private void btnClausura_Click(object sender, EventArgs e)
         {
+            dtf.Visible = false;
+            dtini.Visible = false;
+            lblDesde.Visible = false;
+            lblHasta.Visible = false;
+
             if (con.State == ConnectionState.Closed)
                 con.Open();
 
@@ -79,13 +97,18 @@ namespace TorneoAnual
 
             TorneoAnual.CrystalReports.CRClausura CRCla = new CrystalReports.CRClausura();
             CRCla.Database.Tables["Repo_Clausura"].SetDataSource(dClausura);
-            cvClausura.ReportSource = null;
-            cvClausura.ReportSource = CRCla;
+            cv.ReportSource = null;
+            cv.ReportSource = CRCla;
         
         }
 
         private void btnConcierto_Click(object sender, EventArgs e)
         {
+            dtf.Visible = false;
+            dtini.Visible = false;
+            lblDesde.Visible = false;
+            lblHasta.Visible = false;
+
             if (con.State == ConnectionState.Closed)
                 con.Open();
 
@@ -98,18 +121,23 @@ namespace TorneoAnual
 
             TorneoAnual.CrystalReports.CRConcierto CRCon = new CrystalReports.CRConcierto();
             CRCon.Database.Tables["Repo_Concierto"].SetDataSource(dConcierto);
-            cvConcierto.ReportSource = null;
-            cvConcierto.ReportSource = CRCon;
+            cv.ReportSource = null;
+            cv.ReportSource = CRCon;
 
         }
 
         private void btnKGolf_Click(object sender, EventArgs e)
         {
+            dtf.Visible = true;
+            dtini.Visible = true;
+            lblDesde.Visible = true;
+            lblHasta.Visible = true;
+
             TorneoAnual.CrystalReports.CRGolf cRGolf = new CrystalReports.CRGolf();
             cRGolf.SetParameterValue("@Inicial", dtini.Value.Date);
             cRGolf.SetParameterValue("@Final", dtf.Value.Date);
-            cvGolf.ReportSource = null;
-            cvGolf.ReportSource = cRGolf;
+            cv.ReportSource = null;
+            cv.ReportSource = cRGolf;
         
         }
 
@@ -117,43 +145,51 @@ namespace TorneoAnual
         private void btnTenis_Click(object sender, EventArgs e)
         {
 
-            /*  if (con.State == ConnectionState.Closed)
-                  con.Open();
+            dtf.Visible = true;
+            dtini.Visible = true;
+            lblDesde.Visible = true;
+            lblHasta.Visible = true;
 
-              SqlDataAdapter data = new SqlDataAdapter("Repo_Tenis", con);
-              data.SelectCommand.CommandType = CommandType.StoredProcedure;
+          
 
-
-              DataTable dTenis = new DataTable();
-              data.Fill(dTenis);
-
-              TorneoAnual.CrystalReports.CRTenis cRTenis = new CrystalReports.CRTenis();
-              cRTenis.Database.Tables["Repo_Tenis"].SetDataSource(dTenis);
-              cvTenis.ReportSource = null;
-              cvTenis.ReportSource = cRTenis;*/
-
-            TorneoAnual.CrystalReports.CRTenis cRTenis = new CrystalReports.CRTenis();
-            cRTenis.SetParameterValue("@Inicio", dttenisi.Value.Date);
-            cRTenis.SetParameterValue("@fin", dttenisf.Value.Date);
-            cvTenis.ReportSource = null;
-            cvTenis.ReportSource = cRTenis;
+                TorneoAnual.CrystalReports.CRTenis cRTenis = new CrystalReports.CRTenis();
+                cRTenis.SetParameterValue("@Inicio", dtini.Value.Date);
+                cRTenis.SetParameterValue("@fin", dtf.Value.Date);
+                cv.ReportSource = null;
+                cv.ReportSource = cRTenis;
+            
         }
 
 
 
         private void button1_Click(object sender, EventArgs e)
         {
+            dtf.Visible = true;
+            dtini.Visible = true;
+            lblDesde.Visible = true;
+            lblHasta.Visible = true;
+
             TorneoAnual.CrystalReports.CRAlimentos cRAlimentos = new CrystalReports.CRAlimentos();
-            cRAlimentos.SetParameterValue("@Inicial", dtInicio.Value.Date );
-            cRAlimentos.SetParameterValue("@Final", dtFinal.Value.Date);
-            cvAlimentos.ReportSource = null;
-            cvAlimentos.ReportSource = cRAlimentos;
+            cRAlimentos.SetParameterValue("@Inicial", dtini.Value.Date );
+            cRAlimentos.SetParameterValue("@Final", dtf.Value.Date);
+            cv.ReportSource = null;
+            cv.ReportSource = cRAlimentos;
 
 
 
         }
 
-      
+        
+
+        private void Reporte_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
 

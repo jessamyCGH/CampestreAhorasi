@@ -28,7 +28,7 @@ namespace TorneoAnual
         private DPFP.Verification.Verification Verificator;
         private DPFP.Capture.Capture Capturer;
         Usuario usuario = new Usuario();
-       
+
 
         //Generamos un objeto de la clase Conexion para por der hacer llamadas a la base de datos
         ConexionBD conexion;
@@ -39,7 +39,7 @@ namespace TorneoAnual
 
         //La siguiente variable guardara el nombre del usuario seleccionado
         string itemSeleccionado = "";
-        byte [] huella;
+        byte[] huella;
 
         //La siguiente variable guardara el id del usuario seleccionado en los Menus
         int id;
@@ -61,6 +61,7 @@ namespace TorneoAnual
             //Con el metodo getAllUsers() obtendremos todos los nombres registrados en la base de datos
             //para acomodarlos en nuestro comboBox
             cbBoxNombre.ItemsSource = conexion.getAllNamesUsers().ToArray();
+            
 
         }
 
@@ -100,7 +101,6 @@ namespace TorneoAnual
                         //Verificaremos si ya la fue entregado Inaguracion
                         res = conexion.getEntregadoInaguracion(usuario.id);
                         ChecarEntregado(res);
-                       
 
                         break;
 
@@ -126,7 +126,7 @@ namespace TorneoAnual
                         }
                         break;
 
-                    case "Tennis":
+                    case "Tenis":
                         //Verificaremos si ya la fue entregado Tennis
                         res = conexion.getEntregadoTennis(usuario.id);
                         ChecarEntregado(res);
@@ -150,6 +150,7 @@ namespace TorneoAnual
                         ChecarEntregado(res);
                         break;
                 }
+                
             }
 
         }
@@ -194,6 +195,7 @@ namespace TorneoAnual
             cbBoxNombre.Text = "";
         }
 
+        //Botones los cuales comprenden los eventos que tiene el torneo anual
         #region Botones 
 
         private void btnInaguracion_Click(object sender, EventArgs e)
@@ -238,8 +240,8 @@ namespace TorneoAnual
             //Intercambiamos el texto del titulo por el texto del boton btnTennis
             lblTitulo.Content = btnTennis.Content;
 
-            //Intercambiamos el valor de menuSeleccionado por Tennis
-            menuSeleccionado = "Tennis";
+            //Intercambiamos el valor de menuSeleccionado por Tenis
+            menuSeleccionado = "Tenis";
 
             //Reiniciamos los componentes para los cambios de Menus
             reiniciarComponentes();
@@ -281,6 +283,7 @@ namespace TorneoAnual
             reiniciarComponentes();
         }
 
+        //Cuando se hace la busqueda por medio del combo, cuando aun no se entrega el producto hablita el boton de entregado  
         private void btnEntregado_Click(object sender, EventArgs e)
         {
             //Usaremos un switch para conocer en que Menu se encuentra
@@ -353,7 +356,7 @@ namespace TorneoAnual
                     }
                     break;
 
-                case "Tennis":
+                case "Tenis":
                     //Le agregaremos la entrega en la base de datos al usuario de Tennis
                     conexion.setEntregadoTennis(usuario.id);
                     ChecarEntregado(true);
@@ -474,6 +477,7 @@ namespace TorneoAnual
                 DPFP.Template template = new DPFP.Template();
                 Stream stream;
 
+                //Obtenemos una lista con los datos del usuario.
                 List<Usuario> conexiones = ConexionBD.Muestra();
 
                 foreach (var con in conexiones)
@@ -569,7 +573,14 @@ namespace TorneoAnual
         {
             
             lblNom.Content = user.nombre;
-            lblApellidos.Content = user.categoriaTipo;
+            if (user.categoriaTipo == "G")
+            {
+                lblApellidos.Content = "Golf";
+            }
+            else
+            {
+                lblApellidos.Content = "Tenis";
+            }
             lblNumero.Content = user.categoriaDescripcion;
             picFoto.Source = ByteToImage(user.imagen);
 
@@ -599,13 +610,14 @@ namespace TorneoAnual
         {
             lblNom.Content = "¡Bienvenido!";
             lblApellidos.Content = "Que tengas buen día";
-            lblNumero.Content = "Coloca tu dedo en el lector";
+            lblNumero.Content = "Coloca tu huella";
             picFoto.Source = null;
 
           
         }
 
-        
+        //En este metodo es donde verificamos los datos de la huella si esta registrada, y imprime los ticket 
+        //Dependiendo del evento en el que se encuntre seleccionado
         #region EventHandler Members:
 
         public void OnComplete(object Capture, string ReaderSerialNumber, DPFP.Sample Sample)
@@ -613,13 +625,15 @@ namespace TorneoAnual
 
           
             this.Dispatcher.Invoke(new Function(delegate () {
-                lblReporte.Content = "Huella leida.";
+                lblReporte.Content = "Huella Verificada.";
                 Process(Sample);
 
                 bool res;
                 switch (menuSeleccionado)
                 {
                     case "Inaguracion":
+                        if(usuario.nombre != null)
+                        { 
                         //Verificaremos si ya la fue entregado Inaguracion
                         res = conexion.getEntregadoInaguracion(usuario.id);
                         ChecarEntregado(res);
@@ -643,11 +657,22 @@ namespace TorneoAnual
                         {
                             MessageBox.Show("El jugador ya registro su asistencia");
                         }
+                        usuario = new Usuario();
+                        }
+                        else
+
+                        {
+
+                            MessageBox.Show("Huella no Registrada");
+
+                        }
 
                         break;
 
                     case "Alimentos":
                         //Verificaremos si ya la fue entregado Alimentos
+                        if(usuario.nombre != null)
+                        { 
                         res = conexion.getEntregadoAlimentos(usuario.id);
                         ChecarEntregado(res);
                         if (btnEntregado.IsVisible)
@@ -669,40 +694,59 @@ namespace TorneoAnual
                         {
                             MessageBox.Show("El jugador ya registro su asistencia");
                         }
-                        break;
+                        usuario = new Usuario();
+                        }
+                        else
+
+                        {
+
+                            MessageBox.Show("Huella no Registrada");
+
+                        }
+                break;
 
                     case "Cerveza":
-                        //Verificaremos si ya la fue entregado Alimentos
-                        countCervezas = conexion.getEntregadoCerveza(usuario.id);
-                        if (countCervezas == 0)
+
+                        if (usuario.nombre != null)
                         {
-                            ChecarEntregado(false);
+                            //Verificaremos si ya la fue entregado Alimentos
+                            countCervezas = conexion.getEntregadoCerveza(usuario.id);
+                            if (countCervezas == 0)
+                            {
+                                ChecarEntregado(false);
+                            }
+                            else
+                            {
+
+                                ChecarEntregado(true);
+                                // btnEntregado.Content = "Tomara otras 2";
+                                // btnEntregado.Visibility = Visibility.Visible;
+                                //  btnEntregado.IsEnabled = true;
+                                conexion.setEntregadoCerveza(usuario.id, countCervezas += 2);
+
+
+                                List<Usuario> conexiones = ConexionBD.Muestra();
+                                TorneoAnual.CrystalReports.TicketAlimento tAli = new CrystalReports.TicketAlimento();
+
+                                tAli.SetParameterValue("Nombre", usuario.nombre);
+                                tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                                tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                                tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                                tAli.PrintToPrinter(1, true, 1, 2);
+                                tAli.Close();
+                                tAli.Dispose();
+                            }
                         }
                         else
                         {
-                           
-                            ChecarEntregado(true);
-                           // btnEntregado.Content = "Tomara otras 2";
-                           // btnEntregado.Visibility = Visibility.Visible;
-                          //  btnEntregado.IsEnabled = true;
-                            conexion.setEntregadoCerveza(usuario.id, countCervezas += 2);
-
-
-                            List<Usuario> conexiones = ConexionBD.Muestra();
-                            TorneoAnual.CrystalReports.TicketAlimento tAli = new CrystalReports.TicketAlimento();
-
-                            tAli.SetParameterValue("Nombre", usuario.nombre);
-                            tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                            tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
-                            tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
-                            tAli.PrintToPrinter(1, true, 1, 2);
-                            tAli.Close();
-                            tAli.Dispose();
+                            MessageBox.Show("Huella no Registrada");
                         }
-                        break;
+                            break;
 
-                    case "Tennis":
+                    case "Tenis":
                         //Verificaremos si ya la fue entregado Tennis
+                        if (usuario.nombre != null)
+                        { 
                         res = conexion.getEntregadoTennis(usuario.id);
                         ChecarEntregado(res);
 
@@ -725,37 +769,65 @@ namespace TorneoAnual
                         {
                             MessageBox.Show("El jugador ya registro su asistencia");
                         }
+                        usuario = new Usuario();
+                        }
+
+
+                        else
+
+                        {
+
+                            MessageBox.Show("Huella no Registrada");
+
+                        }
                         break;
 
                     case "Golf":
                         //Verificaremos si ya la fue entregado Golf
-                        res = conexion.getEntregadoGolf(usuario.id);
-                        ChecarEntregado(res);
+                        if(usuario.nombre != null)
+                        { 
 
-                        if (btnEntregado.IsVisible)
-                        {
-                            conexion.setEntregadoGolf(usuario.id);
-                            ChecarEntregado(true);
-                            List<Usuario> conexiones = ConexionBD.Muestra();
-                            TorneoAnual.CrystalReports.TicketKGolf tAli = new CrystalReports.TicketKGolf();
+                            res = conexion.getEntregadoGolf(usuario.id);
+                            ChecarEntregado(res);
 
-                            tAli.SetParameterValue("Nombre", usuario.nombre);
-                            tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                            tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
-                            tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
-                            tAli.PrintToPrinter(1, true, 1, 2);
-                            tAli.Close();
-                            tAli.Dispose();
-                        }
+                            if (btnEntregado.IsVisible)
+                            {
+                                conexion.setEntregadoGolf(usuario.id);
+                                ChecarEntregado(true);
+                                List<Usuario> conexiones = ConexionBD.Muestra();
+                                TorneoAnual.CrystalReports.TicketKGolf tAli = new CrystalReports.TicketKGolf();
+
+                                tAli.SetParameterValue("Nombre", usuario.nombre);
+                                tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                                tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                                tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                                tAli.PrintToPrinter(1, true, 1, 2);
+                                tAli.Close();
+                                tAli.Dispose();
+                            }
                         else
                         {
                             MessageBox.Show("El jugador ya registro su asistencia");
                         }
-                        break;
+                        usuario = new Usuario();
+                }
+
+
+                        else
+
+                {
+
+                    MessageBox.Show("Huella no Registrada");
+
+                }
+
+                break;
 
                     case "Concierto":
-                        //Verificaremos si ya la fue entregado Concierto
-                        res = conexion.getEntregadoConcierto(usuario.id);
+                        if (usuario.nombre != null)
+                        {
+                            //Verificaremos si ya la fue entregado Concierto
+                            res = conexion.getEntregadoConcierto(usuario.id);
                         ChecarEntregado(res);
 
                         if (btnEntregado.IsVisible)
@@ -772,35 +844,59 @@ namespace TorneoAnual
                             tAli.PrintToPrinter(1, true, 1, 2);
                             tAli.Close();
                             tAli.Dispose();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El jugador ya registro su asistencia");
+                            }
+                            usuario = new Usuario();
                         }
+
                         else
+
                         {
-                            MessageBox.Show("El jugador ya registro su asistencia");
+
+                            MessageBox.Show("Huella no Registrada");
+
                         }
+
                         break;
 
                     case "Clausura":
                         //Verificaremos si ya la fue entregado Clausura
-                        res = conexion.getEntregadoClausura(usuario.id);
-                        ChecarEntregado(res);
-                        if (btnEntregado.IsVisible)
+                        if (usuario.nombre != null)
                         {
-                            conexion.setEntregadoClausura(usuario.id);
-                            ChecarEntregado(true);
-                            List<Usuario> conexiones = ConexionBD.Muestra();
-                            TorneoAnual.CrystalReports.ticketClausura tAli = new CrystalReports.ticketClausura();
+                            
+                            res = conexion.getEntregadoClausura(usuario.id);
+                            ChecarEntregado(res);
+                            if (btnEntregado.IsVisible)
+                            {
+                                conexion.setEntregadoClausura(usuario.id);
+                                ChecarEntregado(true);
+                                List<Usuario> conexiones = ConexionBD.Muestra();
+                                TorneoAnual.CrystalReports.ticketClausura tAli = new CrystalReports.ticketClausura();
 
-                            tAli.SetParameterValue("Nombre", usuario.nombre);
-                            tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                            tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
-                            tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
-                            tAli.PrintToPrinter(1, true, 1, 2);
-                            tAli.Close();
-                            tAli.Dispose();
+                                tAli.SetParameterValue("Nombre", usuario.nombre);
+                                tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                                tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                                tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                                tAli.PrintToPrinter(1, true, 1, 2);
+                                tAli.Close();
+                                tAli.Dispose();
+                            }
+                            else
+                            {
+                                MessageBox.Show("El jugador ya registro su asistencia");
+                            }
+                            usuario = new Usuario();
                         }
+                       
                         else
+
                         {
-                            MessageBox.Show("El jugador ya registro su asistencia");
+                            
+                            MessageBox.Show("Huella no Registrada");
+
                         }
 
                         break;
@@ -810,7 +906,7 @@ namespace TorneoAnual
 
             }));
 
-            System.Threading.Thread.Sleep(5000);
+            System.Threading.Thread.Sleep(500);
 
           
            
@@ -826,7 +922,7 @@ namespace TorneoAnual
         {
 
             this.Dispatcher.Invoke(new Function(delegate () {
-                lblReporte.Content = "The finger was removed from the fingerprint reader.";
+                lblReporte.Content = " Colocar su huella";
 
             }));
         }
@@ -843,7 +939,7 @@ namespace TorneoAnual
         {
 
             this.Dispatcher.Invoke(new Function(delegate () {
-                lblReporte.Content = "La Huella fue conectada";
+                lblReporte.Content = "Lector conectado";
             }));
         }
 
@@ -851,7 +947,7 @@ namespace TorneoAnual
         {
 
             this.Dispatcher.Invoke(new Function(delegate () {
-                lblReporte.Content = "La huella leida fue desconectada";
+                lblReporte.Content = "Conectar un lector de huella";
             }));
         }
 
@@ -863,11 +959,14 @@ namespace TorneoAnual
             else
                 MakeReport("The quality of the fingerprint sample is poor.");*/
         }
+
+
+
+
         #endregion
+
         #endregion
 
-
-
-        
+       
     }
 }

@@ -6,12 +6,16 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:TorneoAnual"
         mc:Ignorable="d"
-        Title="Registro" Height="700" Width="1000" WindowStartupLocation="CenterScreen">
+        Title="Registro" Height="700" Width="1000" WindowStartupLocation="CenterScreen" Icon="Resources/logo.png">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100*"/>
-            <ColumnDefinition Width="800"/>
-            <ColumnDefinition Width="100*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="48*"/>
+            <ColumnDefinition Width="84"/>
+            <ColumnDefinition Width="610"/>
+            <ColumnDefinition Width="106"/>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="31*"/>
         </Grid.ColumnDefinitions>
 
         <TextBox
@@ -19,60 +23,77 @@
             x:Name="tbNombre" 
             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
             VerticalAlignment="Top"
-            Grid.Column="1"
-            Margin="56,38,416,0"
-            FontSize="20" />
+            Grid.Column="2"
+            Margin="56,38,310,0"
+            FontSize="20" Grid.ColumnSpan="2" />
         <TextBox
-            materialDesign:HintAssist.Hint="Apellido Paterno" x:Name="tbApellidoP" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,101,416,0" FontSize="20"/>
+            materialDesign:HintAssist.Hint="Apellido Paterno" x:Name="tbApellidoP" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="56,101,310,0" FontSize="20" Grid.ColumnSpan="2"/>
         <TextBox
-            materialDesign:HintAssist.Hint="Apellido Materno" x:Name="tbApellidoM" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,168,416,0" FontSize="20" />
+            materialDesign:HintAssist.Hint="Apellido Materno" x:Name="tbApellidoM" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="56,168,310,0" FontSize="20" Grid.ColumnSpan="2" />
         <TextBox
-            materialDesign:HintAssist.Hint="Correo" x:Name="tbCorreo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,236,416,0" FontSize="20" />
+            materialDesign:HintAssist.Hint="Correo" x:Name="tbCorreo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="56,236,310,0" FontSize="20" Grid.ColumnSpan="2" />
         <TextBox
-            materialDesign:HintAssist.Hint="Celular" x:Name="tbCelular" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,299,416,0" FontSize="20"/>
+            materialDesign:HintAssist.Hint="Celular" x:Name="tbCelular" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="56,299,310,0" FontSize="20" Grid.ColumnSpan="2"/>
         <TextBox
-            materialDesign:HintAssist.Hint="Club" x:Name="tbClub" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,366,416,0" FontSize="20" />
+            materialDesign:HintAssist.Hint="Club" x:Name="tbClub" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="56,366,310,0" FontSize="20" Grid.ColumnSpan="2" />
         <ComboBox
             materialDesign:HintAssist.Hint="Torneo" 
             x:Name="CmbTorneo" 
             Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
             VerticalAlignment="Top" 
-            Grid.Column="1" 
-            Margin="56,426,416,0" 
+            Grid.Column="2" 
+            Margin="56,426,310,0" 
             FontSize="20" 
-            SelectionChanged="CmbTorneo_SelectionChanged" />
+            SelectionChanged="CmbTorneo_SelectionChanged" Grid.ColumnSpan="2" />
         <ComboBox
             materialDesign:HintAssist.Hint="Categoria Golf"  
             IsEnabled="False" 
             x:Name="cmbGolf" 
             Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
             VerticalAlignment="Top" 
-            Grid.Column="1" 
-            Margin="56,533,416,0" 
+            Grid.Column="2" 
+            Margin="56,533,310,0" 
             FontSize="20" 
             Text="" 
-            SelectionChanged="cmbGolf_SelectionChanged" />
+            SelectionChanged="cmbGolf_SelectionChanged" Grid.ColumnSpan="2" />
         <ComboBox
             materialDesign:HintAssist.Hint="Categoria Tenis" 
             x:Name="cmbTenis" 
             IsEnabled="False"
-            Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,591,416,0" FontSize="20" Text="" SelectionChanged="cmbTennis_SelectionChanged" />
+            Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="2" Margin="56,591,310,0" FontSize="20" Text="" SelectionChanged="cmbTennis_SelectionChanged" Grid.ColumnSpan="2" />
 
         <CheckBox
-            Content="Golf" x:Name="chkGolf" Style="{StaticResource MaterialDesignAccentCheckBox}" VerticalAlignment="Top" Grid.Column="1" Margin="56,491,649,0" FontSize="20" Height="39" Checked="chkGolf_CheckedChanged" />
+            Content="Golf" x:Name="chkGolf" Style="{StaticResource MaterialDesignAccentCheckBox}" VerticalAlignment="Top" Grid.Column="2" Margin="56,491,543,0" FontSize="20" Height="39" Checked="chkGolf_CheckedChanged" Grid.ColumnSpan="2" />
         <CheckBox
-            Content="Tennis" x:Name="chkTenis" Style="{StaticResource MaterialDesignAccentCheckBox}" VerticalAlignment="Top" Grid.Column="1" Margin="215,491,434,0" FontSize="20" Height="39" Checked="chkTenis_CheckedChanged"  />
+            Content="Tennis" 
+            x:Name="chkTenis"
+            Style="{StaticResource MaterialDesignAccentCheckBox}" 
+            VerticalAlignment="Top" 
+            Grid.Column="3" 
+            Margin="131,491,328,0" 
+            FontSize="20" Height="39" 
+            Checked="chkTenis_CheckedChanged"  />
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCamara" ToolTip="Editar foto" Grid.Column="1" Margin="584,366,151,0"  VerticalAlignment="Top" Click="btnCamara_Click" Height="39" Background="#FF131515">
-            <Image Source="Resources/Camara.png"></Image>
+            Style="{StaticResource MaterialDesignRaisedButton}" 
+            x:Name="btnCamara" 
+            ToolTip="Iniciar Camara" 
+            Grid.Column="3" 
+            Margin="500,366,45,0" 
+            VerticalAlignment="Top" 
+            Click="btnCamara_Click" 
+            Height="39" 
+            Background="#FF131515">
+            <Image 
+                Source="Resources/Camara.png">
+            </Image>
         </Button>
 
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnCaptura" 
             ToolTip="Capturar Huella" 
-            Grid.Column="1" 
-            Margin="559,574,151,0" 
+            Grid.Column="3" 
+            Margin="475,574,45,0" 
             VerticalAlignment="Top" 
             Click="BtnRegistro_Click" 
             Height="73" 
@@ -86,42 +107,42 @@
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnGuardar" 
             ToolTip="Guardar Datos" 
-            Grid.Column="1" 
-            Margin="664,591,24,0" 
+            Grid.Column="3" 
+            Margin="580,591,24,0" 
             VerticalAlignment="Top" 
             Height="53" 
             Click="btnGuardar_Click" 
             
-            Background="#FF374644" >
+            Background="#FF374644" Grid.ColumnSpan="2" >
             Guardar
         </Button>
-             <Image 
-                 Grid.Column="1" 
+        <Image 
+                 Grid.Column="3" 
                  x:Name="imgVerHuella" 
                  Source="Resources/autenticacion.png" 
                  Stretch="Uniform" 
                  Visibility="Hidden" 
                  Height="102" 
-                 Margin="600,450,24,0" 
-                 VerticalAlignment="Top"/>
+                 Margin="516,450,24,0" 
+                 VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Image 
             x:Name="picFoto" 
             Source="Resources/fo.png" 
             Height="305" 
-            Margin="424,50,42,0" 
+            Margin="340,50,42,0" 
             VerticalAlignment="Top" 
-            Grid.Column="1" 
-            Grid.ColumnSpan="2" />
+            Grid.Column="3" 
+            Grid.ColumnSpan="4" />
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnCapturar" 
             ToolTip="Capturar foto" 
-            Grid.Column="1" 
-            Margin="664,365,71,0" 
+            Grid.Column="3" 
+            Margin="580,365,71,0" 
             VerticalAlignment="Top" 
             Height="40" 
             Background="#FF454949" 
-            Click="btnCapturar_Click">
+            Click="btnCapturar_Click" Grid.ColumnSpan="2">
             <Image Source="Resources/flash.png"></Image>
         </Button>
 

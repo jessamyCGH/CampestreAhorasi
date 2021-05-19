@@ -93,23 +93,14 @@ namespace TorneoAnual.Modelos
         }
         public int delete(Usuario usuario)
         {
-
-
             try
             {
                 cadena = cadena.Replace("{nombrePC}", Environment.MachineName);
                 conectarBDT.ConnectionString = cadena;
                 conectarBDT.Open();
-
-
-                SqlCommand command = new SqlCommand("DELETE FROM Usuario WHERE id = @id ", conectarBDT);
-
+                SqlCommand command = new SqlCommand("DELETE FROM Usuario WHERE id = @id", conectarBDT);
                 command.Parameters.AddWithValue("@id", usuario.id);
-
-
-
                 command.ExecuteReader();
-
                 return 1;
             }
             catch (Exception e)
@@ -118,6 +109,7 @@ namespace TorneoAnual.Modelos
                 MessageBox.Show(e.Message);
                 return 0;
             }
+
 
         }
 
@@ -260,7 +252,7 @@ namespace TorneoAnual.Modelos
 
             while (reader.Read())
             {
-                if (reader["Tipo"].Equals("G"))
+                if (reader["tipo"].Equals("G"))
                 {
                     categorias.Add((string)reader["descripcion"]);
                 }
@@ -285,7 +277,7 @@ namespace TorneoAnual.Modelos
 
             while (reader.Read())
             {
-                if (reader["Tipo"].Equals("T"))
+                if (reader["tipo"].Equals("T"))
                 {
                     categorias.Add((string)reader["descripcion"]);
                 }
@@ -327,7 +319,7 @@ namespace TorneoAnual.Modelos
             conectarBDT.ConnectionString = cadena;
             conectarBDT.Open();
 
-            SqlCommand command = new SqlCommand("SELECT nombre,apellidoP,apellidoM FROM Usuario", conectarBDT);
+            SqlCommand command = new SqlCommand("SELECT nombre,apellidoP,apellidoM FROM Usuario ORDER BY nombre ASC", conectarBDT);
 
             SqlDataReader reader = command.ExecuteReader();
 
@@ -354,7 +346,7 @@ namespace TorneoAnual.Modelos
             conectarBDT.ConnectionString = cadena;
             conectarBDT.Open();
 
-            SqlCommand command = new SqlCommand("SELECT id FROM Usuario WHERE nombre = @nombre AND apellidoP = @apellidoP AND apellidoM = @apellidoM", conectarBDT);
+            SqlCommand command = new SqlCommand("SELECT id FROM Usuario WHERE nombre = @nombre AND apellidoP = @apellidoP AND apellidoM = @apellidoM ", conectarBDT);
             command.Parameters.AddWithValue("nombre", nombre);
             command.Parameters.AddWithValue("apellidoP", apellidop);
             command.Parameters.AddWithValue("apellidoM", apellidom);
