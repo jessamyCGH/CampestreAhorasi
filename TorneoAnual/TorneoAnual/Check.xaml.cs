@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -150,8 +151,10 @@ namespace TorneoAnual
                         ChecarEntregado(res);
                         break;
                 }
+
                 
             }
+            
 
         }
 
@@ -296,21 +299,7 @@ namespace TorneoAnual
                     //Le agregaremos la entrega en la base de datos al usuario de Inaguracion
                     conexion.setEntregadoInaguracion(usuario.id);
                     ChecarEntregado(true);
-                    
-                    //usuario = new Usuario();
-                    if (btnEntregado.IsPressed == false)
-                    {
-                        List<Usuario> conexiones = ConexionBD.Muestra2(usuario);
-                        TorneoAnual.CrystalReports.TicketInaguracion tIna = new CrystalReports.TicketInaguracion();
-                        
-                        tIna.SetParameterValue("Nombre", usuario.nombre);
-                        tIna.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                        tIna.SetParameterValue("Tipo", usuario.categoriaTipo);
-                        tIna.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
-                        tIna.PrintToPrinter(1, true, 1, 2);
-                        tIna.Close();
-                        tIna.Dispose();
-                    }
+                    cbBoxNombre.Text = "";
                     break;
 
                 case "Alimentos":
@@ -325,11 +314,21 @@ namespace TorneoAnual
 
                         tAli.SetParameterValue("Nombre", usuario.nombre);
                         tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                        tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                        if (usuario.categoriaTipo == "T")
+                        {
+                            tAli.SetParameterValue("Tipo", "Tenis");
+                        }
+                        else
+                        {
+                            tAli.SetParameterValue("Tipo", "Golf");
+                        }
+
+                  
                         tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
                         tAli.PrintToPrinter(1, true, 1, 2);
                         tAli.Close();
                         tAli.Dispose();
+                        cbBoxNombre.Text = "";
                     }
                     break;
 
@@ -348,11 +347,20 @@ namespace TorneoAnual
 
                         tCer.SetParameterValue("Nombre", usuario.nombre);
                         tCer.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                        tCer.SetParameterValue("Tipo", usuario.categoriaTipo);
+                        if (usuario.categoriaTipo == "T")
+                        {
+                            tCer.SetParameterValue("Tipo", "Tenis");
+                        }
+                        else
+                        {
+                            tCer.SetParameterValue("Tipo", "Golf");
+                        }
+
                         tCer.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
                         tCer.PrintToPrinter(1, true, 1, 2);
                         tCer.Close();
                         tCer.Dispose();
+                        cbBoxNombre.Text = "";
                     }
                     break;
 
@@ -367,11 +375,19 @@ namespace TorneoAnual
 
                         tTen.SetParameterValue("Nombre", usuario.nombre);
                         tTen.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                        tTen.SetParameterValue("Tipo", usuario.categoriaTipo);
+                        if (usuario.categoriaTipo == "T")
+                        {
+                            tTen.SetParameterValue("Tipo", "Tenis");
+                        }
+                        else
+                        {
+                            tTen.SetParameterValue("Tipo", "Golf");
+                        }
                         tTen.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
                         tTen.PrintToPrinter(1, true, 1, 2);
                         tTen.Close();
                         tTen.Dispose();
+                        cbBoxNombre.Text = "";
                     }
                     break;
 
@@ -387,11 +403,19 @@ namespace TorneoAnual
 
                         tGo.SetParameterValue("Nombre", usuario.nombre);
                         tGo.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                        tGo.SetParameterValue("Tipo", usuario.categoriaTipo);
+                        if (usuario.categoriaTipo == "T")
+                        {
+                            tGo.SetParameterValue("Tipo", "Tenis");
+                        }
+                        else
+                        {
+                            tGo.SetParameterValue("Tipo", "Golf");
+                        }
                         tGo.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
                         tGo.PrintToPrinter(1, true, 1, 2);
                         tGo.Close();
                         tGo.Dispose();
+                        cbBoxNombre.Text = "";
                     }
                     break;
 
@@ -406,11 +430,19 @@ namespace TorneoAnual
 
                         tCon.SetParameterValue("Nombre", usuario.nombre);
                         tCon.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                        tCon.SetParameterValue("Tipo", usuario.categoriaTipo);
+                        if (usuario.categoriaTipo == "T")
+                        {
+                            tCon.SetParameterValue("Tipo", "Tenis");
+                        }
+                        else
+                        {
+                            tCon.SetParameterValue("Tipo", "Golf");
+                        }
                         tCon.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
                         tCon.PrintToPrinter(1, true, 1, 2);
                         tCon.Close();
                         tCon.Dispose();
+                        cbBoxNombre.Text = "";
                     }
                     break;
 
@@ -418,20 +450,7 @@ namespace TorneoAnual
                     //Le agregaremos la entrega en la base de datos al usuario de Clausura
                     conexion.setEntregadoClausura(usuario.id);
                     ChecarEntregado(true);
-
-                    if (btnEntregado.IsPressed == false)
-                    {
-                        List<Usuario> conexiones = ConexionBD.Muestra2(usuario);
-                        TorneoAnual.CrystalReports.ticketClausura tCla = new CrystalReports.ticketClausura();
-
-                        tCla.SetParameterValue("Nombre", usuario.nombre);
-                        tCla.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                        tCla.SetParameterValue("Tipo", usuario.categoriaTipo);
-                        tCla.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
-                        tCla.PrintToPrinter(1, true, 1, 2);
-                        tCla.Close();
-                        tCla.Dispose();
-                    }
+                    cbBoxNombre.Text = "";
                     break;
             }
         }
@@ -647,8 +666,15 @@ namespace TorneoAnual
 
                             tAli.SetParameterValue("Nombre", usuario.nombre);
                             tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                            tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
-                            tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                                if (usuario.categoriaTipo == "T")
+                                {
+                                    tAli.SetParameterValue("Tipo", "Tenis");
+                                }
+                                else
+                                {
+                                    tAli.SetParameterValue("Tipo", "Golf");
+                                }
+                                tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
                             tAli.PrintToPrinter(1, true, 1, 2);
                             tAli.Close();
                             tAli.Dispose();
@@ -684,8 +710,15 @@ namespace TorneoAnual
 
                             tAli.SetParameterValue("Nombre", usuario.nombre);
                             tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                            tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
-                            tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                                if (usuario.categoriaTipo == "T")
+                                {
+                                    tAli.SetParameterValue("Tipo", "Tenis");
+                                }
+                                else
+                                {
+                                    tAli.SetParameterValue("Tipo", "Golf");
+                                }
+                                tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
                             tAli.PrintToPrinter(1, true, 1, 2);
                             tAli.Close();
                             tAli.Dispose();
@@ -713,7 +746,26 @@ namespace TorneoAnual
                             countCervezas = conexion.getEntregadoCerveza(usuario.id);
                             if (countCervezas == 0)
                             {
+                                
                                 ChecarEntregado(false);
+                                List<Usuario> conexiones = ConexionBD.Muestra();
+                                TorneoAnual.CrystalReports.TicketCerveza tAli = new CrystalReports.TicketCerveza();
+                                tAli.SetParameterValue("Nombre", usuario.nombre);
+                                tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
+                                if (usuario.categoriaTipo == "T")
+                                {
+                                    tAli.SetParameterValue("Tipo", "Tenis");
+                                }
+                                else
+                                {
+                                    tAli.SetParameterValue("Tipo", "Golf");
+                                }
+                                tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                                tAli.PrintToPrinter(1, true, 1, 2);
+                                tAli.Close();
+                                tAli.Dispose();
+                                conexion.setEntregadoCerveza(usuario.id, countCervezas += 2);
+                                ChecarEntregado(true);
                             }
                             else
                             {
@@ -726,11 +778,18 @@ namespace TorneoAnual
 
 
                                 List<Usuario> conexiones = ConexionBD.Muestra();
-                                TorneoAnual.CrystalReports.TicketAlimento tAli = new CrystalReports.TicketAlimento();
+                                TorneoAnual.CrystalReports.TicketCerveza tAli = new CrystalReports.TicketCerveza();
 
                                 tAli.SetParameterValue("Nombre", usuario.nombre);
                                 tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                                tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                                if (usuario.categoriaTipo == "T")
+                                {
+                                    tAli.SetParameterValue("Tipo", "Tenis");
+                                }
+                                else
+                                {
+                                    tAli.SetParameterValue("Tipo", "Golf");
+                                }
                                 tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
                                 tAli.PrintToPrinter(1, true, 1, 2);
                                 tAli.Close();
@@ -759,8 +818,15 @@ namespace TorneoAnual
 
                             tAli.SetParameterValue("Nombre", usuario.nombre);
                             tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                            tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
-                            tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                                if (usuario.categoriaTipo == "T")
+                                {
+                                    tAli.SetParameterValue("Tipo", "Tenis");
+                                }
+                                else
+                                {
+                                    tAli.SetParameterValue("Tipo", "Golf");
+                                }
+                                tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
                             tAli.PrintToPrinter(1, true, 1, 2);
                             tAli.Close();
                             tAli.Dispose();
@@ -799,7 +865,14 @@ namespace TorneoAnual
 
                                 tAli.SetParameterValue("Nombre", usuario.nombre);
                                 tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                                tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                                if (usuario.categoriaTipo == "T")
+                                {
+                                    tAli.SetParameterValue("Tipo", "Tenis");
+                                }
+                                else
+                                {
+                                    tAli.SetParameterValue("Tipo", "Golf");
+                                }
                                 tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
                                 tAli.PrintToPrinter(1, true, 1, 2);
                                 tAli.Close();
@@ -835,12 +908,19 @@ namespace TorneoAnual
                             conexion.setEntregadoConcierto(usuario.id);
                             ChecarEntregado(true);
                             List<Usuario> conexiones = ConexionBD.Muestra();
-                            TorneoAnual.CrystalReports.TicketKGolf tAli = new CrystalReports.TicketKGolf();
+                            TorneoAnual.CrystalReports.ticketConcierto tAli = new CrystalReports.ticketConcierto();
 
                             tAli.SetParameterValue("Nombre", usuario.nombre);
                             tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                            tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
-                            tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
+                                if (usuario.categoriaTipo == "T")
+                                {
+                                    tAli.SetParameterValue("Tipo", "Tenis");
+                                }
+                                else
+                                {
+                                    tAli.SetParameterValue("Tipo", "Golf");
+                                }
+                                tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
                             tAli.PrintToPrinter(1, true, 1, 2);
                             tAli.Close();
                             tAli.Dispose();
@@ -878,7 +958,14 @@ namespace TorneoAnual
 
                                 tAli.SetParameterValue("Nombre", usuario.nombre);
                                 tAli.SetParameterValue("Categoria", usuario.categoriaDescripcion);
-                                tAli.SetParameterValue("Tipo", usuario.categoriaTipo);
+                                if (usuario.categoriaTipo == "T")
+                                {
+                                    tAli.SetParameterValue("Tipo", "Tenis");
+                                }
+                                else
+                                {
+                                    tAli.SetParameterValue("Tipo", "Golf");
+                                }
                                 tAli.PrintOptions.DissociatePageSizeAndPrinterPaperSize = false;
                                 tAli.PrintToPrinter(1, true, 1, 2);
                                 tAli.Close();

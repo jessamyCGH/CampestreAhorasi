@@ -584,7 +584,7 @@
     <Resource Include="Resources\nom.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="fo.png" />
+    <Resource Include="Resources\save.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\VisioForge.DotNet.Core.Redist.Base.x86.14.0.36\build\VisioForge.DotNet.Core.Redist.Base.x86.targets" Condition="Exists('..\packages\VisioForge.DotNet.Core.Redist.Base.x86.14.0.36\build\VisioForge.DotNet.Core.Redist.Base.x86.targets')" />

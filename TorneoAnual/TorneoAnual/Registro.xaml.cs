@@ -106,7 +106,7 @@ namespace TorneoAnual
                 return;
             }
             #endregion
-           
+            
              try
               {
                 usuario.nombre = tbNombre.Text;
@@ -117,8 +117,9 @@ namespace TorneoAnual
                 usuario.club = tbClub.Text;
                 usuario.categoriaTipo = CmbTorneo.Text;
                 //usuario.imagen = picFoto.Source;
-                usuario.huella = Template.Bytes;
 
+                usuario.huella = Template.Bytes;
+                
              
                 int id = conexion.Alta(usuario);
 
@@ -147,7 +148,8 @@ namespace TorneoAnual
                     cmbTenis.IsEnabled = false;
                     picFoto.Source = null;
                     imgVerHuella.Visibility = Visibility.Hidden;
-                    // var image = new Image { Source = "Resources/fo.png" };
+                    usuario = new Usuario();
+                   
 
 
                 }

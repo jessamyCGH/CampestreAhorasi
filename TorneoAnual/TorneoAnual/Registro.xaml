@@ -27,15 +27,50 @@
             Margin="56,38,310,0"
             FontSize="20" Grid.ColumnSpan="2" />
         <TextBox
-            materialDesign:HintAssist.Hint="Apellido Paterno" x:Name="tbApellidoP" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="56,101,310,0" FontSize="20" Grid.ColumnSpan="2"/>
+            materialDesign:HintAssist.Hint="Apellido Paterno" 
+            x:Name="tbApellidoP" 
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+            VerticalAlignment="Top" 
+            Grid.Column="2" 
+            Margin="56,101,310,0" 
+            FontSize="20" 
+            Grid.ColumnSpan="2"/>
         <TextBox
-            materialDesign:HintAssist.Hint="Apellido Materno" x:Name="tbApellidoM" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="56,168,310,0" FontSize="20" Grid.ColumnSpan="2" />
+            materialDesign:HintAssist.Hint="Apellido Materno" 
+            x:Name="tbApellidoM" 
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+            VerticalAlignment="Top" 
+            Grid.Column="2" 
+            Margin="56,168,310,0" 
+            FontSize="20" 
+            Grid.ColumnSpan="2" />
         <TextBox
-            materialDesign:HintAssist.Hint="Correo" x:Name="tbCorreo" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="56,236,310,0" FontSize="20" Grid.ColumnSpan="2" />
+            materialDesign:HintAssist.Hint="Correo" 
+            x:Name="tbCorreo" 
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+            VerticalAlignment="Top" 
+            Grid.Column="2" 
+            Margin="56,236,310,0" 
+            FontSize="20" 
+            Grid.ColumnSpan="2" />
         <TextBox
-            materialDesign:HintAssist.Hint="Celular" x:Name="tbCelular" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="56,299,310,0" FontSize="20" Grid.ColumnSpan="2"/>
+            materialDesign:HintAssist.Hint="Celular" 
+            x:Name="tbCelular" 
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+            VerticalAlignment="Top" 
+            Grid.Column="2" 
+            Margin="56,299,310,0" 
+            FontSize="20" 
+            Grid.ColumnSpan="2"/>
         <TextBox
-            materialDesign:HintAssist.Hint="Club" x:Name="tbClub" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Top" Grid.Column="2" Margin="56,366,310,0" FontSize="20" Grid.ColumnSpan="2" />
+            materialDesign:HintAssist.Hint="Club" 
+            x:Name="tbClub" 
+            Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+            VerticalAlignment="Top" 
+            Grid.Column="2" 
+            Margin="56,366,310,0" 
+            FontSize="20" 
+            Grid.ColumnSpan="2" />
         <ComboBox
             materialDesign:HintAssist.Hint="Torneo" 
             x:Name="CmbTorneo" 
@@ -60,10 +95,27 @@
             materialDesign:HintAssist.Hint="Categoria Tenis" 
             x:Name="cmbTenis" 
             IsEnabled="False"
-            Style="{StaticResource MaterialDesignFloatingHintComboBox}" VerticalAlignment="Top" Grid.Column="2" Margin="56,591,310,0" FontSize="20" Text="" SelectionChanged="cmbTennis_SelectionChanged" Grid.ColumnSpan="2" />
+            Style="{StaticResource MaterialDesignFloatingHintComboBox}" 
+            VerticalAlignment="Top" 
+            Grid.Column="2" 
+            Margin="56,591,310,0" 
+            FontSize="20" 
+            Text="" 
+            SelectionChanged="cmbTennis_SelectionChanged" 
+            Grid.ColumnSpan="2" />
 
         <CheckBox
-            Content="Golf" x:Name="chkGolf" Style="{StaticResource MaterialDesignAccentCheckBox}" VerticalAlignment="Top" Grid.Column="2" Margin="56,491,543,0" FontSize="20" Height="39" Checked="chkGolf_CheckedChanged" Grid.ColumnSpan="2" />
+            Content="Golf" 
+            x:Name="chkGolf" 
+            Style="{StaticResource MaterialDesignAccentCheckBox}" 
+            VerticalAlignment="Top" 
+            Grid.Column="2" 
+            Margin="56,491,543,0" 
+            FontSize="20" 
+            Height="39" 
+            Checked="chkGolf_CheckedChanged" 
+            Grid.ColumnSpan="2" />
+
         <CheckBox
             Content="Tennis" 
             x:Name="chkTenis"
@@ -73,6 +125,7 @@
             Margin="131,491,328,0" 
             FontSize="20" Height="39" 
             Checked="chkTenis_CheckedChanged"  />
+
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnCamara" 
@@ -93,10 +146,10 @@
             x:Name="btnCaptura" 
             ToolTip="Capturar Huella" 
             Grid.Column="3" 
-            Margin="475,574,45,0" 
+            Margin="500,561,10,0" 
             VerticalAlignment="Top" 
             Click="BtnRegistro_Click" 
-            Height="73" 
+            Height="86" 
             Background="#FF454949">
             <Image
             Source="Resources/fingerprint.png">
@@ -107,14 +160,14 @@
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnGuardar" 
             ToolTip="Guardar Datos" 
-            Grid.Column="3" 
-            Margin="580,591,24,0" 
+            Grid.Column="4" 
+            Margin="0,561,0,0" 
             VerticalAlignment="Top" 
-            Height="53" 
+            Height="90" 
             Click="btnGuardar_Click" 
             
-            Background="#FF374644" Grid.ColumnSpan="2" >
-            Guardar
+            Background="#FF374644" >
+            <Image Source="Resources/save.png"></Image>
         </Button>
         <Image 
                  Grid.Column="3" 

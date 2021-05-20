@@ -44,17 +44,24 @@
         </Button>
 
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnCaptura" ToolTip="Actualizar Huella" Grid.Column="2" Margin="535,628,175,0" VerticalAlignment="Top" Click="BtnRegistro_Click" Height="73" Background="#FF454949">
-            <Image Source="Resources/fingerprint.png"></Image>           
+            Style="{StaticResource MaterialDesignRaisedButton}" 
+            x:Name="btnCaptura" 
+            ToolTip="Actualizar Huella" 
+            Grid.Column="2" Margin="526,628,175,0" 
+            VerticalAlignment="Top" 
+            Click="BtnRegistro_Click" 
+            Height="90" 
+            Background="#FF454949">
+            <Image Source="Resources/fingerprint.png"></Image>
         </Button>
 
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnGuarda" ToolTip="Actualizar Datos" Grid.Column="2" Margin="639,628,71,0" VerticalAlignment="Top" Height="90" Click="btnGuardar_Click" Background="#FF374644" >
-            Actualizar
+            <Image Source="Resources/contract.png"></Image>
         </Button>
         <Button
-            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnREliminar" ToolTip="Guardar" Grid.Column="2" Margin="760,631,108,0" VerticalAlignment="Top" Height="70" Click="btnEliminar_Click" Background="#FF374644" Grid.ColumnSpan="2" >
-            Eliminar
+            Style="{StaticResource MaterialDesignRaisedButton}" x:Name="btnREliminar" ToolTip="Eliminar" Grid.Column="2" Margin="743,628,100,0" VerticalAlignment="Top" Height="90" Click="btnEliminar_Click" Background="#FF374644" Grid.ColumnSpan="2" >
+            <Image Source="Resources/delete.png"></Image>
         </Button>
         <Image Grid.Column="2" x:Name="imgVerHuella" Source="Resources/autenticacion.png" Stretch="Uniform" Visibility="Hidden" Height="102" Margin="600,450,24,0" VerticalAlignment="Top"/>
         <Image x:Name="picFoto" Source="Resources/fo.png" Height="305" Margin="424,50,42,0" VerticalAlignment="Top" Grid.Column="2" Grid.ColumnSpan="2" />

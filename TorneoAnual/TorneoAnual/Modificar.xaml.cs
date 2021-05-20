@@ -87,27 +87,28 @@ namespace TorneoAnual
                 usuario.tel = tbCelular.Text;
                 usuario.club = tbClub.Text;
                 usuario.categoriaTipo = CmbTorneo.Text;
-               // usuario.imagen = picFoto.;
-        //       usuario.huella = Template.Bytes;
+                // usuario.imagen = picFoto.;
+                
+                 
 
+                
+                
 
-                int id = conexion.update(usuario);
+                    int id = conexion.update(usuario);
 
-                if (id > 0)
-                {
+                    if (id > 0)
+                    {
+                        MessageBox.Show("Usuario guardado correctamente", "Guardar");
+                        this.Close();
+                    }
 
-                    MessageBox.Show("Usuario guardado correctamente", "Guardar");
-
-                    this.Close();
-                    
-
-                }
-
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No fue posible guardar el Usuario: " + ex.Message, "Error en Guardar");
             }
+        
         }
 
         private void chkTenis_CheckedChanged(object sender, EventArgs e)
@@ -250,9 +251,12 @@ namespace TorneoAnual
         #region Registro Huella 
         private void BtnRegistro_Click(object sender, RoutedEventArgs e)
         {
+            
             EnrollmentForm Enroller = new EnrollmentForm();
             Enroller.OnTemplate += this.OnTemplate;
             Enroller.ShowDialog();
+            usuario.huella = Template.Bytes;
+
         }
 
         private void OnTemplate(DPFP.Template template)
@@ -263,7 +267,7 @@ namespace TorneoAnual
                 //VerifyButton.Enabled = SaveButton.Enabled = (Template != null);
                 if (Template != null)
                 {
-                    MessageBox.Show("La huella ha sido capturada correctamente", "Capturar huella.");
+                    MessageBox.Show("La huella fue actualizada correctamente", "Capturar huella.");
                     imgVerHuella.Visibility = Visibility.Visible;
                 }
                 else

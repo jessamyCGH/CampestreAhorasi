@@ -193,7 +193,9 @@
             FontSize="15" 
             Height="50" 
             ItemsSource="{Binding }"
-            SelectionChanged="CbBoxNombre_SelectedValueChanged" Grid.ColumnSpan="2" />
+            SelectionChanged="CbBoxNombre_SelectedValueChanged" Grid.ColumnSpan="2" IsEditable="True" 
+            
+            />
 
         <Button 
             x:Name="btnFalse" 
@@ -230,7 +232,7 @@
         <Button
             Style="{StaticResource MaterialDesignRaisedButton}" 
             x:Name="btnEntregado"
-            ToolTip="Editar foto" 
+            ToolTip="Entregar Producto" 
             Visibility="Hidden" 
             Margin="223,340,79,0" 
             VerticalAlignment="Top" 
